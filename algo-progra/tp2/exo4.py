@@ -5,32 +5,32 @@
 #   femme, 16, 1 course gagnée, pas championne du monde --> non éligible
 
 
-def Qualifsjo (s, tmp, coursesgagnees, champion):
+def Qualifsjo (sexe, meilleur_temps_100m, coursesgagnees, champion):
     """Cette fonction a pour objectif d'indiquer en fonction de différents paramètres si une personne est ou non
         éligible à participer à l'épreuve du 100m des jeux olympiques 
 		s : de type str indique si on a à faire à un homme ou à une femme
         tmp : de type int indique le record personnel au 100m de l'individu
         coursesgagnees : de type int indique le nombre de courses gagnées durant l'année par l'individu
         champion : de type bool indique si l'individu à déja été champion du monde """
-
     if (champion == True):
-        return True
+        etre_qualifie = True
     else:
-        if (s == "femme"):
-            if tmp < 15 or coursesgagnees >= 3 :
-                return True
+        if (sexe == "femme"):
+            if meilleur_temps_100m < 15 or coursesgagnees >= 3 :
+                etre_qualifie = True
             else:
-                return False
+                etre_qualifie = False
         else:
-            if tmp < 12 or coursesgagnees >= 3 :
-                return True
+            if meilleur_temps_100m < 12 or coursesgagnees >= 3 :
+                etre_qualifie = True
             else:
-                return False
+                etre_qualifie = False
+    return etre_qualifie
 
 assert Qualifsjo("homme", 18, 3, False)==True, "Erreur"
 assert Qualifsjo("femme", 10, 3, True)==True, "Erreur"
 assert Qualifsjo("femme", 16, 1, False)==False, "Erreur"
 
-print(Qualifsjo("homme", 18, 3, False), "\n")
-print(Qualifsjo("femme", 10, 3, True), "\n")
+print(Qualifsjo("homme", 18, 3, False))
+print(Qualifsjo("femme", 10, 3, True))
 print(Qualifsjo("femme", 16, 1, False))

@@ -1,0 +1,32 @@
+aside{
+  position: absolute;
+  right: 5%;
+}
+footer{
+  position: fixed;
+  bottom: 0;
+}
+.banniere{
+  display: block;
+  margin-left: auto;
+  margin-right: auto
+}
+ul{
+  list-style-type: none;
+}
+li{
+  display: inline-table;
+}
+.sectprof{
+  position: absolute;
+  top:60%;
+}
+.sectberlin{
+  position: absolute;
+  top:90%;
+}
+
+.imgprof, .imgberlin{
+  width : 15%;
+  height: 9%;
+}
