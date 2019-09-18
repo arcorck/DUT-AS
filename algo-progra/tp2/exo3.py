@@ -5,25 +5,25 @@
 #3) le reusltat est un str qui indique le prix de l'amende, le nombre de points retirés et la durée de suspension de permuis
 #4) contravention
 
-def Contravention (v, zc):
+def Contravention (vitesse, limite_vitesse):
     """Cette fonction a pour objectif d'indiquer en fonction de la vitesse du contrevenant et s'il roulais dans une zone
     limitée à 50 ou non les peines encourues (amende, retrait de point et durée de suspension éventuelle)
 	paramètres : 
-		v : de type int représente la vitesse dépassant la limite autorisée
-        zc : de type bool indique si le contrevenant roulais dans une zone limitée à 50km/h ou non """
-
-    if (v <= 20):
-        if (zc == True):
+		vitesse : de type int représente la vitesse à laquelle roulais le contrevenant 
+        limite_vitesse : de type int représente la limite de vitesse autorisée """
+    exces_vitesse = vitesse - limite_vitesse 
+    if (exces_vitesse <= 20):
+        if (limite_vitesse == 50):
             return ": 135€, Retrait de 1 point, Suspension de permis : aucune"
-        else:
+        else: #si la vitesse n'es pas limité à 50 km/h
             return ": 68€, Retrait de 1 point, Suspension de permis : aucune"
-    if (v > 20 and v <= 30):
+    if (exces_vitesse > 20 and exces_vitesse <= 30):
         return ": 135€, Retrait de 2 points, Suspension de permis : aucune"
-    if (v > 30 and v <= 40):
+    if (exces_vitesse > 30 and exces_vitesse <= 40):
         return ": 135€, Retrait de 3 points, Suspension de permis : 3 ans"   
-    if (v > 40 and v <= 50):
+    if (exces_vitesse > 40 and exces_vitesse <= 50):
         return ": 135€, Retrait de 4 points, Suspension de permis : 3 ans" 
-    if (v > 50):
+    if (exces_vitesse > 50):
         return ": 1500€, Retrait de 6 points, Suspension de permis : 3 ans"
 
 assert Contravention(25, True)==": 135€, Retrait de 2 points, Suspension de permis : aucune", "Erreur"
