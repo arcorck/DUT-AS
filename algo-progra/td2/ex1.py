@@ -4,7 +4,7 @@ def somme (liste) :
     """Cette fonction a pour but de retourner la somme de tous les elements d'une liste
     parametre : liste : la liste dont on va calculer la somme"""
     somme = 0
-    if liste != None:
+    if len(liste) != 0:
         for elem in liste :
             somme += elem
     return somme
@@ -19,7 +19,7 @@ def max (liste) :
     """Cette fonction a pour but de retourner le maximum d'une liste
     parametre : liste : la liste dont on va determiner le max"""
     max = 0
-    if liste != None:
+    if len(liste) != 0:
         for elem in liste :
             if elem > max :
                 max = elem
@@ -27,14 +27,14 @@ def max (liste) :
 assert max(l) == 78, "Erreur dans le max"
 assert max([]) == 0, "Erreur liste vide"
 print("max de l : ", max(l))
-print("max de liste vide : ", somme([]))
+print("max de liste vide : ", max([]))
 
 
 def nb_voyelles (mot) :
     """Cette fonction a pour but de retourner le nombre de voyelles dans un mot
     parametre : mot : la chaine de caractere dont on va determiner le nombre de voyelle"""
     voyelles = 0
-    if mot != None:
+    if len(mot) != 0:
         for char in mot :
             if char in 'aeiouy' :
                 voyelles += 1
