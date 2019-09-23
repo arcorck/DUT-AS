@@ -1,13 +1,15 @@
 body{
   position: absolute;
-  left: 300px;
+  left: 200px;
 }
 a {
 color : black;
 text-decoration: none;
 font : monospace;
-padding-left: : 3%;
-padding-right: 3%;
+}
+.navmenu{
+  padding-left: : 3%;
+  padding-right: 3%;
 }
 .and{
   color: grey;
