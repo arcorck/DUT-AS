@@ -13,7 +13,7 @@ def Contravention (vitesse, limite_vitesse):
         limite_vitesse : de type int représente la limite de vitesse autorisée """
     exces_vitesse = vitesse - limite_vitesse 
     if (exces_vitesse <= 20):
-        if (limite_vitesse == 50):
+        if (limite_vitesse <= 50):
             return ": 135€, Retrait de 1 point, Suspension de permis : aucune"
         else: #si la vitesse n'es pas limité à 50 km/h
             return ": 68€, Retrait de 1 point, Suspension de permis : aucune"
