@@ -1,4 +1,4 @@
-#!/bin/rm
+#!/bin/bash
 # Auteur :  Fabrice Bazire
 mkdir exercice3
 cd exercice3
