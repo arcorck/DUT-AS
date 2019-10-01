@@ -1,0 +1,20 @@
+/* TP5 - Les selecteurs CSS */
+/* Vous pouvez mettre des commentaires dans un fichier CSS ! */
+article h2{font-size: 300%}
+h1,h2{color: red}
+section p{color :blue}
+.part{color: green}
+.joliTitre{
+border-width:1px;
+border-style:solid;
+border-color:red;
+}
+.spoil{
+background-color:lightgray;
+}
+#nature{
+background-color:lime;
+}
+#p15{
+font-style: italic;
+}
