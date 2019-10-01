@@ -1,0 +1,17 @@
+[3,4,1,2,6,5]
+Erreur
+[3,4,1,2,3,4,1,2]
+4
+2
+Erreur
+1
+True
+
+
+[2,4,6,8,10]
+
+
+Oui on a le droit, on obtiendra : [3,4,0,2]
+
+
+l devient [3,4,1,0]

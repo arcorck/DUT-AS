@@ -1,0 +1,9 @@
+"bonjour les amis"
+Erreur
+"bonjourbonjour"
+7
+'j'
+Erreur
+'j'
+False
+oui on peut ecrire s[4]=r, on obtiendra : 'bonjrur' 
