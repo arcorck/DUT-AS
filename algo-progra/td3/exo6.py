@@ -62,3 +62,24 @@ assert nb_occurences_chaque_element([]) == [], "Erreur"
 print("\n\nnb_occurences_chaque_element : ")
 print(nb_occurences_chaque_element([1,0,1,3,3,1,1]))
 print(nb_occurences_chaque_element([1,0,1,3,3,1,1,2,4,5,4,3,2,1,3,2,4,2,4]))
+
+
+def permutation (liste, liste_perm) :
+    """retourne une liste permuté par rapport à liste selon les regles de permutation de liste_perm"""
+    res = []
+    if len(liste) == len(liste_perm) :
+        res = [0]*len(liste)
+        for i in range(len(liste)) :
+            res[liste_perm[i]] = liste [i]
+    else : 
+        print("les listes ne sont pas de la meme taille")
+    return res
+
+assert permutation([12,18,23,8], [3,2,0,1]) == [23,8,18,12], "Erreur"
+assert permutation([], [486,64,4,4,6]) == []; "Erreur"
+assert permutation([486,64,4,4,6], []) == []; "Erreur"
+assert permutation([1,2,3,4,5,6,7,8,9], [8,7,6,5,4,3,2,1,0]) == [9,8,7,6,5,4,3,2,1], "Erreur"
+
+print("\n\npermutation : ")
+print(permutation([12,18,23,8], [3,2,0,1]))
+print(permutation([1,2,3,4,5,6,7,8,9], [8,7,6,5,4,3,2,1,0]))
