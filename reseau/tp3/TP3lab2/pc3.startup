@@ -1,0 +1,2 @@
+ifconfig eth0 10.230.129.145/28
+route add default gw 10.230.129.158

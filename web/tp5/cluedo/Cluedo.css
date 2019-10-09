@@ -1,16 +1,38 @@
 /* TODO */
-#em1, #classique, #speciale{
+#presentation em, #classique, #speciale{
       color: blue;
 }
-#em2, #green{
+#deroulement em, .green{
       color: green;
 }
-#em3, #bold{
+#em em, .bold{
       font-weight: bold;
 }
-#souligne {
+.souligne {
   text-decoration:underline;
 }
-#italique{
-      font-weight: italic;
+.italique{
+      font-style: italic;
+}
+.boldita{
+    font-style: italic;
+    font-weight: bold;
+}
+#violet{
+  color:purple;
+}
+#cellule-rose{
+  background-color: pink;
+}
+#cellule-moutarde{
+  background-color: yellow;
+}
+#cellule-olive{
+  background-color: green;
+}
+#cellule-violet{
+  background-color: purple;
+}
+#cellule-pervenche{
+  background-color: red;
 }

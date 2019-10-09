@@ -1,0 +1,5 @@
+ifconfig eth0 10.230.129.194/28
+ifconfig eth1 10.230.129.210/28
+ifconfig eth2 10.230.129.174/28
+
+route add default gw 10.230.129.209
