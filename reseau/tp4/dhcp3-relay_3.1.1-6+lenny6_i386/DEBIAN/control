@@ -1,0 +1,19 @@
+Package: dhcp3-relay
+Source: dhcp3
+Version: 3.1.1-6+lenny6
+Architecture: i386
+Maintainer: Andrew Pollock <apollock@debian.org>
+Installed-Size: 268
+Depends: debianutils (>= 2.8.2), dhcp3-common (= 3.1.1-6+lenny6), libc6 (>= 2.7-1), debconf (>= 0.5) | debconf-2.0
+Conflicts: dhcp-relay
+Section: net
+Priority: optional
+Description: DHCP relay daemon
+ This is the relay from version 3 of the Internet Software
+ Consortium's implementation of DHCP. For more information visit
+ http://www.isc.org.
+ .
+ Installing this package will make the machine a DHCP relay, which
+ requires a reachable DHCP or BOOTP server in order to function.
+ .
+ Extra documentation can be found in the package dhcp3-common.
