@@ -45,3 +45,4 @@ assert impl_crible_era(-6) == [], "Erreur"
 
 print (impl_crible_era(6))
 print (impl_crible_era(28))
+print(impl_crible_era(1000))

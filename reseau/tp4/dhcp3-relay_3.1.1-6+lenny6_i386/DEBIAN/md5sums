@@ -1,0 +1,5 @@
+35baefb116dbcff416a5c30368e6edf2  usr/share/man/man8/dhcrelay3.8.gz
+209ef7b8befcf99b4f60cbde40319bd0  usr/share/doc/dhcp3-relay/changelog.Debian.gz
+6fa20b8ad86e433a76968e90d6809a51  usr/share/doc/dhcp3-relay/copyright
+fd1cb0f6dba9bf9562bdb09ceafbe5bc  usr/share/doc/dhcp3-relay/README.Debian
+72d6ca0c98e983fabc5cd8056296323b  usr/sbin/dhcrelay3
