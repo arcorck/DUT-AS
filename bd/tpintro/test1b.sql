@@ -14,8 +14,8 @@ AnneeV Number(4),
 CouleurV Varchar2(10),
 TypeMoteurV Varchar2(10),
 ImmV Varchar2(10),
---constraint CleGrandTableVoiture PRIMARY KEY (ImmV),
-constraint CleGrandTablePersonne UNIQUE (Identinfiant)
+constraint CleGrandTableVoiture UNIQUE (ImmV),
+constraint CleGrandTablePersonne PRIMARY KEY (Identinfiant)
 );
 
 insert into BdHabitantVoiture values (1, 'Arlette', 'Fort', 'F',
