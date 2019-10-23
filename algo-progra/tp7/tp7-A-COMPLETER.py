@@ -4,6 +4,8 @@
 ### COMPLETEZ LES DOCSTRINGS                           ###  
 ##########################################################
 
+import os
+
 # exercice 1
 def affiche_classement(scores,joueurs):
     """affiche le classement des joueurs
@@ -145,39 +147,74 @@ def ajouter_score(nouveau_score, nom_joueur, scores,joueurs):
         joueurs.insert(rang, nom_joueur)
 
 # exercice 10
-def ajouter_score_limite(nouveau_score, nom_joueur, scores,joueurs,taille_max):    """
-    ajoute le nouveau score d'un joueur dans la liste des scores 
+def ajouter_score_limite(nouveau_score, nom_joueur, scores,joueurs,taille_max):    
+    """ajoute le nouveau score d'un joueur dans la liste des scores 
     (et la liste des joueurs) en limitant le nombre de places à taille_max
-    paramètres:
-    résultat cette fonction modifie directement scores et joueurs mais ne retourne rien    
-    """
-    ...
+    paramètres : nouveau_score = score a ajouter dans la liste des scores, nom_joueur = joueur ayant effectué le score, scores = liste des scores, joueurs = liste des joueurs, taille_max = taille maxi de la liste des scores
+    résultat cette fonction modifie directement scores et joueurs mais ne retourne rien"""
+    ajouter_score(nouveau_score, nom_joueur, scores,joueurs)
+    while (len(scores) > taille_max):
+        scores.pop()
+        joueurs.pop()
     
-
 # exercice 11
 def sauver_score(nom_fic,scores,joueurs):
     """
     sauvegarde dans un fichier texte les scores (avec le nom de joueur associé)
-    paramètres:
-    résultat aucun mais créer un fichier    
-    """
-    ...
+    paramètres : 
+    résultat aucun mais créer un fichier"""
+    mon_fichier = open(nom_fic, "a")
+    if scores != [] and joueurs != [] and len(scores) == len(joueurs):
+        for indice in range(len(scores)) : 
+            mon_fichier.write(str(scores[indice]))
+            mon_fichier.write(",")
+            mon_fichier.write(joueurs[indice])
+            mon_fichier.write("\n")
+    else : 
+        print("erreur dans les listes")
+    mon_fichier.close()
     
 # exercice 12
 def restaurer_score(nom_fic,scores,joueurs):
-    """
-    charge la liste des scores et des noms de joueurs à partir d'un fichier texte
+    """charge la liste des scores et des noms de joueurs à partir d'un fichier texte
     paramètres:
-    résultat aucun mais la fonction stocke les informations dans scores et joueurs
-    """
-    ...
+    résultat aucun mais la fonction stocke les informations dans scores et joueurs"""
+    if os.path.isfile(nom_fic) :
+        mon_fichier = open(nom_fic, "r")
+        joueur = ""
+        score = ""
+        for ligne in mon_fichier : 
+            for indice in range(len(ligne)):
+                if ligne[indice].isalpha() : 
+                    joueur += ligne[indice]
+                if ligne[indice].isdecimal() :
+                    score += ligne[indice]
+            joueurs.append(joueur)
+            scores.append(int(score))
+            joueur = ""
+            score = ""
+    else : 
+        print("le fichier ", nom_fic, " n'existe pas")
+    mon_fichier.close()
     
 # exercice 13
 def scores_HTML(nom_fic,scores,joueurs):
-    """
-    sauvegarde dans un fichier HTML sous la forme d'un tableau
+    """sauvegarde dans un fichier HTML sous la forme d'un tableau
     les scores (avec le nom de joueur associé)
-    paramètres:
-    résultat aucun mais créer un fichier    
-    """
-    ...
+    paramètres : nom_fic = nom du fichier html généré par la fonction, scores = liste des scores et joueurs = liste des joueurs
+    résultat aucun mais créer un fichier"""
+    mon_fichier = open(nom_fic, "a")
+    mon_fichier.write("<table>\n<tr> <td> Rang </td> <td> Nom </td> <td> Score </td> </tr>\n")
+    if scores != [] and joueurs != [] :
+        for indice in range(len(scores)):
+            mon_fichier.write("<tr> <td>")
+            mon_fichier.write(str(indice+1))
+            mon_fichier.write(". </td> <td>")
+            mon_fichier.write(joueurs[indice])
+            mon_fichier.write("</td> <td>")
+            mon_fichier.write(str(scores[indice]))
+            mon_fichier.write("</td> </tr> \n")
+        mon_fichier.write("</table>")
+        mon_fichier.close()
+    else : 
+        print('erreur : au moins une des liste est vide')
