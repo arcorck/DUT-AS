@@ -1,0 +1,1 @@
+j'ai fais toutes les questions sauf la derniere ou il faut configurer le serveur ssh, je n'ai eu le temps que de lancer le serveur ssh sur pc2 mais pas de le configurer 

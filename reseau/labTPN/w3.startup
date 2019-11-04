@@ -1,0 +1,3 @@
+apache2ctl start
+ifconfig eth0 183.10.10.225/27
+route add -net 183.10.10.192 netmask 255.255.255.192 gw 183.10.10.226 eth0
