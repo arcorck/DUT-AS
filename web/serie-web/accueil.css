@@ -1,6 +1,9 @@
 body{
   background-image: url("https://www.ouest-france.fr/leditiondusoir/data/24289/NextGenData/Image-1024-1024-5268583.jpg");
+  background-size:cover;
+  background-repeat: no-repeat;
 }
+
 .acces{
   position: absolute;
   width : 20%;

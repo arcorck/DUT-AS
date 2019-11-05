@@ -1,3 +1,5 @@
+import os.path
+
 ####################################################
 ### IMPLEMENTEZ CI-DESSOUS VOS FONCTIONS         ###
 ### ATTENTION AUX NOMS DES FONCTIONS UTILISEES   ###
@@ -11,7 +13,7 @@ def serpent_to_str(serpent):
     resultat: aff : str qui contient la conversion du tuple serpent en str
     '''
     aff = ""
-    if len(serpent) == 3 :
+    if len(serpent) == 3 and serpent != (None, None, None):
         aff += "--------------------\n"
         aff += "Nom: "
         aff += serpent[0]
@@ -25,10 +27,9 @@ def serpent_to_str(serpent):
         aff += "--------------------\n"
     return aff
     
-
-# A decommenter une fois la fonction implémentée
 assert serpent_to_str(("Python3",0.3,0))=="--------------------\nNom: Python3\nTaille: 0.3\nDanger: 0\n--------------------\n", 'Pb serpent_to_str(("Python3",0.3,0))'
-# ici rajoutez vos tests 
+assert serpent_to_str(("BOA",54.789,4))=="--------------------\nNom: BOA\nTaille: 54.789\nDanger: 4\n--------------------\n", 'Pb serpent_to_str'
+assert serpent_to_str(("Python3", 0))== "", "pb serpent_to_str"
 
 
 def liste_serpents_to_str(liste_serpents):
@@ -43,9 +44,17 @@ def liste_serpents_to_str(liste_serpents):
             aff += serpent_to_str(serp)
     return aff
 
-# A decommenter une fois la fonction implémentée
-assert liste_serpents_to_str([("Python3",0.3,0),("Boa",3.5,4)])=="--------------------\nNom: Python3\nTaille: 0.3\nDanger: 0\n--------------------\n--------------------\nNom: Boa\nTaille: 3.5\nDanger: 4\n--------------------\n", 'Pb liste_serpents_to_str([("Python3",0.3,0),("Boa",3.5,4)])'
-# ici rajoutez vos tests 
+assert liste_serpents_to_str([("Python3",0.3,0),("Boa",3.5,4)])=="--------------------\nNom: Python3\nTaille: 0.3\nDanger: 0\n--------------------\n--------------------\nNom: Boa\nTaille: 3.5\nDanger: 4\n--------------------\n", 'Pb liste_serpents_to_str'
+assert liste_serpents_to_str([("BOA",54.789,4),("vipere",3,2)])=="--------------------\nNom: BOA\nTaille: 54.789\nDanger: 4\n--------------------\n--------------------\nNom: vipere\nTaille: 3\nDanger: 2\n--------------------\n", 'Pb liste_serpents_to_str'
+assert liste_serpents_to_str([]) == "", "pb liste_serpents_to_str"
+
+def check_string_to_float(s):
+     try:
+             float(s)
+             return True
+     except:
+             return False
+
 
 def saisir_un_serpent():
     '''
@@ -53,10 +62,16 @@ def saisir_un_serpent():
     paramètre: aucun
     resultat: retourne un serpent sous forme de tuple avec les infos saisies par l'utilisateur 
     '''
+    res = (None, None, None)
     nom = input("Entrer le nom d'un serpent : ")
     size = input("Entrer la taille d'un serpent : ")
     danger = input("Entrer la dangerosité d'un serpent : ")
-    return (nom, float(size), int(danger))
+    if danger.isdigit() :
+        danger = int(danger)
+        if check_string_to_float(size) :
+            size = float(size)
+            res = (nom, size, danger)
+    return res
 
 # Le résultat de cette fonction dépend de ce qu'a saisi l'utilisateur 
 
@@ -68,6 +83,8 @@ def ajouter_serpents(liste_serpents):
     resultat: pas de return mais la liste liste_serpents est mise à jour et comprend les serpents ajoutés par l'utilisateur
     '''
     nb_serp = input("Combien de serpents voulez vous ajouter ? ")
+    while nb_serp.isdigit() == False :
+        nb_serp = input("Combien de serpents voulez vous ajouter ? ")
     for indice in range(int(nb_serp)):
         liste_serpents.append(saisir_un_serpent())
 
@@ -80,6 +97,7 @@ def sauver_serpents(nom_fic,liste_serpents):
     paramètres: nom_fic : nom du fichier dans lequel on sauvegarde la liste de serpents liste_serpents
     resultat: retourne le nombre de serpents sauvegardés dans le fichier (en theorie autant qu'il y en a dans liste_serpents)
     '''
+    nb_serp = None
     fichier = open(nom_fic, "a")
     nb_serp = 0
     for indice in range(len(liste_serpents)) :
@@ -92,8 +110,6 @@ def sauver_serpents(nom_fic,liste_serpents):
         nb_serp += 1
     return nb_serp
 
-# Il faut regarder le fichier nom_fic
-
 def charger_serpents(nom_fichier):
     '''
     charge une liste de serpents contenue dans un fichier en mémoire
@@ -101,19 +117,23 @@ def charger_serpents(nom_fichier):
     resultat: retourne une liste de serpents qu'on a recuperer dans le fichier passé en paramètre
     '''
     liste_serpents = []
-    fichier = open(nom_fichier, "r")
-    for ligne in fichier :
-        liste = ligne.split(",")
-        serpent = (liste[0], float(liste[1]), int(liste[2]))
-        liste_serpents.append(serpent)
+    if os.path.isfile(nom_fichier) :
+        fichier = open(nom_fichier, "r")
+        for ligne in fichier :
+            serpent = (None, None, None)
+            liste = ligne.split(",")
+            if liste[2].isdigit() :
+                liste[2] = int(liste[2])
+                if check_string_to_float(liste[1]) :
+                    liste[1] = float(liste[1])
+                    serpent = (liste[0], liste[1], liste[2])
+            liste_serpents.append(serpent)
+    else : 
+        print("attention le fichier n'existe pas")
     return liste_serpents
 
-
-# A decommenter une fois les deux fonctions charger et sauver implémentées
 sauver_serpents('test.txt',[("Python3",0.3,0),("Boa",3.5,4)])
 assert charger_serpents('test.txt')==[("Python3",0.3,0),("Boa",3.5,4)], "PB sauver_serpents ou charger_serpents" 
-
-#ici rajoutez vos tests
 
 def rechercher_dangereux(liste_serpents):
     '''
@@ -127,24 +147,28 @@ def rechercher_dangereux(liste_serpents):
                 aff += serpent_to_str(liste_serpents[indice])
     return aff
 
-#ici rajoutez vos tests
-    
+assert rechercher_dangereux([("Python3",0.3,0),("Boa",3.5,5)]) == serpent_to_str(("Boa",3.5,5)), "Erreur avec rechercher_dangereux()"
+assert rechercher_dangereux([]) == "", "Erreur avec rechercher_dangereux()"
+
 def moyenne_taille_dangerosite(liste_serpents,dangerosite):
     '''
     calcule la taille moyenne des serpents pour une certaine dangerosité
     paramètre: liste_serpents : liste des serpents et dangerosite : dangerosite des serpents pour lesquels on va calculer la taille moyenne
     resultat: retourne la taille moyenne des serpents issus de liste_serpents dont la dangerosite est égale à dangerosité 
     '''
-    taille_moyenne = 0.0
+    taille_moyenne = None
     nb = 0
-    if liste_serpents != [] : 
+    if liste_serpents != [] and dangerosite >= 0 and dangerosite <= 5: 
         for indice in range(len(liste_serpents)) :
             if liste_serpents[indice][2] == dangerosite :
                 taille_moyenne += liste_serpents[indice][1]
                 nb += 1
     return taille_moyenne / nb    
 
-#ici rajoutez vos tests
+assert moyenne_taille_dangerosite([("Python3",0.3,4),("Boa",3.5,4)], 4) == 1.9, "Erreur moyenne_taille_dangerosite()"
+assert moyenne_taille_dangerosite([("Python3",0.3,4),("Boa",3.5,4)], 7) == None, "Erreur moyenne_taille_dangerosite()"
+assert moyenne_taille_dangerosite([("Python3",0.3,4),("Boa",3.5,4)], -4) == None, "Erreur moyenne_taille_dangerosite()"
+assert moyenne_taille_dangerosite([], 4) == None, "Erreur moyenne_taille_dangerosite()"
     
 def nb_serpents_par_danger(liste_serpents):
     '''
@@ -159,11 +183,12 @@ def nb_serpents_par_danger(liste_serpents):
             for indice in range(len(liste_serpents)) :
                 if liste_serpents[indice][2] == dangerosite :
                     cpt += 1
-            print (str(cpt), " serpents correspondent au niveau de dangerosite ", str(dangerosite))
+            aff += (str(cpt), " serpent(s) correspondent au niveau de dangerosite ", str(dangerosite), "\n")
             cpt = 0
     return aff
 
-#ici rajoutez vos tests
+assert nb_serpents_par_danger([("Python3",0.3,1),("Boa",3.5,4)]) == "0  serpent(s) correspondent au niveau de dangerosite 0\n1  serpent(s) correspondent au niveau de dangerosite 1\n0  serpent(s) correspondent au niveau de dangerosite 2\n0  serpent(s) correspondent au niveau de dangerosite 3\n1  serpent(s) correspondent au niveau de dangerosite 4\n0  serpent(s) correspondent au niveau de dangerosite 5", "Erreur avec nb_serpents_par_danger()"
+assert nb_serpents_par_danger([]) == "", "Erreur avec nb_serpents_par_danger()"
 
 ####################################################
 ### PROGRAMME PRINCIPAL                          ###
