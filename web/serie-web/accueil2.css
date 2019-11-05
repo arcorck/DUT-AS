@@ -1,0 +1,23 @@
+#menu{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#menu{
+  background-color: #EC1E29;
+}
+
+#menu li{
+  flex-grow: 1;
+  flex-basis: 20%;
+  list-style: none; /*enleve points des listes*/
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+#menu a{
+  text-decoration: none;
+  color: white;
+}
+img{
+  width : 100%;
+}

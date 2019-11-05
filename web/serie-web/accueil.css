@@ -1,4 +1,8 @@
-.fond{
-  background-position: center;
-  height: 100%;
+body{
+  background-image: url("https://www.ouest-france.fr/leditiondusoir/data/24289/NextGenData/Image-1024-1024-5268583.jpg");
+}
+.acces{
+  position: absolute;
+  width : 20%;
+  padding-left: 75%;
 }

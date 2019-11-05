@@ -1,0 +1,14 @@
+352100,Batman
+325410,Robin
+312785,Batman
+220199,Joker
+127853,Batman
+988,Robin
+<table>
+<tr> <td> Rang </td> <td> Nom </td> <td> Score </td> </tr>
+<tr> <td>1. </td> <td>Batman</td> <td>352100</td> </tr> 
+<tr> <td>2. </td> <td>Robin</td> <td>325410</td> </tr> 
+<tr> <td>3. </td> <td>Batman</td> <td>312785</td> </tr> 
+<tr> <td>4. </td> <td>Joker</td> <td>220199</td> </tr> 
+<tr> <td>5. </td> <td>Batman</td> <td>127853</td> </tr> 
+</table>

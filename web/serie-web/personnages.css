@@ -1,0 +1,35 @@
+#menu, #footer{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#menu{
+  background-color: #EC1E29;
+}
+
+#menu li, #footer li{
+  flex-grow: 1;
+  list-style: none; /*enleve points des listes*/
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+#menu a{
+  text-decoration: none;
+  color: white;
+}
+
+section{
+  text-align: center;
+}
+
+section p {
+  margin-bottom: 5%;
+}
+
+.logo{
+  width:3em;
+  height:3em;
+}
+img{
+  width : 100%;
+}
