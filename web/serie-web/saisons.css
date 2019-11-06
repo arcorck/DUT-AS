@@ -18,19 +18,35 @@
   color: white;
 }
 
-section{
+.saison{
+  display: flex;
+  flex-wrap: nowrap;
+
+}
+
+.contenu_saison, .contenu_saison4{
   display: flex;
   flex-wrap: wrap;
 }
 
-section p {
+.contenu_saison p {
   margin-bottom: 5%;
+  text-align: center;
+  margin-top: 20%
 }
-
+.contenu_saison4 p {
+  margin-bottom: 5%;
+  text-align: center;
+  margin-top: 63%;
+  margin-left: 70%;
+}
 .logo{
   width:3em;
   height:3em;
 }
 header img{
   width : 100%;
+}
+.imgsaison4 {
+  width : 123.5%;
 }
