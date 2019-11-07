@@ -18,35 +18,38 @@
   color: white;
 }
 
-.saison{
-  display: flex;
-  flex-wrap: nowrap;
-
+header img{
+  width : 100%;
 }
 
-.contenu_saison, .contenu_saison4{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.contenu_saison p {
-  margin-bottom: 5%;
-  text-align: center;
-  margin-top: 20%
-}
-.contenu_saison4 p {
-  margin-bottom: 5%;
-  text-align: center;
-  margin-top: 63%;
-  margin-left: 70%;
-}
 .logo{
   width:3em;
   height:3em;
 }
-header img{
-  width : 100%;
+
+.saison{
+  display: flex;
+  flex-wrap: nowrap;
 }
-.imgsaison4 {
-  width : 123.5%;
+
+.contenu_saison h1{
+  padding-top: 12%;
+  padding-left: 48%;
+}
+
+.contenu_saison3 h1{
+  padding-top: 26%;
+  padding-left: 48%;
+}
+
+.contenu_saison4 h1{
+  padding-top: 16%;
+  padding-left: 48%;
+}
+
+.contenu_saison4{
+  flex-grow: 2;
+}
+.contenu_saison p, .contenu_saison3 p, .contenu_saison4 p {
+  text-align: center;
 }
