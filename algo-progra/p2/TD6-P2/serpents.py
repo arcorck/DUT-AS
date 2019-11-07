@@ -122,11 +122,9 @@ def charger_serpents(nom_fichier):
         for ligne in fichier :
             serpent = (None, None, None)
             liste = ligne.split(",")
-            if liste[2].isdigit() :
-                liste[2] = int(liste[2])
-                if check_string_to_float(liste[1]) :
-                    liste[1] = float(liste[1])
-                    serpent = (liste[0], liste[1], liste[2])
+            liste[2] = int(liste[2])
+            liste[1] = float(liste[1])
+            serpent = (liste[0], liste[1], liste[2])
             liste_serpents.append(serpent)
     else : 
         print("attention le fichier n'existe pas")
@@ -156,19 +154,21 @@ def moyenne_taille_dangerosite(liste_serpents,dangerosite):
     paramètre: liste_serpents : liste des serpents et dangerosite : dangerosite des serpents pour lesquels on va calculer la taille moyenne
     resultat: retourne la taille moyenne des serpents issus de liste_serpents dont la dangerosite est égale à dangerosité 
     '''
-    taille_moyenne = None
+    taille_moyenne = 0
     nb = 0
+    res = 0
     if liste_serpents != [] and dangerosite >= 0 and dangerosite <= 5: 
         for indice in range(len(liste_serpents)) :
             if liste_serpents[indice][2] == dangerosite :
                 taille_moyenne += liste_serpents[indice][1]
                 nb += 1
-    return taille_moyenne / nb    
+        res = taille_moyenne/nb
+    return res   
 
 assert moyenne_taille_dangerosite([("Python3",0.3,4),("Boa",3.5,4)], 4) == 1.9, "Erreur moyenne_taille_dangerosite()"
-assert moyenne_taille_dangerosite([("Python3",0.3,4),("Boa",3.5,4)], 7) == None, "Erreur moyenne_taille_dangerosite()"
-assert moyenne_taille_dangerosite([("Python3",0.3,4),("Boa",3.5,4)], -4) == None, "Erreur moyenne_taille_dangerosite()"
-assert moyenne_taille_dangerosite([], 4) == None, "Erreur moyenne_taille_dangerosite()"
+assert moyenne_taille_dangerosite([("Python3",0.3,4),("Boa",3.5,4)], 7) == 0, "Erreur moyenne_taille_dangerosite()"
+assert moyenne_taille_dangerosite([("Python3",0.3,4),("Boa",3.5,4)], -4) == 0, "Erreur moyenne_taille_dangerosite()"
+assert moyenne_taille_dangerosite([], 4) == 0, "Erreur moyenne_taille_dangerosite()"
     
 def nb_serpents_par_danger(liste_serpents):
     '''
@@ -176,19 +176,19 @@ def nb_serpents_par_danger(liste_serpents):
     paramètre: liste_serpents : liste des serpents
     resultat: retourne une chaine de caractere qui affiche le nombre de serpents par dangerosité de 0 à 5
     '''
-    aff = ""
+    res = []
     cpt = 0
-    if liste_serpents != [] : 
-        for dangerosite in range(6) : 
-            for indice in range(len(liste_serpents)) :
-                if liste_serpents[indice][2] == dangerosite :
+    if liste_serpents != [] :  
+        for dangerosite in range(6) :
+            for elem in liste_serpents :
+                if elem[2] == dangerosite :
                     cpt += 1
-            aff += (str(cpt), " serpent(s) correspondent au niveau de dangerosite ", str(dangerosite), "\n")
+            res.append(cpt)
             cpt = 0
-    return aff
+    return res
 
-assert nb_serpents_par_danger([("Python3",0.3,1),("Boa",3.5,4)]) == "0  serpent(s) correspondent au niveau de dangerosite 0\n1  serpent(s) correspondent au niveau de dangerosite 1\n0  serpent(s) correspondent au niveau de dangerosite 2\n0  serpent(s) correspondent au niveau de dangerosite 3\n1  serpent(s) correspondent au niveau de dangerosite 4\n0  serpent(s) correspondent au niveau de dangerosite 5", "Erreur avec nb_serpents_par_danger()"
-assert nb_serpents_par_danger([]) == "", "Erreur avec nb_serpents_par_danger()"
+assert nb_serpents_par_danger([("Python3",0.3,0),("Boa",3.5,4)]) == [1, 0, 0, 0, 1, 0], "Erreur avec nb_serpents_par_danger()"
+assert nb_serpents_par_danger([]) == [], "Erreur avec nb_serpents_par_danger()"
 
 ####################################################
 ### PROGRAMME PRINCIPAL                          ###
