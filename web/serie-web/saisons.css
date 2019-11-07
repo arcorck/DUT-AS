@@ -7,11 +7,20 @@
   background-color: #EC1E29;
 }
 
+#menu li:hover{
+  background-color: #8D0004;
+}
+
+#footer li:hover{
+  background-color: #EDEDED;
+}
+
 #menu li, #footer li{
   flex-grow: 1;
   list-style: none; /*enleve points des listes*/
   padding-top: 2em;
   padding-bottom: 2em;
+  text-align: center;
 }
 #menu a{
   text-decoration: none;
@@ -30,26 +39,24 @@ header img{
 .saison{
   display: flex;
   flex-wrap: nowrap;
+  flex-shrink: 1;
 }
 
 .contenu_saison h1{
-  padding-top: 12%;
-  padding-left: 48%;
+  padding-top: 150px;
 }
 
 .contenu_saison3 h1{
-  padding-top: 26%;
-  padding-left: 48%;
+  padding-top: 220px;
 }
 
 .contenu_saison4 h1{
-  padding-top: 16%;
-  padding-left: 48%;
+  padding-top: 130px;
 }
 
 .contenu_saison4{
   flex-grow: 2;
 }
-.contenu_saison p, .contenu_saison3 p, .contenu_saison4 p {
+.contenu_saison p, .contenu_saison3 p, .contenu_saison4 p, .contenu_saison h1, .contenu_saison3 h1, .contenu_saison4 h1 {
   text-align: center;
 }

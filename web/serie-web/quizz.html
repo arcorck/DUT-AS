@@ -17,10 +17,9 @@
         <li><a href="http://www.topito.com/top-shopping-cadeau-la-casa-de-papel"> Boutique </a></li>
       </ul>
     </header>
+    <h1>Petit quizz sur la série</h1>
     <section>
-      <form method="post">
-        <h1>Petit quizz sur la série</h1>
-         <p id="pseudo"><label>Votre pseudo</label> : <input type="text" name="pseudo" placeholder="Ex : Playjay210" required /></p>
+      <form class="main_form" method="post">
          <p>
            Comment avez vous connu la série  :<br />
            <input type="radio" name="type_de_decouverte" value="tv" id="tv" /> <label for="tv">Télévision</label><br />
@@ -71,14 +70,23 @@
              <option value="s3">Saison 3</option>
            </select>
          </p>
-</form>
          <p id="upgrade"> <label for="ameliorer"> Pour finir comment pensez-vous que je puisse améliorer mon site ?</label> <br />
           <textarea name="ameliorer" id="ameliorer" rows="10" cols="50"> </textarea>
         </p>
         <p id="save"> <input type="reset" value="Envoyer" /> </p>
       </form>
-      <h2>Merci pour votre participation !! </h2>
+      <aside class="aside">
+        <form class="connexion" action="index.html" method="post">
+          <fieldset>
+            <legend><h3>Connection au site</h3></legend>
+            <p id="pseudo"><label>Votre pseudo</label> : <input type="text" name="pseudo" placeholder="Ex : Playjay210" required /></p>
+            <p id="password"><label>Votre mot de passe</label> : <input type="password" name="password" required /></p>
+            <p id="connect"> <input type="reset" value="Envoyer" /> </p>
+          </fieldset>
+        </form>
+      </aside>
     </section>
+    <h2>Merci pour votre participation !! </h2>
     <footer>
       <ul id="footer">
         <li><a href="https://www.facebook.com/lacasadepapelnetflix/"> <img class="logo" src="https://hola-clothes.com/themes/theme1289/img/icon/logo_fb.png" alt="logo fb"></a></li>
