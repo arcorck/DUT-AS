@@ -1,0 +1,26 @@
+Exercice 1
+
+1) - j'effectue le tour 0 de la boucle externe
+   ++ j'effectue le tour 0 de la boucle interne
+   ++ j'effectue le tour 1 de la boucle interne
+   ++ j'effectue le tour 2 de la boucle interne
+   - j'effectue le tour 1 de la boucle externe
+   ++ j'effectue le tour 0 de la boucle interne
+   ++ j'effectue le tour 1 de la boucle interne
+   ++ j'effectue le tour 2 de la boucle interne
+
+2) - j'effectue le tour 0 de la boucle externe
+   ++ j'effectue le tour 0 de la boucle interne
+   ++ j'effectue le tour 1 de la boucle interne
+   - j'effectue le tour 1 de la boucle externe
+   ++ j'effectue le tour 0 de la boucle interne
+   ++ j'effectue le tour 1 de la boucle interne
+    - j'effectue le tour 2 de la boucle externe
+   ++ j'effectue le tour 0 de la boucle interne
+   ++ j'effectue le tour 1 de la boucle interne
+
+3) 6 fois dans chacun des cas 
+
+4) elle sera éxécutée N*M fois
+
+5) voir boucles_imbliquees.py
