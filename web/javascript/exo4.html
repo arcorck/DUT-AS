@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let titre = document.createElement("h1");
+        console.log(titre);
+        console.log("type de titre : " + typeof titre);
+        let texte = document.createTextNode("Mon titre");
+        console.log(texte);
+        console.log("type de titre : " + typeof texte);
+        titre.appendChild(texte);
+        document.body.appendChild(titre);
+    </script>
+</body>
+</html>
