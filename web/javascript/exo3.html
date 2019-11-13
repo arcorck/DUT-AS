@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const s = "Bonjour";
+        console.log("s est du type: "+ typeof s);
+        const i = 2;
+        console.log("i est du type: "+ typeof i);
+        const f = 0.003;
+        console.log("f est du type: "+ typeof f);
+        const b = true;
+        console.log("b est du type: "+ typeof b);
+
+        const infini = 2.0/0;
+        console.log(infini);
+        let grand = Math.pow (2 ,10000);
+        console.log(grand);
+        let impossible = "azerty"/2;
+        console.log( impossible );
+
+        let inc = function(x) {return x+1 ;}
+        console.log(inc);
+        console.log("inc est du type: "+ typeof inc);
+        console.log(inc('c'))
+
+        let etu = new Object ();
+        etu.nom = "Alpha";
+        etu.prénom = "Julie";
+        console.log(etu);
+        console.log(etu['nom']);
+        console.log(etu['prénom']);
+        console.log("etu est du type: "+ typeof etu);
+
+        for (p in etu){
+        console.log(p + " : " + etu[p]);
+        }
+
+        etudiant ={
+        'prénom': 'Jean -Claude',
+        'nom': 'Green',
+        'age': 22
+        };
+        console.log(etudiant);
+        console.log("etudiant est de type : " + typeof etudiant)
+    </script>
+</body>
+</html>
