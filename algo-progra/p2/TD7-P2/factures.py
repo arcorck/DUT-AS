@@ -21,11 +21,27 @@ def factures(liste_commandes):
 #assert(factures([(123,"Dupont",[("Verre",6,2.4),("Assiette",6,1.5)]),(125,"Durand",[("vase",1,10.0)])])==[(123, 'Dupont', 23.4), (125, 'Durand', 10.0)])
 # vos tests
 
+def taille_max_dans_liste_de_commandes(liste):
+    """
+    retourne le plus grand élément d'une liste de listes
+    paramètre:
+    résultat:
+    """
+    max = None
+    for elem in liste : 
+        for elem2 in elem[2] :
+            if max == None or max < len(elem2[0]) :
+                max = len(elem2[0])
+    return max
+
+#print(taille_max_dans_liste_de_commandes([(123,"Dupont",[("Verre",6,2.4),("Assiette",6,1.5)]),(125,"Durand",[("vase",1,10.0)])]))
+
 def affiche_factures(liste_commandes):
     '''
     paramètre:
     resultat:
     '''
+    taille_plus_long_mot = taille_max_dans_liste_de_commandes(liste_commandes)
     res = ""
     total = 0.0
     for elem in liste_commandes :
@@ -40,7 +56,8 @@ def affiche_factures(liste_commandes):
        res += ("total\n").rjust(7)
        for elem2 in elem[2]:
            res += elem2[0]
-           res += (str(elem2[1])).rjust(15)
+           espace = (taille_plus_long_mot - len(elem2[0]))
+           res += (str(elem2[1])).rjust(15 - espace)
            res += (str(elem2[2])).rjust(7)
            total = elem2[1]*elem2[2]
            total = format(total, '5.2f')
