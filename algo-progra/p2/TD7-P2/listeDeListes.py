@@ -32,8 +32,8 @@ def liste_de_listes_to_str(liste):
     """
     cette fonction transforme une liste de listes en une chaine de caractères
     où les éléments de la liste principale sont accolés sur une même ligne
-    paramètre:
-    résultat:
+    paramètre: liste de liste que l'on transforme en string
+    résultat: retourne la chaine de caractere faite à partir de la liste de liste
     """
     chaine=""
     for elem in liste :
@@ -41,20 +41,19 @@ def liste_de_listes_to_str(liste):
             chaine += str(elem2)
         chaine += "\n"
     return chaine
-
 # A décommenter lorsque vous avez fini votre implémentation
 assert liste_de_listes_to_str([])=='',"Pb appel liste_de_listes_to_str([])"
 assert liste_de_listes_to_str([[0,1,2],[3,4,5],[6,7,8]])=='012\n345\n678\n', "Pb appel liste_de_listes_to_str([[0,1,2][3,4,5][6,7,8]])"
 assert liste_de_listes_to_str([['X',' ','O'],['O','X',' '],['O',' ','X']])=='X O\nOX \nO X\n',"Pb appel liste_de_listes_to_str([['X',' ','O'],['O','X',' '],['O',' ','X']])"
 print(liste_de_listes_to_str(asciiart1))
 print(liste_de_listes_to_str(asciiart2))
-# vos tests
+
+
 
 def max_dans_liste_de_listes(liste):
     """
-    retourne le plus grand élément d'une liste de listes
-    paramètre:
-    résultat:
+    paramètre: liste = liste de liste pour laquelle on cherche le max
+    résultat: retourne le plus grand élément d'une liste de listes
     """
     max = None
     for elem in liste : 
@@ -62,30 +61,32 @@ def max_dans_liste_de_listes(liste):
             if max == None or max < elem2 :
                 max = elem2
     return max
-
 # A décommenter lorsque vous avez fini votre implémentation
 assert max_dans_liste_de_listes([[0,1,2],[3,4,5],[6,7,8]])==8,"Pb appel max_dans_liste_de_listes([[0,1,2],[3,4,5],[6,7,8]])"
 assert max_dans_liste_de_listes([[0,11,25],[7,14,58],[26,17,8]])==58,"Pb appel max_dans_liste_de_listes([[0,11,25],[7,14,58],[26,17,8]])"
 assert max_dans_liste_de_listes([])==None,"Pb appel max_dans_liste_de_listes([])"
 print(print(max_dans_liste_de_listes([[0,1,2],[3,12,5],[6,7,8]])))
-# vos tests
+
+
 
 def max_liste (liste):
+    """paramètre : liste 
+    resultat : maximum d'une liste"""
     max = None
     for elem in liste :
         if max == None or max < elem :
             max = elem
     return max
-
 assert max_liste([1,2,3,9,4,5,6]) == 9, "Erreur"
 assert max_liste([]) == None, "Erreur"
 assert max_liste([1,2,3,9,4,5,12,6]) == 12, "Erreur"
 
+
+
 def max_par_ligne_dans_liste_de_listes(liste):
     """
-    retourne la liste des plus grands éléments de chaque ligne dans une liste de listes
-    paramètre:
-    résultat:
+    paramètre:liste de liste
+    résultat: retourne la liste des plus grands éléments de chaque ligne dans une liste de listes
     """
     res = []
     for elem in liste :

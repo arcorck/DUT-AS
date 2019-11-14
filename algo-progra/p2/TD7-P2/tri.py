@@ -3,14 +3,21 @@
 ################################################
 
 def est_croissante (liste):
-    res = True
+    """paramètre : liste = liste d'entiers ou de réels
+    resultat : bouléen qui indique si la liste est croissante ou non"""
+    res = None
     if liste != [] :
+        res = True
         cpt = 0
         while cpt < len(liste) - 1 and liste[cpt] < liste[cpt+1]:
             cpt += 1
         if cpt == len(liste) - 2 :
             res = False
     return res
+assert est_croissante([1,2,3,4,5,6,7]) == True, "Erreur"
+assert est_croissante([1,2,3,4,5,7,6]) == False, "Erreur"
+assert est_croissante([]) == None, "Erreur"
+
 
 
 def tribulle(liste):
@@ -21,16 +28,12 @@ def tribulle(liste):
     N'oubliez le print(liste) à la fin de chaque itération de la grande boucle
     """
     aux = 0
-    cpt = 0
-    trie = False
     for indice_ext in range(len(liste)) :
-        while cpt < len(liste) -1 and not trie :
-            if liste[cpt] > liste[cpt+1] :
-                aux = liste[cpt]
-                liste[cpt] = liste[cpt+1]
-                liste[cpt+1] = aux
-            cpt += 1
-        cpt = 0
+        for indice_int in range(len(liste) -1 ):
+            if liste[indice_int] > liste[indice_int+1] :
+                aux = liste[indice_int]
+                liste[indice_int] = liste[indice_int+1]
+                liste[indice_int+1] = aux
         print(liste)
 
 # A décommenter lorsque vous avez fini votre implémentation      
