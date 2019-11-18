@@ -86,7 +86,7 @@ class TestTD7(unittest.TestCase):
         out=sys.stdout
         sys.stdout = open('tmp1.txt', 'w')
         try:
-            tri.tri(l1)
+            tri.tribulle(l1)
         except:
             pass
         sys.stdout.close()
@@ -99,7 +99,7 @@ class TestTD7(unittest.TestCase):
         out=sys.stdout
         sys.stdout = open('tmp1.txt', 'w')
         try:
-            tri.tri(l2)
+            tri.tribulle(l2)
         except:
             pass
         sys.stdout.close()
