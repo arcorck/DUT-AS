@@ -65,7 +65,115 @@ print(liste[(len(liste)//2) : (len(liste)//2)+5])
 
 # Exercice 4 - Suite de syracuse
 ########################################################################
+def syracuse (n) :
+    res = []
+    act = n
+    if n > 0 :
+        res.append(n)
+        while act != 1 :
+            if act % 2 == 0 :
+                res.append(act//2)
+                act = act // 2
+            else : 
+                res.append(3*act+1)
+                act = 3*act+1
+    else :
+        res = None
+    return res
+
+assert syracuse(1) == [1], "Erreur"
+assert syracuse(2) == [2,1], "Erreur"
+assert syracuse(3) == [3,10,5,16,8,4,2,1], "Erreur"
+assert syracuse(5) == [5,16,8,4,2,1], "Erreur"
+assert syracuse(0) == None, "Erreur"
+
+
+print("La longeur de syracuse de 27 est de :", len(syracuse(27)))
 
 
 # Exercice 5 - mot de passe
 ########################################################################
+def nb_char_sup_8 (mdp):
+    return len(mdp)>=8
+assert nb_char_sup_8("bonjour") == False, "Erreur"
+assert nb_char_sup_8("bonjourbonjour") == True, "Erreur"
+assert nb_char_sup_8("") == False, "Erreur"
+
+def au_moins_un_chiffre(mdp) :
+    cpt = 0 
+    res = False
+    while cpt < len(mdp) and res == False :
+        if mdp[cpt].isdecimal() :
+            res = True
+        else :
+            cpt += 1
+    return res
+assert au_moins_un_chiffre("bonjour1") == True, "Erreur"
+assert au_moins_un_chiffre("bonjour") == False, "Erreur"
+assert au_moins_un_chiffre("") == False, "Bonjour"
+
+def aucun_espace (mdp) :
+    cpt = 0
+    res = True
+    while cpt < len(mdp) and res == True : 
+        if mdp[cpt] == ' ':
+            res = False
+        else : 
+            cpt += 1
+    return res
+assert aucun_espace("bonjour") == True, "Erreur"
+assert aucun_espace("bonjour toi") == False, "Erreur"
+assert aucun_espace("") == True, "Erreur"
+
+def au_moins1_majuscule(mdp):
+    res = False
+    cpt = 0
+    while cpt < len(mdp) and res == False : 
+        if mdp[cpt].isupper() :
+            res = True
+        else :
+            cpt += 1
+    return res
+assert au_moins1_majuscule("Bonjour") == True, "Erreur"
+assert au_moins1_majuscule("bonjour") == False, "Erreur"
+assert au_moins1_majuscule("") == False, "Erreur"
+
+def deux_maj_consecutives(mdp):
+    res = False
+    nb_maj = 0
+    cpt = 0
+    while cpt < len(mdp) and res == False :
+        if nb_maj > 1 :
+            res = True
+        if mdp[cpt].isupper():
+            nb_maj += 1
+        else :
+            cpt += 1
+    return res
+assert deux_maj_cons("BOnjour") == True, "Erreur"
+assert deux_maj_cons("BonJour") == False, "Erreur"
+assert deux_maj_cons("") == False, "Erreur"
+
+def pas_de_ponctuation(mdp):
+    res = True
+    cpt = 0
+    while cpt < len(mdp) and res == True :
+        if mdp[cpt] in (",.?;:/!§-_") : 
+            res = False
+        else : 
+            cpt += 1
+    return res 
+assert pas_de_ponctuation("bonjour,toi") == False, "Erreur"
+assert pas_de_ponctuation("bonjourtoi") == True, "Erreur"
+assert pas_de_ponctuation("") == True, "Erreur" 
+
+def dialogue_mot_de_passe () :
+    mdp = input("Veuillez entrer un mot de passe : ")
+    while not nb_char_sup_8 (mdp) or not au_moins_un_chiffre(mdp) or not aucun_espace (mdp) or not au_moins1_majuscule(mdp) or not deux_maj_consecutives(mdp) or not pas_de_ponctuation(mdp) :
+        mdp = input("Le Mot de passe est faux !!\nVeuillez entrer un mot de passe : ")
+    print("Le mot de passe est validé")
+    file = open("mdpUltraSecret.txt", "a")
+    file.write(mdp)
+    file.close()
+
+dialogue_mot_de_passe()
