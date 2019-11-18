@@ -42,29 +42,28 @@ def affiche_factures(liste_commandes):
     resultat: affiche une facture detaille pour chaque client avec les articles, leurs quantités, leurs prix unitaires et leur prix totaux
     '''
     taille_plus_long_mot = taille_max_dans_liste_de_commandes(liste_commandes)
-    res = ""
     total = 0.0
+    total_client = 0.0
     for elem in liste_commandes :
-       res += ("--------------------------------------\n")
-       res += ("numéro : ")
-       res += str(elem[0])
-       res += ("nom : ").rjust(18)
-       res += str(elem[1])
-       res += ("\nproduit")        
-       res += ("qté").rjust(15)    
-       res += ("prix").rjust(7)
-       res += ("total\n").rjust(7)
-       for elem2 in elem[2]:
-           res += elem2[0]
-           for i in range (taille_plus_long_mot + 14):
+        print("--------------------------------------")
+        print("numéro : " + str(elem[0]) + ("Nom : ").rjust(18) + str(elem[1]))
+        print("produit" + ("qte").rjust(15) + ("prix").rjust(7) + ("total").rjust(7))
+        for elem2 in elem[2]:
+            print(elem2[0], end='')
+            for i in range (taille_plus_long_mot + 14):
                 if len(elem2[0]) + i == 20 :
-                    res += (str(elem2[1])).rjust(i)
-           res += (str(elem2[2])).rjust(8)
-           total = elem2[1]*elem2[2]
-           total = format(total, '5.2f')
-           res += total.rjust(7)
-           res += "\n"
-           total = 0.0
-    return res
+                    print((str(elem2[1])).rjust(i) + "*", end='')
+            prix = (elem2[2])
+            prix = format(prix, '5.2f')
+            print(str(prix).rjust(8) + "=", end='')
+            total = elem2[1]*elem2[2]
+            total = format(total, '5.2f')
+            print(total.rjust(7))
+            total_client += float(total)
+            total = 0.0
+        print("                               -------")
+        total_client = format(total_client, '5.2f')
+        print("total                          " + str(total_client))
+        total_client = 0.0
 
 print(affiche_factures([(123,"Dupont",[("Verre",6,2.4),("Assiette",6,1.5)]),(125,"Durand",[("vase",1,10.0)])]))

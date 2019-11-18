@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="master.css">
     <title>Document</title>
 </head>
 <body>
@@ -14,6 +15,43 @@
         console.log("type de titre : " + typeof texte);
         titre.appendChild(texte);
         document.body.appendChild(titre);
+        //titre.style.color="blue"
+        titre.classList.add("bleu", "souligne");
+
+        let generer_liste = function(noeud, tab){
+            let ul = document.createElement("ul");
+            for(let item of tab){
+                let li = document.createElement("li");
+                let texte = document.createTextNode(item);
+                li.appendChild(texte);
+                ul.appendChild(li);
+            }
+            noeud.appendChild(ul)
+        }
+
+        generer_liste(document.body, ["un","deux", "trois", "quatre"]);
+
+        let m = new Map();
+        m.set(1, 'un');
+        m.set(2, 'deux');
+        m.set(3, 'trois');
+
+        let generer_map = function(noeud, map){
+            let ul = document.createElement("ul");
+            for(let item of map){
+                let li = document.createElement("li");
+                let texte = document.createTextNode(item[0]+" : "+item[1]);
+                li.appendChild(texte);
+                ul.appendChild(li);
+            }
+            noeud.appendChild(ul)
+        }
+    
     </script>
+    <button type="button" name="button" onclick="generer_liste(document.body,['un', 'deux', 'trois'])">generer la liste</button>
+    <button type="button" name="button" onclick="generer_map(document.body,m)">generer la map</button>
+    <p>
+        paragraphe contenant un texte en html
+    </p>
 </body>
 </html>
