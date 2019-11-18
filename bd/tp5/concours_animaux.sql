@@ -1,7 +1,5 @@
 -- @ SCRIPTS/CreateDropConcoursAnimaux.sql;
 
-
-
 drop table Classement;
 drop table Concours;
 drop table Animaux;
@@ -53,13 +51,16 @@ insert into Animaux values (123, 'Bargos', 'course', '???', 'coureur', TO_DATE('
 -- 1.2) Non, car classement possede une cle etrangere sur chacune des autres tables de la base donc
 -- si celles ci ne sont pas paramétrées correctement, on ne peut pas inserer dans classement
 
--- 1.3) liste des dependances fonctionnelles :
+-- 1.3) et 1.4) liste des dependances fonctionnelles :
 --   Proprietaire : Id -> Nom, Prenom, Ville
 --   Animaux : Prop, Nom -> Type, Race, Categorie, DateNais
 --   Concours : Titre, Annee -> Categorie, Certificat, TypeConcours, Ville
 --   Classement : Prop, Animal, TitreC, AnneeC -> PositionClassement
+--   Concours : Ville, Annee, Categorie -> Titre, Certificat, TypeConcours
 
--- 1.4) 
+-- 1.5) categorie de Animaux est inclus dans categorie de concours
+--      nomanimal de animaux est inclus dans animal de classement
+--      id de proprietaire est inclus dans prop de classement 
 
 -- 1.6) Impossible car on doit d'abord supprimer toute les tables ayant une cle etrangere sur Propriétaire
 
