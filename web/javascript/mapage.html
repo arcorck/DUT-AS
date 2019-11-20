@@ -25,7 +25,7 @@
     <br>
     <input type="button" id="bt" value="Afficher les liens" onclick="afficherliens()"/>
     <br><br>
-    <a href="" onclick="change_image()"><img src="http://www.leparisien.fr/resizer/74wMQIeXKLDUKuKvSzJQME_0ULg=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/KNVYKZBDTTOXNO37FEVDTD5DJU.jpg" alt="image" id="image"> </a>
+    <a><img  onclick="change_image(this);" id="image" src="http://www.leparisien.fr/resizer/74wMQIeXKLDUKuKvSzJQME_0ULg=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/KNVYKZBDTTOXNO37FEVDTD5DJU.jpg" alt="image"> </a>
     <script>
         function cache(){
             const pp = document.getElementById ("p1");
@@ -77,9 +77,12 @@
             }
         }
 
-        function change_image (){
-            img = getElementById("image");
-            img.src = "https://www.wanimo.com/veterinaire/images/articles/chat/chaton-diarrhee.jpg";
+        function change_image (img){
+            if (img.src != "https://www.wanimo.com/veterinaire/images/articles/chat/chaton-diarrhee.jpg"){
+                img.src = "https://www.wanimo.com/veterinaire/images/articles/chat/chaton-diarrhee.jpg";
+            } else {
+                img.src = "http://www.leparisien.fr/resizer/74wMQIeXKLDUKuKvSzJQME_0ULg=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/KNVYKZBDTTOXNO37FEVDTD5DJU.jpg";
+            }
         }
     </script>
 </body>
