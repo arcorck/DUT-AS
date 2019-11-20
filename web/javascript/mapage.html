@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Afficher/Masquer en JS</title>
+</head>
+<body>
+    <header>
+        <h1>Afficher/Masquer en JS</h1>
+        <style>h1,p, h2, a{color : white;}
+        body{background : black}</style>
+    </header>
+    <p id='p1'> paragraphe à masquer ... </p>
+    <input type="button" id="bt" value="Masquer" onclick="cache()"/>
+    <br>
+    <input type="button" id="bt" value="changer la couleur de fond" onclick="changeBackground()"/>
+    <h2> Les Liens </h2>
+    <ul>
+        <li> <a href='http://www.google.fr'> Lien 1 </a> </li>
+        <li> <a href='http://www.twitter.fr'> Lien 2 </a> </li>
+        <li> <a href='http://www.facebook.com'> Lien 3 </a> </li>
+        <li> <a href='http://www.univ-orleans.fr'> Lien 4 </a> </li>
+    </ul>
+    <input type="button" id="bt" value="Afficher le nombre de liens" onclick="afficherlenombredelien()"/>
+    <br>
+    <input type="button" id="bt" value="Afficher les liens" onclick="afficherliens()"/>
+    <br><br>
+    <a href="" onclick="change_image()"><img src="http://www.leparisien.fr/resizer/74wMQIeXKLDUKuKvSzJQME_0ULg=/932x582/arc-anglerfish-eu-central-1-prod-leparisien.s3.amazonaws.com/public/KNVYKZBDTTOXNO37FEVDTD5DJU.jpg" alt="image" id="image"> </a>
+    <script>
+        function cache(){
+            const pp = document.getElementById ("p1");
+            const b = document.getElementById ("bt");
+            if (pp.hidden){
+                b.value = "Cacher";
+                pp.hidden = false;
+            }else{
+                b.value = "Afficher";
+                pp.hidden = true;
+            }
+        }
+
+        function changeBackground () {
+            document.body.style.background = generercouleur();
+        }
+
+        function generercouleur (){
+            let rep = "rgb(";
+            rep = rep + ((Math.random()*100)%256) + ",";
+            rep = rep + ((Math.random()*100)%256) + ",";
+            rep = rep + ((Math.random()*100)%256) + ")";
+            console.log(rep);
+            return rep;
+        }
+
+        function recupererlien(){
+            return document.getElementsByTagName('a');
+        }
+
+        let rep = recupererlien();
+        console.log(typeof rep);
+        console.log(rep);
+        
+        function afficherlenombredelien(){
+            let p = document.createElement("p");
+            let texte = document.createTextNode("nombre de lien : " + recupererlien().length);
+            p.appendChild(texte)
+            document.body.appendChild(p);
+        }
+
+        function afficherliens(){
+            let liens = recupererlien();
+            for (let i = 0; i < liens.length; i++){
+                let p = document.createElement("p");
+                let texte = document.createTextNode(liens[i]);
+                p.appendChild(texte)
+                document.body.appendChild(p);
+            }
+        }
+
+        function change_image (){
+            img = getElementById("image");
+            img.src = "https://www.wanimo.com/veterinaire/images/articles/chat/chaton-diarrhee.jpg";
+        }
+    </script>
+</body>
+</html>
