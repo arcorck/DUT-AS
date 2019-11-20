@@ -37,7 +37,8 @@ def tribulle(liste):
                 liste[indice_int] = liste[indice_int+1]
                 liste[indice_int+1] = aux
         cpt += 1
-        print(liste)
+        if not est_croissante(liste) :
+            print(liste)
 
 # A décommenter lorsque vous avez fini votre implémentation      
 l=[15,2,78,5,34,1]

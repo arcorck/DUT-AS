@@ -73,15 +73,15 @@
          <p id="upgrade"> <label for="ameliorer"> Pour finir comment pensez-vous que je puisse améliorer mon site ?</label> <br />
           <textarea name="ameliorer" id="ameliorer" rows="10" cols="50"> </textarea>
         </p>
-        <p id="save"> <input type="reset" value="Envoyer" /> </p>
+        <p id="save"> <input type="button" value="Envoyer" onclick="alert_si_pas_bon_nombre_de_cases_cochees()" /> </p>
       </form>
       <aside class="aside">
         <form class="connexion" action="index.html" method="post">
           <fieldset>
             <legend><h3>Connection au site</h3></legend>
-            <p id="pseudo"><label>Votre pseudo</label> : <input type="text" name="pseudo" placeholder="Ex : Playjay210" required /></p>
-            <p id="password"><label>Votre mot de passe</label> : <input type="password" name="password" required /></p>
-            <p id="connect"> <input type="reset" value="Envoyer" /> </p>
+            <p id="psedo"><label>Votre pseudo</label> : <input type="text" id="pseudo" placeholder="Ex : Playjay210" required /></p>
+            <p id="passwrd"><label>Votre mot de passe</label> : <input type="password" id="password" required /></p>
+            <p id="connect"> <input type="button" value="Se Connecter" onclick="verif_mdp()"/> </p>
           </fieldset>
         </form>
       </aside>
@@ -96,5 +96,47 @@
         <li><a href="saisons.html"> <img class="logo" src="http://vsjnatation.fr/gifs/haut-de-page.gif" alt="logo haut de page"></a></li>
       </ul>
     </footer>
+    <script>
+
+      function verif_mdp(){
+        var pseudonyme = document.getElementById("pseudo").value;
+        if (pseudonyme != "martin" && pseudonyme != "arnaud" && pseudonyme != "nicolas"){
+          alert("Le pseudo, n'est pas bon (indice = ton prenom)");
+        }
+        var mdp = document.getElementById("password").value;
+        if (mdp != "fabrice"){
+          alert("Tu t'es trompé de mot de passe (indice : le prenom de la plus belle personne que tu connaisse)");
+        }
+        if (mdp == "fabrice" && (pseudonyme == "martin" || pseudonyme == "arnaud" || pseudonyme=="nicolas")){
+          alert("T'es le meilleur, t'as réussi à te connecter");
+          document.location.href="quizz.html";
+        }
+      }
+
+    function countCheckedCheckboxes() {
+      let cases_cochees = document.getElementsByTagName('input');
+      let nb_cases_cochees = 0 ;
+      for ( i = 0 ; i < cases_cochees.length ; i++ ) {
+          oElement = cases_cochees[i] ;
+            if ( oElement.type.toLowerCase( ) == 'checkbox') {
+                // La propriété checked est à true si la checkbox est cochée
+                if ( oElement.checked == true ) {
+                    nb_cases_cochees++ ;
+                }
+              }
+      }
+      return( nb_cases_cochees) ;
+    }
+  
+  function alert_si_pas_bon_nombre_de_cases_cochees (){
+      nb_cases_cochees = countCheckedCheckboxes();
+      if (nb_cases_cochees != 3){
+          alert("Impossible de valider car vous devez cocher 3 personnages preferés et vous en avez cochés " + nb_cases_cochees);
+      }else{
+        alert("Merci, votre vote a été enregistré");
+        document.location.href="quizz.html";
+      }
+    }
+      </script>
   </body>
 </html>
