@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="jeu.css">
     <title>Tentez de réussir l'évasion</title>
   </head>
-  <body>
+  <body onload="cache()">
     <header>
       <a> <img class="banniere" src="https://lubieenserie.fr/wp-content/uploads/2019/07/la-casa-de-papel-saison-3.jpg" alt="image des acteurs"><br></a>
       <ul id="menu">
@@ -18,16 +18,27 @@
     </header>
     <h1>Vous êtes ici pour tenter de faire évader la professeur et toute la bande de la fabrique de la monnaie et du timbre </h1>
     <form >
-      <p>Voulez vous que le professeur et toute l'équipe s'en sorte saine et sauve ?<br>
+      <p id="p1">Voulez vous que le professeur et toute l'équipe s'en sorte saine et sauve ?<br>
           <input type="radio" name="choix" value="oui" id="ok_pour_jouer" /> <label for="oui">Oui</label><br>
           <input type="radio" name="choix" value="non" id="not_ok_pour_jouer" /> <label for="non">Non</label><br>
           <input type="button" onclick="play()" value="Soummetre la réponse">
       </p>
+      <p id="p2">Commencons mtn à jouer</p>
+      <p id="p3">Une nouvelle question pour continuer le jeu</p>
+      <p id="p4">Enfin une derniere question</p>
     </form>
     <script>
+
+    function cache(){
+          document.getElementById ("p2").hidden=true;
+          document.getElementById ("p3").hidden=true;
+          document.getElementById ("p4").hidden=true;
+      }
+      
       function play(){
         if(document.getElementById("ok_pour_jouer").checked){
           alert("Vous avez fait le bon choix, nous allons pouvoir jouer ensemble !!");
+          document.getElementById ("p2").hidden=false;
         }
         if(document.getElementById("not_ok_pour_jouer").checked){
           alert("Vous n'avez rien à faire ici !!");
