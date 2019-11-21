@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="jeu.css">
+    <title>Tentez de réussir l'évasion</title>
+  </head>
+  <body>
+    <header>
+      <a> <img class="banniere" src="https://lubieenserie.fr/wp-content/uploads/2019/07/la-casa-de-papel-saison-3.jpg" alt="image des acteurs"><br></a>
+      <ul id="menu">
+        <li><a href="accueil2.html"> Accueil </a></li>
+        <li><a href="saisons.html"> Saisons </a></li>
+        <li><a href="personnages.html"> Personnages </a></li>
+        <li><a href="quizz.html"> Quizz </a></li>
+        <li><a href="http://www.topito.com/top-shopping-cadeau-la-casa-de-papel"> Boutique </a></li>
+      </ul>
+    </header>
+    <h1>Vous êtes ici pour tenter de faire évader la professeur et toute la bande de la fabrique de la monnaie et du timbre </h1>
+    <form >
+      <p>Voulez vous que le professeur et toute l'équipe s'en sorte saine et sauve ?<br>
+          <input type="radio" name="choix" value="oui" id="ok_pour_jouer" /> <label for="oui">Oui</label><br>
+          <input type="radio" name="choix" value="non" id="not_ok_pour_jouer" /> <label for="non">Non</label><br>
+          <input type="button" onclick="play()" value="Soummetre la réponse">
+      </p>
+    </form>
+    <script>
+      function play(){
+        if(document.getElementById("ok_pour_jouer").checked){
+          alert("Vous avez fait le bon choix, nous allons pouvoir jouer ensemble !!");
+        }
+        if(document.getElementById("not_ok_pour_jouer").checked){
+          alert("Vous n'avez rien à faire ici !!");
+          setTimeout(fermerFenetre('jeu.html'), 2000);
+        }
+      }
+
+      function fermerFenetre(fenetre){
+        window.close(fenetre);
+      }
+    </script>
+    <footer>
+      <ul id="footer">
+        <li><a href="https://www.facebook.com/lacasadepapelnetflix/"> <img class="logo" src="https://hola-clothes.com/themes/theme1289/img/icon/logo_fb.png" alt="logo fb"></a></li>
+        <li><a href="https://twitter.com/LaCasaDePapelTV?ref_src=twsrc%5Eappleosx%7Ctwcamp%5Esafari%7Ctwgr%5Eprofile"> <img class="logo" src="http://www.etourisme.info/wp-content/uploads/2014/10/03830640-photo-logo-twitter-bleu-sur-blanc.png" alt="logo twitter"></a></li>
+        <li><a href="https://www.instagram.com/lacasadepapel/"> <img class="logo" src="https://www.makrea.com/img_pngs/RS07.png" alt="logo insta"></a></li>
+        <li><a href="mailto:bazire.fabrice@gmail.com"> <img class="logo" src="http://www.asr-tarbes.fr/wp-content/uploads/2017/03/icone-mail-bleu-fonce.png" alt="logo mail"></a></li>
+        <li><a href="saisons.html"> <img class="logo" src="http://vsjnatation.fr/gifs/haut-de-page.gif" alt="logo haut de page"></a></li>
+      </ul>
+    </footer>
+    <script>
+      </script>
+  </body>
+</html>

@@ -100,14 +100,14 @@
 
       function verif_mdp(){
         var pseudonyme = document.getElementById("pseudo").value;
-        if (pseudonyme != "fabrice" ){
-          alert("Le pseudo, n'est pas bon (indice = le pseudo est : fabrice)");
+        if (pseudonyme != "martin" && pseudonyme != "arnaud" && pseudonyme != "nicolas"){
+          alert("Le pseudo, n'est pas bon (indice = prenom d'un sacre abruti)");
         }
         var mdp = document.getElementById("password").value;
         if (mdp != "fabrice"){
-          alert("Tu t'es trompé de mot de passe (indice : le mot de passe est : fabrice)");
+          alert("Tu t'es trompé de mot de passe (indice : prenom de la plus belle personne que tu conaisse)");
         }
-        if (mdp == "fabrice" && pseudonyme == "fabrice"){
+        if (mdp == "fabrice" && (pseudonyme == "martin" || pseudonyme == "arnaud" || pseudonyme == "nicolas")){
           alert("T'es le meilleur, t'as réussi à te connecter");
           document.location.href="quizz.html";
         }
@@ -127,7 +127,7 @@
       }
       return( nb_cases_cochees) ;
     }
-  
+
   function alert_si_pas_bon_nombre_de_cases_cochees (){
       nb_cases_cochees = countCheckedCheckboxes();
       if (nb_cases_cochees != 3){
