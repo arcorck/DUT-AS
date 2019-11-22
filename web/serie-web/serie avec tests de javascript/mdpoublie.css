@@ -56,10 +56,13 @@ aside{
   padding-top: 30%;
 }
 
-#save, #connect{
-  text-align: center;
+#aff{
+  color : green;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 85%;
 }
 
 .banniere{
-  height : 600px;
+  height: 600px;
 }

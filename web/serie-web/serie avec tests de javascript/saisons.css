@@ -60,3 +60,7 @@ header img{
 .contenu_saison p, .contenu_saison3 p, .contenu_saison4 p, .contenu_saison h1, .contenu_saison3 h1, .contenu_saison4 h1 {
   text-align: center;
 }
+
+.banniere{
+  height : 450px;
+}

@@ -1,4 +1,4 @@
-#menu{
+#menu, #footer{
   display: flex;
   flex-wrap: nowrap;
 }
@@ -15,7 +15,14 @@
   background-color: #EDEDED;
 }
 
-#menu li{
+.logo{
+  width:3em;
+  height:3em;
+}
+
+
+
+#menu li, #footer li{
   flex-grow: 1;
   flex-basis: 20%;
   list-style: none; /*enleve points des listes*/
@@ -29,4 +36,8 @@
 }
 img{
   width : 100%;
+}
+
+.banniere{
+  height : 630px;
 }
