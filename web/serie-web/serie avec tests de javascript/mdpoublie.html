@@ -17,7 +17,7 @@
       </ul>
     </header>
     <div>
-        <p><label>Votre adresse e-mail</label> : <input type="text" id="mail" placeholder="Ex : jean.durand@hotmail.fr" required />
+        <p><label>Votre adresse e-mail</label> : <input type="email" id="addmail" placeholder="Ex : jean.durand@hotmail.fr" required />
         <input type="button" value="Valider" onclick="mail()"/> </p>
         <p id="aff">Vous allez maintenant recevoir un mail à l'adresse indiquée, veuillez cliquer sur le lien contenu dans ce mail pour reinitialiser votre mot de passe</p>
     </div>
@@ -37,53 +37,8 @@
         retour.hidden = true;
       }
       function mail(){
-        if (verif_mail() == true){
-          aff.hidden = false;
+        aff.hidden = false;
         retour.hidden = false;
-        }
-      }
-      function verif_mail(){
-        var arobase = false;
-        var adresse_mail = document.getElementById("mail").value;
-        for (let i = 0; i < adresse_mail.length ; i++){
-          if(adresse_mail[i] == '@'){
-            arobase = true;
-          }
-        }
-        var com = false;
-        if (adresse_mail[adresse_mail.length -1 ] == 'm'){
-          if(adresse_mail[adresse_mail.length -2 ] == 'o'){
-            if(adresse_mail[adresse_mail.length -3 ] == 'c'){
-              if(adresse_mail[adresse_mail.length -4 ] == '.'){
-                com = true;
-              }
-            }
-          }
-        }
-        var net = false;
-        if (adresse_mail[adresse_mail.length -1 ] == 't'){
-          if(adresse_mail[adresse_mail.length -2 ] == 'e'){
-            if(adresse_mail[adresse_mail.length -3 ] == 'n'){
-              if(adresse_mail[adresse_mail.length -4 ] == '.'){
-                net = true;
-              }
-            }
-          }
-        }
-        var fr = false;
-        if (adresse_mail[adresse_mail.length -1 ] == 'r'){
-          if(adresse_mail[adresse_mail.length -2 ] == 'f'){
-            if(adresse_mail[adresse_mail.length -3 ] == '.'){
-                fr = true;
-            }
-          }
-        }
-        if (arobase == false || (net == false && com == false && fr == false)){
-          alert("l'adresse mail n'est pas bonne");
-          return false;
-        }else {
-          return true;
-        }
       }
     </script>
   </body>
