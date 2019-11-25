@@ -1,66 +1,4 @@
-'''
-   -----------------------------------------
-   Une implémentation des matrices 2D en python
-   -----------------------------------------
-'''
-
-def Matrice(nbLignes,nbColonnes,valeurParDefaut=0):
-    '''
-    Crée une matrice de nbLignes lignes et nbColonnes colonnes
-    contenant toute la valeur valeurParDefaut
-    paramètres: nbLignes = nombre de lignes, nbColonnes = nombre de colonnes de la matrice et valeurParDefaut = valeur nulle par defaut qui rempli la matrice
-    résultat: renvoie le tuple qui représente la matrice 
-    '''
-    return (nbLignes, nbColonnes, [valeurParDefaut]*nbColonnes*nbLignes)
-assert Matrice(5,3,0) == (5,3,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]), 'Erreur'
-
-def getNbLignes(matrice):
-    '''
-    Permet de connaitre le nombre de lignes d'une matrice
-    paramètre: une matrice donnée
-    resultat: nombre de lignes que contient la matrice
-    '''
-    return matrice[0]
-assert getNbLignes((5,3,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])) == 5, "Erreur"
-
-def getNbColonnes(matrice):
-    '''
-    Permet de connaitre le nombre de colonnes d'une matrice
-    paramètre: une matrice donnee
-    resultat: nombre de colonnes que contient la matrice  
-    '''
-    return matrice[1]
-assert getNbColonnes((5,3,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])) == 3, "Erreur"
-
-def getVal(matrice,lig,col):
-    '''
-    retourne la valeur qui se trouve à la ligne lig colonne col de la matrice
-    paramètres: matrice = une matrice donnée, lig = une ligne de la matrice, col = une colonne de la matrice
-    resultat: la valeur contenu dans la case de la ligne et de la colonne indiquée         
-    '''
-    res = None
-    if lig >= 0 and col >= 0 and lig <= matrice[0] and col <= matrice[1] :
-        res = matrice[2][(lig*(col+1))+col]
-    return res 
-print (getVal((5,3,[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]), 4, 2))
-assert getVal((2,2,[0,1,2,3]), 0,1) == 1, "Erreur"
-assert getVal ((5,3,[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]), 4, 2) == 14, "Erreur"
-
-def setVal(matrice,lig,col,val):
-    '''
-    place la valeur val à la ligne lig colonne col de la matrice
-    paramètres: matrice = matrice que l'on modifie, lig et col = emplacement de la case que l'on modifie et val = valeur de remplacement pour matrice[2][lig*col + lig]
-    resultat: cette fonction ne retourne rien mais modifie la matrice
-    '''
-    matrice[2][(lig*(col+1))+col] = val
-
-matrice = (2,2,[0,1,2,3])
-setVal(matrice, 1, 0, 78) 
-print(matrice)
-
-# === POUR L'EXERCICE 2
-# === DU DEBUT JUSQU'ICI  A SAUVEGARDER DANS LE FICHIER matriceAP1.py
-# === ET REMPLACER PAR from matriceAP1 import *
+from matriceAPI1 import *
 
 # Affichage d'une matrice
 def afficheLigneSeparatrice(matrice,tailleCellule=4):
@@ -99,3 +37,42 @@ def afficheMatrice(matrice,tailleCellule=4):
 #-----------------------------------------
 # AJOUTER ICI LE CODE DES FONCTIONS DEMANDEES DANS L'EXERCICE 1
 #-----------------------------------------
+
+def isNulle (matrice) :
+    res = True
+    l = 0
+    c = 0
+    while res == True and l < getNbLignes(matrice) and c < getNbColonnes(matrice) :
+        if getVal(matrice, l, c) == 0 :
+            if c <  getNbColonnes(matrice) - 1 :
+                c += 1
+            else :
+                c = 0
+                l += 1
+        else : 
+            res = False
+            
+    return res
+assert isNulle ((0,0,[])) == True, "Erreur"
+assert isNulle ((2,2,[0,1,2,3])) == False, "Erreur"
+
+def isCarre (matrice):
+    nbLignes = getNbLignes(matrice)
+    nbColonnes = getNbColonnes(matrice)
+    return nbLignes == nbColonnes
+assert isCarre ((1,3,[0,1,2])) == False, "Erreur"
+assert isCarre ((2,2,[0,1,2,3])) == True, "Erreur la matrice n'est pas carrée"
+
+def moyenne (matrice):
+    res = 0
+    nbLignes = getNbLignes(matrice)
+    nbColonnes = getNbColonnes(matrice)
+    if not isNulle(matrice):
+        for i in range(nbLignes) :
+            for j in range(nbColonnes):
+                res += getVal(matrice, i, j)
+        res = res / (nbLignes*nbColonnes)
+    return res
+assert moyenne((2,2,[0,1,2,3])) == 1.5, "Erreur"
+assert moyenne((0,0,[])) == 0, 'Erreur'
+assert moyenne((3,3,[0,1,2,3,4,5,6,7,8])) == 4.0, "Erreur"
