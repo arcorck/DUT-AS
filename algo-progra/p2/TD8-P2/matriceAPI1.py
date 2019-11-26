@@ -21,7 +21,10 @@ def getNbLignes(matrice):
     paramètre: une matrice donnée
     resultat: nombre de lignes que contient la matrice
     '''
-    return matrice[0]
+    if matrice[2] != []:
+        return matrice[0]
+    else : 
+        return 0
 assert getNbLignes((5,3,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])) == 5, "Erreur"
 
 def getNbColonnes(matrice):
@@ -30,9 +33,12 @@ def getNbColonnes(matrice):
     paramètre: une matrice donnee
     resultat: nombre de colonnes que contient la matrice  
     '''
-    return matrice[1]
+    if matrice[2] != []:
+        return matrice[1]
+    else : 
+        return 0
 assert getNbColonnes((5,3,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])) == 3, "Erreur"
-
+assert getNbColonnes((0,0,[])) == 0, "Erreur"
 def getVal(matrice,lig,col):
     '''
     retourne la valeur qui se trouve à la ligne lig colonne col de la matrice
