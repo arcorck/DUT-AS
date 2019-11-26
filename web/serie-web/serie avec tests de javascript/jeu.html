@@ -67,6 +67,9 @@
           <option onclick="stop()" value="helico" id="helico">Ils s'échappent en montant dans un hélicoptère qui vient les chercher sur le toit de la fabrique de la monnaie et du timbre</option>
         </select>
       </p>
+      <p id="p10">
+        <input type="button" value="QUITTER" onclick="fermerFenetre('jeu.html')"/> 
+      </p>
     </form>
     <script>
     function cache(){
@@ -78,6 +81,7 @@
           document.getElementById ("p7").hidden=true;
           document.getElementById ("p8").hidden=true;
           document.getElementById ("p9").hidden=true;
+          document.getElementById ("p10").hidden=true;
       }
       
       function play(){
@@ -150,7 +154,7 @@
       }
 
       function empreintes_tolede(){
-        if((document.getElementById("empreintes").checked) && (not(document.getElementById("suicide_raquel").checked)) && (not(document.getElementById("entree_prof").checked))){
+        if((document.getElementById("empreintes").checked) && (document.getElementById("suicide_raquel").checked == false) && (document.getElementById("entree_prof").checked == false)){
           alert("Bravo, visiblement cette série te captive");
           document.getElementById ("p8").hidden=false;
           document.getElementById ("p7").hidden=true;
@@ -174,7 +178,8 @@
 
       function win(){
         alert("Félicitation, jeune addict !!! merci d'avoir réussi à mener l'enquête !!")
-        setTimeout(fermerFenetre('jeu.html'), 2000);
+        document.getElementById ("p10").hidden=false;
+          document.getElementById ("p9").hidden=true;
       }
 
       function fermerFenetre(fenetre){
