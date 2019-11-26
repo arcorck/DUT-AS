@@ -168,6 +168,7 @@ assert pas_de_ponctuation("bonjourtoi") == True, "Erreur"
 assert pas_de_ponctuation("") == True, "Erreur" 
 
 def dialogue_mot_de_passe () :
+    print ("Vous allez entrer un mot de passe, quelques indications : \n  - il doit etre long au moins de 8 caractères\n  - il ne doit pas contenir d'espaces\n  - il doit contenir au moins un chiffre et au moins une majuscule\n  - il ne doit pas contenir deux majuscules consecutives\n  - et enfin il ne doit pas contenir de signes de ponctuation (,.?;:/!§-_)")
     mdp = input("Veuillez entrer un mot de passe : ")
     while not nb_char_sup_8 (mdp) or not au_moins_un_chiffre(mdp) or not aucun_espace (mdp) or not au_moins1_majuscule(mdp) or not deux_maj_consecutives(mdp) or not pas_de_ponctuation(mdp) :
         mdp = input("Le Mot de passe est faux !!\nVeuillez entrer un mot de passe : ")
