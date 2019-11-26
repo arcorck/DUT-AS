@@ -45,10 +45,11 @@
       </p>
       <p id="p6"> <strong>Pour gagner du temps avec les otages qui commencent à s'impatienter, les braqueurs mettent une idée à exécution, quelle est-elle ?</strong><br>
         <select name="sort_des_otages" id="sort_des_otages">
-          <option onclick="stop()" value="tuerie" id="tuerie">Ils les montent les uns contre les autre pour qu'ils finissent par s'entretuer</option>
-          <option onclick="continuer()" value="freedom_or_money" id="freedom_or_money">Ils leur proposent de leur donner de l'argent s'ils restent ou alors de partir (c'est une ruse, tu te doute bien)</option>
-          <option onclick="stop()" value="famille" id="famille">Ils les menaçent de s'en prendre à leur famille, s'ils ne coopèrent pas</option>
-        </select>
+          <option value="tuerie" id="tuerie">Ils les montent les uns contre les autre pour qu'ils finissent par s'entretuer</option>
+          <option value="freedom_or_money" id="freedom_or_money">Ils leur proposent de leur donner de l'argent s'ils restent ou alors de partir (c'est une ruse, tu te doute bien)</option>
+          <option value="famille" id="famille">Ils les menaçent de s'en prendre à leur famille, s'ils ne coopèrent pas</option>
+        </select><br>
+        <input type="button" value="Valider" onclick="gain_de_temps_otages()"/> 
       </p>
       <p id="p7"> <strong>Que se passe t-il au tout début de la saison 2 ?</strong><br>
         <input type="checkbox" name="empreintes" id="empreintes" /> <label for="empreintes">Les enqueteurs relèvent des empreintes dans la planque de Tolède ou toute l'équipe a préparer le braquage</label><br />
@@ -61,15 +62,14 @@
         <input type="button" value="Valider" onclick="sortie_du_comissariat()"/> 
       </p>
       <p id="p9"> <strong>Comment les braqueurs reussisent-ils à s'échapper de la fabrique de la monaie et du timbre ?</strong><br>
-        <select name="sort_des_otages" id="sort_des_otages">
-          <option onclick="stop()" value="tunel_otages" id="tunel_otages">Ils s'échappent par le tunel qu'ils ont fait creuser aux otages</option>
-          <option onclick="win()" value="tunel" id="tunel">Ils s'échappent par le tunel que les braqueurs ont creusés et qui mène directement à la planque du professeur</option>
-          <option onclick="stop()" value="helico" id="helico">Ils s'échappent en montant dans un hélicoptère qui vient les chercher sur le toit de la fabrique de la monnaie et du timbre</option>
-        </select>
+        <select name="sortie_des_braqueur" id="sortie_des_braqueur">
+          <option value="tunel_otages" id="tunel_otages">Ils s'échappent par le tunel qu'ils ont fait creuser aux otages</option>
+          <option value="tunel" id="tunel">Ils s'échappent par le tunel que les braqueurs ont creusés et qui mène directement à la planque du professeur</option>
+          <option value="helico" id="helico">Ils s'échappent en montant dans un hélicoptère qui vient les chercher sur le toit de la fabrique de la monnaie et du timbre</option>
+        </select><br>
+        <input type="button" value="Valider" onclick="sortie_des_braqueurs()"/> 
       </p>
-      <p id="p10">
-        <input type="button" value="QUITTER" onclick="fermerFenetre('jeu.html')"/> 
-      </p>
+      <input id="p10" type="button" value="QUITTER" onclick="javascript:location.href='accueil2.html'">
     </form>
     <script>
     function cache(){
@@ -81,7 +81,7 @@
           document.getElementById ("p7").hidden=true;
           document.getElementById ("p8").hidden=true;
           document.getElementById ("p9").hidden=true;
-          document.getElementById ("p10").hidden=true;
+          document.getElementById ("p10").hidden=false;
       }
       
       function play(){
@@ -142,15 +142,16 @@
         }
       }
 
-      function continuer (){
-        alert("Quel talent, vraiment impressionant");
-        document.getElementById ("p6").hidden=true;
-        document.getElementById ("p7").hidden=false;
-      }
-
-      function stop(){
-        alert("Tu n'es pas un fin connaisseur, merci tout de même de ta participation");
-        setTimeout(fermerFenetre('jeu.html'), 2000);
+      function gain_de_temps_otages(){
+        var rep = document.getElementById("sort_des_otages").selectedIndex;
+        if (rep == 1){
+          alert("C'est bien ça, mais c'était pas compliqué");
+          document.getElementById ("p7").hidden=false;
+          document.getElementById ("p6").hidden=true;
+        }else{
+          alert("Tu n'es pas un fin connaisseur, merci tout de même de ta participation");
+          setTimeout(fermerFenetre('jeu.html'), 2000);
+        }
       }
 
       function empreintes_tolede(){
@@ -176,10 +177,15 @@
         }
       }
 
-      function win(){
-        alert("Félicitation, jeune addict !!! merci d'avoir réussi à mener l'enquête !!")
-        document.getElementById ("p10").hidden=false;
+      function sortie_des_braqueurs(){
+        var rep = document.getElementById("sortie_des_braqueur").selectedIndex;
+        if (rep == 1){
+          alert("Félicitation, jeune addict !!! merci d'avoir réussi à mener l'enquête !!");
           document.getElementById ("p9").hidden=true;
+        }else{
+          alert("Si proche du but, c'est bien dommage, merci tout de même de ta participation");
+          setTimeout(fermerFenetre('jeu.html'), 2000);
+        }
       }
 
       function fermerFenetre(fenetre){
@@ -192,7 +198,7 @@
         <li><a href="https://twitter.com/LaCasaDePapelTV?ref_src=twsrc%5Eappleosx%7Ctwcamp%5Esafari%7Ctwgr%5Eprofile"> <img class="logo" src="http://www.etourisme.info/wp-content/uploads/2014/10/03830640-photo-logo-twitter-bleu-sur-blanc.png" alt="logo twitter"></a></li>
         <li><a href="https://www.instagram.com/lacasadepapel/"> <img class="logo" src="https://www.makrea.com/img_pngs/RS07.png" alt="logo insta"></a></li>
         <li><a href="mailto:bazire.fabrice@gmail.com"> <img class="logo" src="http://www.asr-tarbes.fr/wp-content/uploads/2017/03/icone-mail-bleu-fonce.png" alt="logo mail"></a></li>
-        <li><a href="saisons.html"> <img class="logo" src="http://vsjnatation.fr/gifs/haut-de-page.gif" alt="logo haut de page"></a></li>
+        <li><a href="jeu.html"> <img class="logo" src="http://vsjnatation.fr/gifs/haut-de-page.gif" alt="logo haut de page"></a></li>
       </ul>
     </footer>
     <script>

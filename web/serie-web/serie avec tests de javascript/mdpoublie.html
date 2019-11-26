@@ -36,9 +36,15 @@
         aff.hidden = true;
         retour.hidden = true;
       }
-      function mail(){
-        aff.hidden = false;
-        retour.hidden = false;
+
+      function mail (){
+        mail = document.getElementById("addmail").value;
+        if (mail.includes("@") && (mail.includes(".com") || mail.includes(".fr") || mail.includes(".net") || mail.includes(".gouv"))){
+          aff.hidden = false;
+          retour.hidden = false;
+        }else{
+          alert("l'adresse email ne convient pas");
+        }
       }
     </script>
   </body>
