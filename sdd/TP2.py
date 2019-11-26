@@ -173,7 +173,15 @@ def verifieCoherence(mqrf):
     paramètre : une "maison qui rend fou"
     résultat : un booleen
     """
-    pass
+    res = True
+    for (guichet, versguichet) in mqrf.items() :
+        if versguichet != None :
+            if versguichet not in mqrf.keys() :
+                res = False
+    return res
+assert verifieCoherence(mqrf1) == True, "erreur"
+assert verifieCoherence(mqrf2) == False, "Erreur"
+assert verifieCoherence(mqrf3) == True, "Erreur"
 
 
 
@@ -184,7 +192,15 @@ def conditionDeCesar(mqrf):
     paramètre : une "maison qui rend fou"
     résultat : un booleen
     """
-    pass
+    res = True
+    for (guichet, versguichet) in mqrf.items() :
+        if versguichet != None :
+            if guichet > versguichet :
+                res = False
+    return res
+print(conditionDeCesar(mqrf1))
+print(conditionDeCesar(mqrf2))
+print(conditionDeCesar(mqrf3))
 
 
 
