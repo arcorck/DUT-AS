@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>tests tableaux</h1>
+    <script>
+
+        tableau = ["BonJouR", "Toi"];
+
+        function aff_tab(tab){
+            let p = document.createElement("p");
+            let tab = document.createTextNode("tab = [");
+            p.appendChild(tab);
+            for (let i = 0; i < tab.length; i++){
+                if (i < etudiants.length -1 ){
+                    let contenu = document.createTextNode(tab[i] + " ; ");
+                    p.appendChild(contenu);
+                }else{
+                    let contenu = document.createTextNode(tab[i] + " ] ");
+                    p.appendChild(contenu);
+                }
+            }
+            document.body.appendChild(p);
+        }
+
+        function reverse_and_min(tab){
+            tab = tab.reverse();
+            etuds = tab.map(x => x.toLowerCase());
+            let p = document.createElement("p");
+            for (let i=0; i<etuds.length; i++){
+                let contenu = createTextNode(etuds[i]);
+                p.appendChild(contenu);
+            }
+            document.body.appendChild(p);
+        }
+
+        aff_tab(tableau);
+    </script>
+</body>
+</html>
