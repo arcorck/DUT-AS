@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Test des tableau</h1>
+    <input type="button" value="afficher le tableau sous forme de liste" onclick='aff_tab_liste()'>
+    <input type="button" value="afficher le tableau trié" onclick='aff_tab_trie()'>
+    <input type="button" value="afficher le tableau trié sans tenir compte de la casse" onclick='aff_tab_trie_sans_casse()'>
+    <input type="button" value="afficher le tableau trié sans tenir compte de la casse" onclick='aff_tab_renverse()'>
+    <script>
+        function aff_tab_liste (){
+            const etudiants = ['Jules', 'agatha', 'asterix', 'Idefix', 'Zazou', 'Robert' ];
+            let p = document.createElement("p");
+            let tab = document.createTextNode("etudiants = ['Jules', 'agatha', 'asterix', 'Idefix', 'Zazou', 'Robert' ]");
+            p.appendChild(tab);
+            document.body.appendChild(p);
+            let ul = document.createElement("ul");
+            for (let i = 0; i<etudiants.length; i++){
+                let li = document.createElement("li");
+                let texte = document.createTextNode(etudiants[i]);
+                li.appendChild(texte);
+                ul.appendChild(li);
+            }
+            document.body.appendChild(ul);
+        }
+
+        function aff_tab_trie(){
+            var etudiants = ['Jules', 'agatha', 'asterix', 'Idefix', 'Zazou', 'Robert' ];
+            let p1 = document.createElement("p");
+            let tab = document.createTextNode("etudiants = ['Jules', 'agatha', 'asterix', 'Idefix', 'Zazou', 'Robert' ]");
+            p1.appendChild(tab);
+            document.body.appendChild(p1);
+            etudiants = etudiants.sort();
+            let p = document.createElement("p");
+            let texte = document.createTextNode("etudiants_trie = [");
+            p.appendChild(texte);
+            for (let i = 0; i<etudiants.length; i++){
+                if (i < etudiants.length -1 ){
+                    let contenu = document.createTextNode(etudiants[i] + " ; ");
+                    p.appendChild(contenu);
+                }else{
+                    let contenu = document.createTextNode(etudiants[i] + " ] ");
+                    p.appendChild(contenu);
+                }
+            }
+            document.body.appendChild(p);
+        }
+
+        function aff_tab_trie_sans_casse(){
+            var etudiants = ['Jules', 'agatha', 'asterix', 'Idefix', 'Zazou', 'Robert' ];
+            let p1 = document.createElement("p");
+            let tab = document.createTextNode("etudiants = ['Jules', 'agatha', 'asterix', 'Idefix', 'Zazou', 'Robert' ]");
+            p1.appendChild(tab);
+            document.body.appendChild(p1);
+            etudiants = etudiants.sort(function(a, b) { if (a.toLowerCase() < b.toLowerCase()) return -1; if (a.toLowerCase() > b.toLowerCase()) return 1; return 0; });
+            let p = document.createElement("p");
+            let texte = document.createTextNode("etudiants_trie = [");
+            p.appendChild(texte);
+            for (let i = 0; i<etudiants.length; i++){
+                if (i < etudiants.length -1 ){
+                    let contenu = document.createTextNode(etudiants[i] + " ; ");
+                    p.appendChild(contenu);
+                }else{
+                    let contenu = document.createTextNode(etudiants[i] + " ] ");
+                    p.appendChild(contenu);
+                }
+            }
+            document.body.appendChild(p);
+        }
+
+        function aff_tab_renverse(){
+            var etudiants = ['Jules', 'agatha', 'asterix', 'Idefix', 'Zazou', 'Robert' ];
+            let p1 = document.createElement("p");
+            let tab = document.createTextNode("etudiants = ['Jules', 'agatha', 'asterix', 'Idefix', 'Zazou', 'Robert' ]");
+            p1.appendChild(tab);
+            document.body.appendChild(p1);
+            etudiants = etudiants.reverse();
+            let p = document.createElement("p");
+            let texte = document.createTextNode("etudiants_trie = [");
+            p.appendChild(texte);
+            for (let i = 0; i<etudiants.length; i++){
+                if (i < etudiants.length -1 ){
+                    let contenu = document.createTextNode(etudiants[i] + " ; ");
+                    p.appendChild(contenu);
+                }else{
+                    let contenu = document.createTextNode(etudiants[i] + " ] ");
+                    p.appendChild(contenu);
+                }
+            }
+            document.body.appendChild(p);
+        }
+    </script>
+</body>
+</html>
