@@ -1,0 +1,9 @@
+li{
+    list-style: none;
+}
+.correct{
+    background-color: #199219;
+}
+.incorrect{
+    background-color: #c70a0a;
+}
