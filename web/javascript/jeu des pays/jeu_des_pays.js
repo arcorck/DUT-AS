@@ -34,7 +34,14 @@ function verif(){
     }
 }
 
-function selpays(liste){
+function selpays(s0){
     //parcourir toutes les listes, verifier si ce n'est pas ma propre liste (celle d'appel) 
     //verifier si le selected index est different du mien et si il est egal au mien je mets le mien a 0 et afiche un message 
+    let s;
+    for (let i=0; i<les_pays.length; i++){
+        s=document.forms['listes'].elements['liste'+i];
+        if((s!=s0)&&(s.options[s.selectedIndex].text == s0.options[s0.selectedIndex].text)){
+            s.selectedIndex=0;
+        }
+    }
 }
