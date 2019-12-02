@@ -53,15 +53,11 @@ def isNulle (matrice) :
             res = False
             
     return res
-assert isNulle ((0,0,[])) == True, "Erreur"
-assert isNulle ((2,2,[0,1,2,3])) == False, "Erreur"
 
 def isCarre (matrice):
     nbLignes = getNbLignes(matrice)
     nbColonnes = getNbColonnes(matrice)
     return nbLignes == nbColonnes
-assert isCarre ((1,3,[0,1,2])) == False, "Erreur"
-assert isCarre ((2,2,[0,1,2,3])) == True, "Erreur la matrice n'est pas carrée"
 
 def moyenne (matrice):
     res = 0
@@ -73,6 +69,3 @@ def moyenne (matrice):
                 res += getVal(matrice, i, j)
         res = res / (nbLignes*nbColonnes)
     return res
-assert moyenne((2,2,[0,1,2,3])) == 1.5, "Erreur"
-assert moyenne((0,0,[])) == 0, 'Erreur'
-assert moyenne((3,3,[0,1,2,3,4,5,6,7,8])) == 4.0, "Erreur"

@@ -12,8 +12,6 @@ def Matrice(nbLignes,nbColonnes,valeurParDefaut=0):
     résultat: renvoie le tuple qui représente la matrice 
     '''
     return (nbLignes, nbColonnes, [valeurParDefaut]*nbColonnes*nbLignes)
-assert Matrice(5,3,0) == (5,3,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]), 'Erreur'
-assert Matrice(5,3) == (5,3,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]), 'Erreur'
 
 def getNbLignes(matrice):
     '''
@@ -25,7 +23,6 @@ def getNbLignes(matrice):
         return matrice[0]
     else : 
         return 0
-assert getNbLignes((5,3,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])) == 5, "Erreur"
 
 def getNbColonnes(matrice):
     '''
@@ -37,8 +34,7 @@ def getNbColonnes(matrice):
         return matrice[1]
     else : 
         return 0
-assert getNbColonnes((5,3,[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0])) == 3, "Erreur"
-assert getNbColonnes((0,0,[])) == 0, "Erreur"
+
 def getVal(matrice,lig,col):
     '''
     retourne la valeur qui se trouve à la ligne lig colonne col de la matrice
@@ -49,8 +45,6 @@ def getVal(matrice,lig,col):
     if lig >= 0 and col >= 0 and lig <= matrice[0] and col <= matrice[1] :
         res = matrice[2][matrice[1]*lig+col]
     return res 
-assert getVal((2,2,[0,1,2,3]), 0,1) == 1, "Erreur"
-assert getVal ((5,3,[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]), 4, 2) == 14, "Erreur"
 
 def setVal(matrice,lig,col,val):
     '''
@@ -59,6 +53,3 @@ def setVal(matrice,lig,col,val):
     resultat: cette fonction ne retourne rien mais modifie la matrice
     '''
     matrice[2][matrice[1]*lig+col] = val
-
-matrice = (2,2,[0,1,2,3])
-setVal(matrice, 1, 0, 78) 

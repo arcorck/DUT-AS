@@ -1,53 +1,4 @@
-'''
-   -----------------------------------------
-   Une implémentation des matrices 2D en python
-   -----------------------------------------
-'''
-
-def Matrice(nbLignes,nbColonnes,valeurParDefaut=0):
-    '''
-    Crée une matrice de nbLignes lignes et nbColonnes colonnes
-    contenant toute la valeur valeurParDefaut
-    paramètres:
-    résultat:
-    '''
-    pass
-
-def getNbLignes(matrice):
-    '''
-    Permet de connaitre le nombre de lignes d'une matrice
-    paramètre:
-    resultat:
-    '''
-    pass
-
-def getNbColonnes(matrice):
-    '''
-    Permet de connaitre le nombre de colonnes d'une matrice
-    paramètre:
-    resultat:    
-    '''
-    pass
-
-def getVal(matrice,lig,col):
-    '''
-    retourne la valeur qui se trouve à la ligne lig colonne col de la matrice
-    paramètres:
-    resultat:        
-    '''
-    pass
-
-def setVal(matrice,lig,col,val):
-    '''
-    place la valeur val à la ligne lig colonne col de la matrice
-    paramètres:
-    resultat: cette fonction ne retourne rien mais modifie la matrice
-    '''
-    pass
-
-# === POUR L'EXERCICE 2
-# === DU DEBUT JUSQU'ICI  A SAUVEGARDER DANS LE FICHIER matriceAP1.py
-# === ET REMPLACER PAR from matriceAP1 import *
+from matriceAPI3 import *
 
 # Affichage d'une matrice
 def afficheLigneSeparatrice(matrice,tailleCellule=4):
@@ -86,3 +37,42 @@ def afficheMatrice(matrice,tailleCellule=4):
 #-----------------------------------------
 # AJOUTER ICI LE CODE DES FONCTIONS DEMANDEES DANS L'EXERCICE 1
 #-----------------------------------------
+
+def isNulle (matrice) :
+    res = True
+    l = 0
+    c = 0
+    while res == True and l < getNbLignes(matrice) and c < getNbColonnes(matrice) :
+        if getVal(matrice, l, c) == 0 :
+            if c <  getNbColonnes(matrice) - 1 :
+                c += 1
+            else :
+                c = 0
+                l += 1
+        else : 
+            res = False
+            
+    return res
+matrice = Matrice(3,4,0)
+assert isNulle(matrice)
+setVal(matrice,2,3,6)
+assert not isNulle(matrice)
+
+def isCarre (matrice):
+    nbLignes = getNbLignes(matrice)
+    nbColonnes = getNbColonnes(matrice)
+    return nbLignes == nbColonnes
+assert not isCarre(matrice)
+assert isCarre(Matrice(6,6,0))
+
+def moyenne (matrice):
+    res = 0
+    nbLignes = getNbLignes(matrice)
+    nbColonnes = getNbColonnes(matrice)
+    if not isNulle(matrice):
+        for i in range(nbLignes) :
+            for j in range(nbColonnes):
+                res += getVal(matrice, i, j)
+        res = res / (nbLignes*nbColonnes)
+    return res
+assert moyenne(matrice) == 0.5, 'Erreur'

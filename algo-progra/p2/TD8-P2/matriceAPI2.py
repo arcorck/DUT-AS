@@ -16,8 +16,6 @@ def Matrice(nbLignes,nbColonnes,valeurParDefaut=0):
         matrice.append([valeurParDefaut]*nbColonnes)
     return matrice
 
-assert Matrice(3, 5, 5) == [[5, 5, 5, 5, 5], [5, 5, 5, 5, 5], [5, 5, 5, 5, 5]], "Erreur"
-
 
 def getNbLignes(matrice):
     '''
@@ -26,7 +24,6 @@ def getNbLignes(matrice):
     resultat:
     '''
     return len(matrice)
-assert getNbLignes(Matrice(3, 5, 5)) == 3, "Erreur"
 
 def getNbColonnes(matrice):
     '''
@@ -35,7 +32,6 @@ def getNbColonnes(matrice):
     resultat:    
     '''
     return len(matrice[0])
-assert getNbColonnes(Matrice(3, 5, 5)) == 5, "Erreur"
 
 def getVal(matrice,lig,col):
     '''
@@ -44,7 +40,6 @@ def getVal(matrice,lig,col):
     resultat:        
     '''
     return matrice[lig][col]
-assert getVal([[5, 5, 5, 5, 5], [5, 5, 5, 5, 5], [5, 18, 5, 5, 5]], 2, 1) == 18, "Erreur"
 
 def setVal(matrice,lig,col,val):
     '''
@@ -53,7 +48,3 @@ def setVal(matrice,lig,col,val):
     resultat: cette fonction ne retourne rien mais modifie la matrice
     '''
     matrice[lig][col] = val
-
-matrice = [[5, 5, 5, 5, 5], [5, 5, 5, 5, 5], [5, 18, 5, 5, 5]]
-setVal(matrice, 0, 3, 576)
-print(matrice)
