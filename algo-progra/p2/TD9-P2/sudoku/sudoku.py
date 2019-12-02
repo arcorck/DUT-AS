@@ -61,60 +61,124 @@ def sauveMatriceSudoku(nomFic, mat) :
         fic.write(li)
     fic.close()
 
+matrice = Matrice(9, 9, None)
+#print(matrice)
 
 # teste si la taille est correcte
 def tailleOk(sudo) : 
     return getNbLignes(sudo) == 9 and getNbColonnes(sudo) == 9
 
+#print(tailleOk(matrice))
+
 # teste qu'une valeur est bien un nombre entre 1 et 9 ou None
 def bonneValeur(v) : 
-    if type(var) = None :
+    if v is None :
         return True
     else : 
-        if type(var) == int :
-            if var > 0 and var < 10 :
+        if type(v) == int :
+            if v > 0 and v < 10 :
                 return True
             else : 
                 return False
         else : 
             return False
-
+            
+setVal(matrice,5, 7, 8)
+setVal(matrice,5, 4, 67)
+#print(bonneValeur(getVal(matrice, 5, 4)))
+#print(bonneValeur(getVal(matrice, 5, 7)))
 
 # teste si les valeurs de la liste sont toutes des bonnes
 # valeurs toutes différentes (sauf pour None qui peut apparaitre plusieurs fois)
 def bonnesValeursListe(liste) :
     indice = 0
     res = True
-    while indice < len(liste) and res == True :
+    while indice < len(liste)-1 and res == True :
         indice += 1
         res = bonneValeur(liste[indice])
     return res
+#print(bonnesValeursListe(matrice['valeurs']))
+#matrice_null = Matrice(9, 9, None)
+#afficheMatrice(matrice_null)
+#print(bonnesValeursListe(matrice_null['valeurs']))
 
 #une colonne d'une matrice 
-def getColonne(mat, col) : 
-    pass
+def getColonne(mat, col) :
+    colonne = [] 
+    for i in range(matrice['colonnes']) :
+        colonne.append(getVal(mat, i, col))
+    return colonne
+setVal(matrice,0, 7, 1)
+setVal(matrice,1, 7, 8)
+setVal(matrice,2, 7, 4)
+setVal(matrice,3, 7, 8)
+setVal(matrice,4, 7, 6)
+setVal(matrice,5, 7, 8)
+setVal(matrice,6, 7, 3)
+setVal(matrice,7, 7, 2)
+setVal(matrice,8, 7, 7)
+#afficheMatrice(matrice)
+#print(getColonne(matrice, 7))
 
 # une ligne d'une matrice
 def getLigne(mat, lig) : 
-    pass
+    ligne = [] 
+    for i in range(matrice['lignes']) :
+        ligne.append(getVal(mat, lig, i))
+    return ligne
+setVal(matrice,5, 0, 1)
+setVal(matrice,5, 1, 8)
+setVal(matrice,5, 2, 4)
+setVal(matrice,5, 3, 8)
+setVal(matrice,5, 4, 6)
+setVal(matrice,5, 5, 8)
+setVal(matrice,5, 6, 3)
+setVal(matrice,5, 7, 2)
+setVal(matrice,5, 8, 7)
+#afficheMatrice(matrice)
+#print(getLigne(matrice, 5))
 
 # extrait un bloc carré de la matrice
 # les valeurs de ce bloc sont retournés sous la forme d'une liste
 def sousTab(mat, i, j, cote=3) :  
-    
+    sous_tab = []
+    for indice_ligne in range(i, cote, 1) :
+        for indice_colonne in range(j, cote, 1) :
+            sous_tab.append(getVal(mat, indice_ligne, indice_colonne))
+    return sous_tab
+setVal(matrice,0, 0, 0)
+setVal(matrice,0, 1, 1)
+setVal(matrice,0, 2, 2)
+setVal(matrice,1, 0, 3)
+setVal(matrice,1, 1, 4)
+setVal(matrice,1, 2, 5)
+setVal(matrice,2, 0, 6)
+setVal(matrice,2, 1, 7)
+setVal(matrice,2, 2, 8)
+#afficheMatrice(matrice)
+#print(sousTab(matrice,0,0))
  
 # teste si une matrice est un sudoku valide
 def estSudoku(sudo):
     pass
 
 #supprime une valeur dans une liste
-def supprime(liste, v) : 
-    pass
+def supprime(liste, v) :
+    if v in liste :
+        for ind in range(len(liste)-1) :
+            if liste[ind] == v :
+                liste.pop(ind)
+
+#liste = [0,1,2,3,4,5]
+#print(liste)
+#supprime(liste, 3)
+#print(liste)
 
 # retourne les coordonnée du coin supérieur gauche du block auquel
 # appartient la case i,j du sudoku
 def sousTabAutour(sudo, i, j) : 
     pass
+
 # retourne la liste des valeurs encore possibles pour la case i,j du sudoku  
 def listeValPos(sudo, i, j) :
     pass
