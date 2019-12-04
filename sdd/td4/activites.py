@@ -2,7 +2,7 @@
 
 trois_amis = {'Camille' : {'Velo', 'Kayak', 'Boxe'}, 'Dominique' : {'Velo'}, 'Claude' : {'Lecture', 'Tricot', 'Boxe', 'Velo'}}
 
-def activite_facvorite (amis) :
+def activite_favorite (amis) :
     dico_val = {}
     for activites in amis.values() :
         for act in activites :
@@ -11,18 +11,27 @@ def activite_facvorite (amis) :
             else : 
                 dico_val[act] = 1
     max = None
-    for nombre_amis in dico_val.values() :
+    act_fav = ''
+    for act,nombre_amis in dico_val.items() :
         if max is None or nombre_amis > max : 
             max = nombre_amis
-    return dico_val[max]
+            act_fav = act
+    return act_fav
+assert activite_favorite(trois_amis) == 'Velo', 'Erreur'
 
 def activite_de_2_amis (amis, ami1, ami2) :
     activites_des_2_amis = set()
     for nom,activites in amis.items() :
-        if nom == ami1 or nom == ami2 :
+        if nom == ami1 :
             for act in activites :
-                activites_des_2_amis.add(act) #ici on ajoute sans verification car c'est un ensemble et n'ajoutera pas si il y a doublon
+                if act in amis[ami2] :
+                    activites_des_2_amis.add(act) #ici on ajoute sans verification car c'est un ensemble et n'ajoutera pas si il y a doublon
+        if nom == ami2 :
+            for act in activites :
+                if act in amis[ami1] :
+                    activites_des_2_amis.add(act) #ici on ajoute sans verification car c'est un ensemble et n'ajoutera pas si il y a doublon
     return activites_des_2_amis
+assert activite_de_2_amis(trois_amis, 'Camille', 'Claude') == {'Velo', 'Boxe'}, 'Erreur'
 
 def activites_communes (amis, nom_personne) :
     dico = {}

@@ -18,6 +18,7 @@
     </header>
     <h1>Vous êtes ici pour tenter de faire évader la professeur et toute la bande de la fabrique de la monnaie et du timbre </h1>
     <form >
+      <br><p id=p0>Question 1/9</p>
       <p id="p1"> <strong> Voulez vous que le professeur et toute l'équipe s'en sorte saine et sauve ?</strong> <br>
           <input type="radio" name="choix" value="oui" id="ok_pour_jouer" /> <label for="oui">Oui</label><br>
           <input type="radio" name="choix" value="non" id="not_ok_pour_jouer" /> <label for="non">Non</label><br>
@@ -83,12 +84,16 @@
           document.getElementById ("p9").hidden=true;
           document.getElementById ("p10").hidden=false;
       }
-      
+
+      cpt = 1;
+
       function play(){
         if(document.getElementById("ok_pour_jouer").checked){
-          alert("Vous avez fait le bon choix, nous allons pouvoir jouer ensemble !!");
+          //alert("Vous avez fait le bon choix, nous allons pouvoir jouer ensemble !!");
           document.getElementById ("p2").hidden=false;
           document.getElementById ("p1").hidden=true;
+          cpt++;
+          document.getElementById("p0").innerText = "Question " + cpt + "/9"; 
         }
         if(document.getElementById("not_ok_pour_jouer").checked){
           alert("Vous n'avez rien à faire ici");
