@@ -74,122 +74,123 @@
     </form>
     <script>
     function cache(){
-          document.getElementById ("p2").hidden=true;
-          document.getElementById ("p3").hidden=true;
-          document.getElementById ("p4").hidden=true;
-          document.getElementById ("p5").hidden=true;
-          document.getElementById ("p6").hidden=true;
-          document.getElementById ("p7").hidden=true;
-          document.getElementById ("p8").hidden=true;
-          document.getElementById ("p9").hidden=true;
-          document.getElementById ("p10").hidden=false;
+          for(let i = 2; i < 10; i++){
+            document.getElementById ('p'+i).hidden=true;
+          }
       }
 
       cpt = 1;
 
       function play(){
         if(document.getElementById("ok_pour_jouer").checked){
-          //alert("Vous avez fait le bon choix, nous allons pouvoir jouer ensemble !!");
           document.getElementById ("p2").hidden=false;
           document.getElementById ("p1").hidden=true;
           cpt++;
-          document.getElementById("p0").innerText = "Question " + cpt + "/9"; 
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nVous avez fait le bon choix, nous allons pouvoir jouer ensemble !!"; 
         }
         if(document.getElementById("not_ok_pour_jouer").checked){
-          alert("Vous n'avez rien à faire ici");
-          setTimeout(fermerFenetre('jeu.html'), 2000);
+          document.getElementById ("p0").hidden=true;
+          document.getElementById ("p1").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
         }
       }
 
       function entree(){
         if(document.getElementById("entrer_en_livreur_de_papier").checked){
-          alert("Bon choix, jeune fan");
           document.getElementById ("p3").hidden=false;
           document.getElementById ("p2").hidden=true;
+          cpt++;
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nBon choix, jeune fan"; 
         }else{
-          alert("Tu n'es pas un fin connaisseur, merci tout de même de ta participation");
-          setTimeout(fermerFenetre('jeu.html'), 2000);
+          document.getElementById ("p0").hidden=true;
+          document.getElementById ("p2").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
         }
       }
 
       function prof_et_raquel(){
         var rep = document.getElementById("reponseq3").value;
         if(rep.includes("raquel") || rep.includes("Raquel") || rep.includes("Murillo") || rep.includes("murillo")){
-          alert("Petit génie !!! Vite on continue");
           document.getElementById ("p4").hidden=false;
           document.getElementById ("p3").hidden=true;
+          cpt++;
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nPetit génie !!! Vite on continue"; 
         }else{
-          alert("Tu n'es pas un fin connaisseur, merci tout de même de ta participation");
-          setTimeout(fermerFenetre('jeu.html'), 2000);
+          document.getElementById ("p0").hidden=true;
+          document.getElementById ("p3").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
         }
       }
 
       function coup_de_genie(){
         if(document.getElementById("flic_medecin").checked){
-          alert("Bah fallait pas être préssé, allez on continue");
           document.getElementById ("p5").hidden=false;
           document.getElementById ("p4").hidden=true;
+          cpt++;
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nBah fallait pas être préssé, allez on continue"; 
         }else{
-          alert("Tu n'es pas un fin connaisseur, merci tout de même de ta participation");
-          setTimeout(fermerFenetre('jeu.html'), 2000);
+          document.getElementById ("p0").hidden=true;
+          document.getElementById ("p4").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
         }
       }
 
       function salva_is_prof(){
         var rep = document.getElementById("reponseq5").value;
         if ((rep.includes("salva") || rep.includes("Salva")) && (rep.includes("professeur") || rep.includes("Professeur"))){
-          alert("Je te l'accorde elle était facile !!");
           document.getElementById ("p6").hidden=false;
           document.getElementById ("p5").hidden=true;
+          cpt++;
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nJe te l'accorde elle était facile !!"; 
         }else{
-          alert("Tu n'es pas un fin connaisseur, merci tout de même de ta participation");
-          setTimeout(fermerFenetre('jeu.html'), 2000);
+          document.getElementById ("p0").hidden=true;
+          document.getElementById ("p5").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
         }
       }
 
       function gain_de_temps_otages(){
         var rep = document.getElementById("sort_des_otages").selectedIndex;
         if (rep == 1){
-          alert("C'est bien ça, mais c'était pas compliqué");
           document.getElementById ("p7").hidden=false;
           document.getElementById ("p6").hidden=true;
+          cpt++;
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nC'est bien ça, mais c'était pas compliqué"; 
         }else{
-          alert("Tu n'es pas un fin connaisseur, merci tout de même de ta participation");
-          setTimeout(fermerFenetre('jeu.html'), 2000);
+          document.getElementById ("p0").hidden=true;
+          document.getElementById ("p6").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
         }
       }
 
       function empreintes_tolede(){
         if((document.getElementById("empreintes").checked) && (document.getElementById("suicide_raquel").checked == false) && (document.getElementById("entree_prof").checked == false)){
-          alert("Bravo, visiblement cette série te captive");
           document.getElementById ("p8").hidden=false;
           document.getElementById ("p7").hidden=true;
+          cpt++;
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nBravo, visiblement cette série te captive"; 
         }else{
-          alert("Tu n'es pas un fin connaisseur, merci tout de même de ta participation");
-          setTimeout(fermerFenetre('jeu.html'), 2000);
+          document.getElementById ("p0").hidden=true;
+          document.getElementById ("p7").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
         }
       }
 
       function sortie_du_comissariat(){
         var rep = document.getElementById("reponseq3").value;
         if(rep.includes("raquel") || rep.includes("Raquel") || rep.includes("Murillo") || rep.includes("murillo")){
-          alert("C'est dingue, t'es incollable, continuons !!");
           document.getElementById ("p9").hidden=false;
           document.getElementById ("p8").hidden=true;
+          cpt++;
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nC'est dingue, t'es incollable, continuons !!"; 
         }else{
-          alert("Tu n'es pas un fin connaisseur, merci tout de même de ta participation");
-          setTimeout(fermerFenetre('jeu.html'), 2000);
+          document.getElementById ("p0").hidden=true;
+          document.getElementById ("p8").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
         }
       }
 
       function sortie_des_braqueurs(){
         var rep = document.getElementById("sortie_des_braqueur").selectedIndex;
         if (rep == 1){
-          alert("Félicitation, jeune addict !!! merci d'avoir réussi à mener l'enquête !!");
           document.getElementById ("p9").hidden=true;
+          cpt++;
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nFélicitation, jeune addict !!! merci d'avoir réussi à mener l'enquête !!";
         }else{
-          alert("Si proche du but, c'est bien dommage, merci tout de même de ta participation");
-          setTimeout(fermerFenetre('jeu.html'), 2000);
+          document.getElementById ("p0").hidden=true;
+          document.getElementById ("p9").innerText = "Si proche du but, c'est bien dommage, merci tout de même de ta participation";
         }
       }
 
