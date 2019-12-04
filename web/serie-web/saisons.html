@@ -6,15 +6,15 @@
     <title>Les Saisons</title>
     <!--<link rel="stylesheet" href="site.css">-->
   </head>
-  <body>
+  <body  onload="miseEnAttente()">
     <header>
-      <a> <img class="banniere" src="https://lubieenserie.fr/wp-content/uploads/2019/07/la-casa-de-papel-saison-3.jpg" alt="image des acteurs"><br></a>
+      <a> <img class="banniere" src="banniere.jpg" alt="image des acteurs"><br></a>
       <ul id="menu">
         <li><a href="accueil2.html"> Accueil </a></li>
         <li><a href="saisons.html"> Saisons </a></li>
         <li><a href="personnages.html"> Personnages </a></li>
+        <li><a href="bandeannonces.html"> Bandes-Annonces </a></li>
         <li><a href="quizz.html"> Quizz </a></li>
-        <li><a href="http://www.topito.com/top-shopping-cadeau-la-casa-de-papel"> Boutique </a></li>
       </ul>
     </header>
     <section class="saison">
@@ -23,28 +23,44 @@
         <h1>Saison 1</h1>
         <p> Un homme mystérieux, surnommé le Professeur (El Profesor), planifie le meilleur braquage jamais organisé. Pour exécuter son plan, il recrute les meilleurs malfaiteurs du pays qui n'ont rien à perdre : Tokyo, Nairobi, Río, Moscou, Berlin, Denver, Helsinki et Oslo.
         <br>Le but est d'infiltrer la Fabrique nationale de la monnaie et du timbre afin d'imprimer 2,4 milliards d'euros, en moins de onze jours et sans verser une goutte de sang. Pourtant, le groupe sera responsable de 67 otages dont Alison Parker, la fille de l'ambassadeur du Royaume-Uni.</p>
+        <p class="lienba" ><a href="saison1.mp4">Bande-Annonce</a></p>
       </section>
     </section>
     <section class="saison">
       <section class="contenu_saison">
         <h1>Saison 2</h1>
-        <p>Quelques années après le braquage de la Fabrique nationale de la monnaie et du timbre, Rio est capturé et torturé par la police. Pour le libérer, Le professeur reprend le plan d'un braquage organisé par Berlin avant le premier braquage. Le but est d'infiltrer la Banque d'Espagne afin de dérober 9,2 tonnes d'or. En plus d'avoir réuni la bande du premier braquage, de nouveaux personnages intègrent ce deuxième braquage. Palerme, un ami de longue date de Berlin et du professeur, est le nouveau leadeur de la bande. Deux autres braqueurs font leur apparition Bogotá et Marseille.</p></section>
-      <a><img class="imgsaison2" src="https://lubieenserie.fr/wp-content/uploads/2018/05/la-casa-de-papel-saison-2.jpg" alt="photo de la saison 2"></a>
+        <p>Quelques années après le braquage de la Fabrique nationale de la monnaie et du timbre, Rio est capturé et torturé par la police. Pour le libérer, Le professeur reprend le plan d'un braquage organisé par Berlin avant le premier braquage. Le but est d'infiltrer la Banque d'Espagne afin de dérober 9,2 tonnes d'or. En plus d'avoir réuni la bande du premier braquage, de nouveaux personnages intègrent ce deuxième braquage. Palerme, un ami de longue date de Berlin et du professeur, est le nouveau leadeur de la bande. Deux autres braqueurs font leur apparition Bogotá et Marseille.</p>
+        <p class="lienba" ><a href="saison2.mp4">Bande-Annonce</a></p>
+      </section>
+        <a><img class="imgsaison2" src="https://lubieenserie.fr/wp-content/uploads/2018/05/la-casa-de-papel-saison-2.jpg" alt="photo de la saison 2"></a>
     </section>
     <section class="saison">
       <a><img class="imgsaison3" src="https://d1fmx1rbmqrxrr.cloudfront.net/cnet/i/edit/2019/08/casa-de-papel-big.jpg" alt="photo de la saison 3"></a>
       <section class="contenu_saison3">
         <h1>Saison 3</h1>
         <p>Après avoir pris la fuite avec un milliard d’euros provenant de la Fabrique Nationale de la Monnaie et du Timbre, le Professeur reçoit un appel : l’un des membres de la bande a été capturé. Le seul moyen de lui venir en aide tout en protégeant la location secrète des autres est de tous les réunir pour réaliser un nouveau braquage, le plus grand casse jamais imaginé.</p>
+        <p class="lienba" ><a href="saison3.mp4">Bande-Annonce</a></p>
       </section>
     </section>
     <section class="saison">
       <section class="contenu_saison4">
         <h1>Saison 4</h1>
         <p>La Saison 4 sera diffusé au mois de janvier 2020. <br>Nous n'avons, à cette heure, pas plus de détails à vous fournir à propos de cette dernière !!</p>
+        <p class="lienba" ><a href="saison4.mp4">Bande-Annonce</a></p>
       </section>
       <a><img class="imgsaison4" src="saison4.jpg" alt="photo de la saison 4"></a>
     </section>
+    <script>
+      function miseEnAttente(){
+       //Traitement
+       setTimeout(fonctionAExecuter, 5000); //On attend 5 secondes avant d'exécuter la fonction
+      }
+      function fonctionAExecuter(){
+       if (confirm("Voulez vous jouer avec le professeur ??")){
+         window.open('jeu.html');
+       }
+      }
+      </script>
     <footer>
       <ul id="footer">
         <li><a href="https://www.facebook.com/lacasadepapelnetflix/"> <img class="logo" src="https://hola-clothes.com/themes/theme1289/img/icon/logo_fb.png" alt="logo fb"></a></li>
