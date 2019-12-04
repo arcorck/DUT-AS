@@ -142,8 +142,8 @@ setVal(matrice,5, 8, 7)
 # les valeurs de ce bloc sont retournés sous la forme d'une liste
 def sousTab(mat, i, j, cote=3) :  
     sous_tab = []
-    for indice_ligne in range(i, cote, 1) :
-        for indice_colonne in range(j, cote, 1) :
+    for indice_ligne in range(i, i+cote, 1) :
+        for indice_colonne in range(j, j+cote, 1) :
             sous_tab.append(getVal(mat, indice_ligne, indice_colonne))
     return sous_tab
 setVal(matrice,0, 0, 0)
@@ -156,11 +156,22 @@ setVal(matrice,2, 0, 6)
 setVal(matrice,2, 1, 7)
 setVal(matrice,2, 2, 8)
 #afficheMatrice(matrice)
-#print(sousTab(matrice,0,0))
+#print(sousTab(matrice,6,6))
  
 # teste si une matrice est un sudoku valide
 def estSudoku(sudo):
-    pass
+    res = True
+    if not tailleOk(sudo) :
+        res = False
+    else :
+        for indice in range(getNbColonnes(sudo)):
+            if not bonnesValeursListe(getColonne(sudo, indice)) :
+                res = False
+    return res
+#afficheMatrice(matrice)
+#print(estSudoku(matrice))
+setVal(matrice,2, 2, 845)
+#print(estSudoku(matrice))
 
 #supprime une valeur dans une liste
 def supprime(liste, v) :
@@ -177,21 +188,61 @@ def supprime(liste, v) :
 # retourne les coordonnée du coin supérieur gauche du block auquel
 # appartient la case i,j du sudoku
 def sousTabAutour(sudo, i, j) : 
-    pass
+    return (i-i%3),(j-j%3)
+#print(sousTabAutour(matrice, 2,8))
+#print(sousTabAutour(matrice, 0, 0))
+#print(sousTabAutour(matrice, 2,2))
+#print(sousTabAutour(matrice, 7,5))
 
 # retourne la liste des valeurs encore possibles pour la case i,j du sudoku  
 def listeValPos(sudo, i, j) :
-    pass
+    liste = []
+    ligne = getLigne(sudo, i)
+    colonne = getColonne(sudo, j)
+    coordonnes_carre = sousTabAutour(sudo,i,j)
+    carre = sousTab(sudo,coordonnes_carre[0], coordonnes_carre[1])
+    for indice in range(len(ligne)) :
+        if indice not in ligne and indice not in colonne and indice not in carre : 
+            liste.append(indice)
+    return liste
+#afficheMatrice(matrice)
+#print(listeValPos(matrice, 7, 6))
+#print(listeValPos(matrice, 1, 4))
+#print(listeValPos(matrice, 4, 1))
 
 # indique si un sudo est bloqué
 # c'est à dire qu'une case non remplie n'a plus de possiblité 
 def estBloque(sudo) :
-    pass
+    res = False
+    for indice_ligne in range(getNbLignes(matrice)) :
+        for indice_colonne in range(getNbColonnes(matrice)):
+            if getVal(sudo, indice_ligne, indice_colonne) is None :
+                if listeValPos(sudo, indice_ligne, indice_colonne) == [] :
+                    res = True
+    return res
+setVal(matrice,6, 6, 1)
+setVal(matrice,7, 6, 4)
+setVal(matrice,8, 6, 6)
+setVal(matrice,6, 8, 5)
+setVal(matrice,7, 8, 8)
+afficheMatrice(matrice)
+#print(listeValPos(matrice, 8,8))
+#print(estBloque(matrice))
+
+
 
 # retourne une liste de couple indiquant les coordonnées des cases du sudoku
 # pour lesquelles il ne reste qu'une valeur possible
 def listeCaseUneValeur(sudo) : 
-    pass
+    res = []
+    for indice_ligne in range(getNbLignes(matrice)) :
+        for indice_colonne in range(getNbColonnes(matrice)):
+            if getVal(sudo, indice_ligne, indice_colonne) is None :
+                if len(listeValPos(sudo, indice_ligne, indice_colonne)) == 1 :
+                    res.append((indice_ligne,indice_colonne))
+    return res
+print(listeCaseUneValeur(matrice))
+
 
 # programme de test du sudoku
 # charge un sudoku, appelle les différentes fonctions et affiche le resultat obtenu
