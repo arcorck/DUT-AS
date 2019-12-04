@@ -225,7 +225,7 @@ setVal(matrice,7, 6, 4)
 setVal(matrice,8, 6, 6)
 setVal(matrice,6, 8, 5)
 setVal(matrice,7, 8, 8)
-afficheMatrice(matrice)
+#afficheMatrice(matrice)
 #print(listeValPos(matrice, 8,8))
 #print(estBloque(matrice))
 
@@ -241,7 +241,7 @@ def listeCaseUneValeur(sudo) :
                 if len(listeValPos(sudo, indice_ligne, indice_colonne)) == 1 :
                     res.append((indice_ligne,indice_colonne))
     return res
-print(listeCaseUneValeur(matrice))
+#print(listeCaseUneValeur(matrice))
 
 
 # programme de test du sudoku
@@ -262,4 +262,5 @@ def testSudoku(nomFic):
     print('-'*20)
     
 # exemple d'appel
-#testSudoku('sudoku2.txt')
+afficheMatrice(matrice)
+testSudoku('sudoku12.txt')
