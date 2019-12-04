@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="quizz.css">
     <title>Le Quizz</title>
-    <!--<link rel="stylesheet" href="site.css">-->
   </head>
   <body>
     <header>
@@ -13,8 +12,8 @@
         <li><a href="accueil2.html"> Accueil </a></li>
         <li><a href="saisons.html"> Saisons </a></li>
         <li><a href="personnages.html"> Personnages </a></li>
+        <li><a href="bandeannonces.html"> Bandes-Annonces </a></li>
         <li><a href="quizz.html"> Quizz </a></li>
-        <li><a href="http://www.topito.com/top-shopping-cadeau-la-casa-de-papel"> Boutique </a></li>
       </ul>
     </header>
     <h1>Petit quizz sur la série</h1>
@@ -82,6 +81,7 @@
             <p id="psedo"><label>Votre pseudo</label> : <input type="text" id="pseudo" placeholder="Ex : Playjay210" required /></p>
             <p id="passwrd"><label>Votre mot de passe</label> : <input type="password" id="password" required /></p>
             <p id="connect"> <input type="button" value="Se Connecter" onclick="verif_mdp()"/> </p>
+            <p><a href="mdpoublie.html">Cliquez ici si vous avez oublie votre mot de passe</a></p>
           </fieldset>
         </form>
       </aside>
@@ -93,21 +93,21 @@
         <li><a href="https://twitter.com/LaCasaDePapelTV?ref_src=twsrc%5Eappleosx%7Ctwcamp%5Esafari%7Ctwgr%5Eprofile"> <img class="logo" src="http://www.etourisme.info/wp-content/uploads/2014/10/03830640-photo-logo-twitter-bleu-sur-blanc.png" alt="logo twitter"></a></li>
         <li><a href="https://www.instagram.com/lacasadepapel/"> <img class="logo" src="https://www.makrea.com/img_pngs/RS07.png" alt="logo insta"></a></li>
         <li><a href="mailto:bazire.fabrice@gmail.com"> <img class="logo" src="http://www.asr-tarbes.fr/wp-content/uploads/2017/03/icone-mail-bleu-fonce.png" alt="logo mail"></a></li>
-        <li><a href="saisons.html"> <img class="logo" src="http://vsjnatation.fr/gifs/haut-de-page.gif" alt="logo haut de page"></a></li>
+        <li><a href="quizz.html"> <img class="logo" src="http://vsjnatation.fr/gifs/haut-de-page.gif" alt="logo haut de page"></a></li>
       </ul>
     </footer>
     <script>
 
       function verif_mdp(){
         var pseudonyme = document.getElementById("pseudo").value;
-        if (pseudonyme != "fabrice" ){
-          alert("Le pseudo, n'est pas bon (indice = le pseudo est : fabrice)");
+        if (pseudonyme != "martin" && pseudonyme != "arnaud" && pseudonyme != "nicolas"){
+          alert("Le pseudo, n'est pas bon (indice = prenom d'un sacre abruti)");
         }
         var mdp = document.getElementById("password").value;
         if (mdp != "fabrice"){
-          alert("Tu t'es trompé de mot de passe (indice : le mot de passe est : fabrice)");
+          alert("Tu t'es trompé de mot de passe (indice : prenom de la plus belle personne que tu conaisse)");
         }
-        if (mdp == "fabrice" && pseudonyme == "fabrice"){
+        if (mdp == "fabrice" && (pseudonyme == "martin" || pseudonyme == "arnaud" || pseudonyme == "nicolas")){
           alert("T'es le meilleur, t'as réussi à te connecter");
           document.location.href="quizz.html";
         }
@@ -127,7 +127,7 @@
       }
       return( nb_cases_cochees) ;
     }
-  
+
   function alert_si_pas_bon_nombre_de_cases_cochees (){
       nb_cases_cochees = countCheckedCheckboxes();
       if (nb_cases_cochees != 3){

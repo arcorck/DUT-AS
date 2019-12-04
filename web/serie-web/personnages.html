@@ -4,17 +4,16 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="personnages.css">
     <title>Les Personnages</title>
-    <!--<link rel="stylesheet" href="site.css">-->
   </head>
-  <body>
+  <body onload="miseEnAttente()">
     <header>
-      <a> <img class="banniere" src="https://lubieenserie.fr/wp-content/uploads/2019/07/la-casa-de-papel-saison-3.jpg" alt="image des acteurs"><br></a>
+      <a> <img class="banniere" src="banniere.jpg" alt="image des acteurs"><br></a>
       <ul id="menu">
         <li><a href="accueil2.html"> Accueil </a></li>
         <li><a href="saisons.html"> Saisons </a></li>
         <li><a href="personnages.html"> Personnages </a></li>
+        <li><a href="bandeannonces.html"> Bandes-Annonces </a></li>
         <li><a href="quizz.html"> Quizz </a></li>
-        <li><a href="http://www.topito.com/top-shopping-cadeau-la-casa-de-papel"> Boutique </a></li>
       </ul>
     </header>
     <section class="sectprof">
@@ -42,6 +41,17 @@
       <h1>Rio</h1>
       <p>Rio est le hacker du groupe, il programme les ordinateurs et gère les explosifs ainsi que leur placement stratégique. Il se met rapidement en couple avec Tokyo et leur relation complique rapidement le bon fonctionnement du braquage. C’est le personnage le plus faible et rêveur du groupe. Contrairement aux autres, il a beaucoup à perdre étant donné qu’il a gardé contact avec sa famille. Malgré tout, il veut prouver avec ce cambriolage de quoi il est capable.</p>
     </section>
+    <script>
+      function miseEnAttente(){
+       //Traitement
+       setTimeout(fonctionAExecuter, 5000); //On attend 5 secondes avant d'exécuter la fonction
+      }
+      function fonctionAExecuter(){
+       if (confirm("Voulez vous jouer avec le professeur ??")){
+         window.open('jeu.html');
+       }
+      }
+      </script>
     <footer>
       <ul id="footer">
         <li><a href="https://www.facebook.com/lacasadepapelnetflix/"> <img class="logo" src="https://hola-clothes.com/themes/theme1289/img/icon/logo_fb.png" alt="logo fb"></a></li>
