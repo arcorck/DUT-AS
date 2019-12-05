@@ -6,16 +6,16 @@ body{
 
 #us{
   position: absolute;
-  width : 250px;
-  height : 100px;
+  width : 15%;
+  height : 12%;
 }
 
 #french{
   position: absolute;
-  width : 250px;
-  height : 100px;
+  width : 15%;
+  height : 12%;
 }
 
 #a_french{
-  padding-left: 1410px;
+  padding-left: 85%;
 }
