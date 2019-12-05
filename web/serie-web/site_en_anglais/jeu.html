@@ -1,72 +1,72 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="jeu.css">
-    <title>Tentez de réussir l'évasion</title>
+    <title>Game</title>
   </head>
   <body onload="cache()">
     <header>
       <a> <img class="banniere" src="../banniere.jpg" alt="image des acteurs"><br></a>
       <ul id="menu">
-        <li><a href="accueil2.html"> Accueil </a></li>
-        <li><a href="saisons.html"> Saisons </a></li>
-        <li><a href="personnages.html"> Personnages </a></li>
-        <li><a href="bandeannonces.html"> Bandes-Annonces </a></li>
+        <li><a href="accueil2.html"> Home </a></li>
+        <li><a href="saisons.html"> Seasons </a></li>
+        <li><a href="personnages.html"> Characters </a></li>
+        <li><a href="bandeannonces.html"> Trailers </a></li>
         <li><a href="quizz.html"> Quizz </a></li>
       </ul>
     </header>
-    <h1>Vous êtes ici pour tenter de faire évader la professeur et toute la bande de la fabrique de la monnaie et du timbre </h1>
+    <h1>You are here to try to escape the teacher and the whole band of the money and stamp factory </h1>
     <form >
       <br><p id=p0>Question 1/9</p>
-      <p id="p1"> <strong> Voulez vous que le professeur et toute l'équipe s'en sorte saine et sauve ?</strong> <br>
-          <input type="radio" name="choix" value="oui" id="ok_pour_jouer" /> <label for="oui">Oui</label><br>
-          <input type="radio" name="choix" value="non" id="not_ok_pour_jouer" /> <label for="non">Non</label><br>
+      <p id="p1"> <strong> Do you want the teacher and the whole team to be safe and sound ?</strong> <br>
+          <input type="radio" name="choix" value="oui" id="ok_pour_jouer" /> <label for="oui">Yes</label><br>
+          <input type="radio" name="choix" value="non" id="not_ok_pour_jouer" /> <label for="non">No</label><br>
           <input type="button" onclick="play()" value="Soummetre la réponse">
       </p>
-      <p id="p2"> <strong>Comment les braqueurs entrent-ils dans la fabrique de la monnaie et du timbre ?</strong><br>
-        <input type="radio" name="choix" value="oui" id="entrer_en_tirant" /> <label for="oui">Ils entrent dans la fabrique en tirant dans le tas</label><br>
-        <input type="radio" name="choix" value="non" id="entrer_en_livreur_de_papier" /> <label for="non">Ils entrent dans la fabrique déguisés en livreur de papier</label><br>
-        <input type="radio" name="choix" value="non" id="entrer_grace_a_un_complice" /> <label for="non">Ils entrent grâce à un complice qui travaille à la fabrique de la monnaie et du timbre</label><br>
+      <p id="p2"> <strong>How do robbers enter in the currency and stamp factory ?</strong><br>
+        <input type="radio" name="choix" value="oui" id="entrer_en_tirant" /> <label for="oui">They enter in the factory pulling in the pile</label><br>
+        <input type="radio" name="choix" value="non" id="entrer_en_livreur_de_papier" /> <label for="non">They enter in the factory disguised as paper delivery</label><br>
+        <input type="radio" name="choix" value="non" id="entrer_grace_a_un_complice" /> <label for="non">They enter thanks to an accomplice who works in the money and stamp factory</label><br>
         <input type="button" onclick="entree()" value="Soummetre la réponse">
       </p>
-      <p id="p3"><strong>Dès le début, juste après l'entrée des braqueurs dans la fabrique, quelle est l'ingénieuse idée du professeur pour avoir un coup d'avance sur les enqueteurs ?</strong><br>
-        <label>Réponse</label> : <input type="text" id="reponseq3" required />
+      <p id="p3"><strong>From the beginning, right after the entry of the robbers in the factory, what is the ingenious idea of the professor to have a head start on the investigators ?</strong><br>
+        <label>Answer</label> : <input type="text" id="reponseq3" required />
         <input type="button" value="Valider" onclick="prof_et_raquel()"/> 
       </p>
-      <p id="p4"><strong>Quel est le "coup de génie" que les policiers croient mettre en place ?? </strong><br>
-        <input type="radio" name="choix" value="oui" id="flic_medecin" /> <label for="oui">Ils font passer un des leurs pour un medecin et le font entrer dans la fabrique lorsque les braqueurs ont besoin de secours </label><br>
-        <input type="radio" name="choix" value="non" id="explosif" /> <label for="non">Ils posent un explosif sur une porte cachée de la fabrique pour entrer par surprise et ainsi surprendre le professeur et les braqueurs</label><br>
-        <input type="radio" name="choix" value="non" id="coup_de_bluff" /> <label for="non">Ils tentent un gros coup de bluff en appelant le professeur et en lui promettant que s'il se rend maintenant, lui et tout les braqueurs ne seront pas inquiétés par la justice</label><br>
+      <p id="p4"><strong>What is the "stroke of genius" that police believe put in place ??</strong><br>
+        <input type="radio" name="choix" value="oui" id="flic_medecin" /> <label for="oui">They pass one of theirs for a doctor and bring him into the factory when the robbers need help </label><br>
+        <input type="radio" name="choix" value="non" id="explosif" /> <label for="non">They pose an explosive on a hidden door of the factory to enter by surprise and so surprise the professor and the robbers</label><br>
+        <input type="radio" name="choix" value="non" id="coup_de_bluff" /> <label for="non">They try a big bluff by calling the professor and promising him that if he surrenders now, he and all the robbers will not be worried by justice</label><br>
         <input type="button" onclick="coup_de_genie()" value="Soummetre la réponse">
       </p>
-      <p id="p5"><strong>Qu'avait découvert Angel (le collègue de Raquel), le jour où il a eu son accident ?</strong><br>
-        <label>Réponse</label> : <input type="text" id="reponseq5" required />
+      <p id="p5"><strong>What had Angel (Raquel's colleague) discovered on the day he had his accident?</strong><br>
+        <label>Answer</label> : <input type="text" id="reponseq5" required />
         <input type="button" value="Valider" onclick="salva_is_prof()"/> 
       </p>
-      <p id="p6"> <strong>Pour gagner du temps avec les otages qui commencent à s'impatienter, les braqueurs mettent une idée à exécution, quelle est-elle ?</strong><br>
+      <p id="p6"> <strong>To win time with the hostages who start to get impatient, the robbers put an idea into action, what is it?</strong><br>
         <select name="sort_des_otages" id="sort_des_otages">
-          <option value="tuerie" id="tuerie">Ils les montent les uns contre les autre pour qu'ils finissent par s'entretuer</option>
-          <option value="freedom_or_money" id="freedom_or_money">Ils leur proposent de leur donner de l'argent s'ils restent ou alors de partir (c'est une ruse, tu te doute bien)</option>
-          <option value="famille" id="famille">Ils les menaçent de s'en prendre à leur famille, s'ils ne coopèrent pas</option>
+          <option value="tuerie" id="tuerie">They ride them against each other so that they eventually kill each other</option>
+          <option value="freedom_or_money" id="freedom_or_money">They offer to give them money if they stay or leave (it's a trick, you doubt it)</option>
+          <option value="famille" id="famille">They threaten to attack their families, if they do not cooperate</option>
         </select><br>
         <input type="button" value="Valider" onclick="gain_de_temps_otages()"/> 
       </p>
-      <p id="p7"> <strong>Que se passe t-il au tout début de la saison 2 ?</strong><br>
-        <input type="checkbox" name="empreintes" id="empreintes" /> <label for="empreintes">Les enqueteurs relèvent des empreintes dans la planque de Tolède ou toute l'équipe a préparer le braquage</label><br />
-        <input type="checkbox" name="suicide_raquel" id="suicide_raquel" /> <label for="suicide_raquel">Raquel Murillo se suicide car elle n'arrive plus à gérer toute la pression que l'enquête lui apporte</label><br />
-        <input type="checkbox" name="entree_prof" id="entree_prof" /> <label for="entree_prof"> Le professeur entre dans la fabrique de la monnaie et du timbre pour aider les braqueurs à s'échapper</label><br />
+      <p id="p7"> <strong>What is happening at the very beginning of season 2 ?</strong><br>
+        <input type="checkbox" name="empreintes" id="empreintes" /> <label for="empreintes">The investigators take fingerprints in the safe house of Tolède or the entire team to prepare the robbery</label><br />
+        <input type="checkbox" name="suicide_raquel" id="suicide_raquel" /> <label for="suicide_raquel">Raquel Murillo commits suicide because she can no longer handle all the pressure that the investigation brings her</label><br />
+        <input type="checkbox" name="entree_prof" id="entree_prof" /> <label for="entree_prof"> The teacher enters the coin and stamp factory to help the robbers escape</label><br />
         <input type="button" value="Valider" onclick="empreintes_tolede()"/> 
       </p>
-      <p id="p8"> <strong>Comment le Professeur réussi t-il à s'échapper du commissariat ?</strong><br>
-        <label>Réponse</label> : <input type="text" id="reponseq8" required />
+      <p id="p8"> <strong>How does the Professor manage to escape from the police station?</strong><br>
+        <label>Answer</label> : <input type="text" id="reponseq8" required />
         <input type="button" value="Valider" onclick="sortie_du_comissariat()"/> 
       </p>
-      <p id="p9"> <strong>Comment les braqueurs reussisent-ils à s'échapper de la fabrique de la monaie et du timbre ?</strong><br>
+      <p id="p9"> <strong>How do the robbers manage to escape from the factory of the monaie and the stamp?</strong><br>
         <select name="sortie_des_braqueur" id="sortie_des_braqueur">
-          <option value="tunel_otages" id="tunel_otages">Ils s'échappent par le tunel qu'ils ont fait creuser aux otages</option>
-          <option value="tunel" id="tunel">Ils s'échappent par le tunel que les braqueurs ont creusés et qui mène directement à la planque du professeur</option>
-          <option value="helico" id="helico">Ils s'échappent en montant dans un hélicoptère qui vient les chercher sur le toit de la fabrique de la monnaie et du timbre</option>
+          <option value="tunel_otages" id="tunel_otages">They escape through the tunel they had digged to the hostages</option>
+          <option value="tunel" id="tunel">They escape through the tunel that the robbers have dug and which leads directly to the teacher's hideout</option>
+          <option value="helico" id="helico">They escape by climbing into a helicopter that picks them up on the roof of the currency and stamp factory</option>
         </select><br>
         <input type="button" value="Valider" onclick="sortie_des_braqueurs()"/> 
       </p>
@@ -86,11 +86,11 @@
           document.getElementById ("p2").hidden=false;
           document.getElementById ("p1").hidden=true;
           cpt++;
-          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nVous avez fait le bon choix, nous allons pouvoir jouer ensemble !!"; 
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nYou made the right choice, we will be able to play together !!"; 
         }
         if(document.getElementById("not_ok_pour_jouer").checked){
           document.getElementById ("p0").hidden=true;
-          document.getElementById ("p1").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
+          document.getElementById ("p1").innerText = "You're not a connoisseur, thank you for your participation";
         }
       }
 
@@ -99,10 +99,10 @@
           document.getElementById ("p3").hidden=false;
           document.getElementById ("p2").hidden=true;
           cpt++;
-          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nBon choix, jeune fan"; 
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nGood choice, young fan"; 
         }else{
           document.getElementById ("p0").hidden=true;
-          document.getElementById ("p2").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
+          document.getElementById ("p2").innerText = "You're not a connoisseur, thank you for your participation";
         }
       }
 
@@ -112,10 +112,10 @@
           document.getElementById ("p4").hidden=false;
           document.getElementById ("p3").hidden=true;
           cpt++;
-          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nPetit génie !!! Vite on continue"; 
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nLittle genius !!! Quickly continue"; 
         }else{
           document.getElementById ("p0").hidden=true;
-          document.getElementById ("p3").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
+          document.getElementById ("p3").innerText = "You're not a connoisseur, thank you for your participation";
         }
       }
 
@@ -124,10 +124,10 @@
           document.getElementById ("p5").hidden=false;
           document.getElementById ("p4").hidden=true;
           cpt++;
-          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nBah fallait pas être préssé, allez on continue"; 
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nIt was not necessary to be press,go on continue"; 
         }else{
           document.getElementById ("p0").hidden=true;
-          document.getElementById ("p4").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
+          document.getElementById ("p4").innerText = "You're not a connoisseur, thank you for your participation";
         }
       }
 
@@ -137,10 +137,10 @@
           document.getElementById ("p6").hidden=false;
           document.getElementById ("p5").hidden=true;
           cpt++;
-          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nJe te l'accorde elle était facile !!"; 
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nI grant you, it was easy !!"; 
         }else{
           document.getElementById ("p0").hidden=true;
-          document.getElementById ("p5").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
+          document.getElementById ("p5").innerText = "You're not a connoisseur, thank you for your participation";
         }
       }
 
@@ -150,10 +150,10 @@
           document.getElementById ("p7").hidden=false;
           document.getElementById ("p6").hidden=true;
           cpt++;
-          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nC'est bien ça, mais c'était pas compliqué"; 
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nthat's it, but it was not complicated"; 
         }else{
           document.getElementById ("p0").hidden=true;
-          document.getElementById ("p6").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
+          document.getElementById ("p6").innerText = "You're not a connoisseur, thank you for your participation";
         }
       }
 
@@ -162,10 +162,10 @@
           document.getElementById ("p8").hidden=false;
           document.getElementById ("p7").hidden=true;
           cpt++;
-          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nBravo, visiblement cette série te captive"; 
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nBravo, obviously this captive series"; 
         }else{
           document.getElementById ("p0").hidden=true;
-          document.getElementById ("p7").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
+          document.getElementById ("p7").innerText = "You're not a connoisseur, thank you for your participation";
         }
       }
 
@@ -175,10 +175,10 @@
           document.getElementById ("p9").hidden=false;
           document.getElementById ("p8").hidden=true;
           cpt++;
-          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nC'est dingue, t'es incollable, continuons !!"; 
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nIt's crazy, you're unbeatable, continue!"; 
         }else{
           document.getElementById ("p0").hidden=true;
-          document.getElementById ("p8").innerText = "Tu n'es pas un fin connaisseur, merci tout de même de ta participation";
+          document.getElementById ("p8").innerText = "You're not a connoisseur, thank you for your participation";
         }
       }
 
@@ -187,10 +187,10 @@
         if (rep == 1){
           document.getElementById ("p9").hidden=true;
           cpt++;
-          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nFélicitation, jeune addict !!! merci d'avoir réussi à mener l'enquête !!";
+          document.getElementById("p0").innerText = "Question " + cpt + "/9\n\nCongratulations, young addict !!! thank you for successfully conducting the survey !!";
         }else{
           document.getElementById ("p0").hidden=true;
-          document.getElementById ("p9").innerText = "Si proche du but, c'est bien dommage, merci tout de même de ta participation";
+          document.getElementById ("p9").innerText = "So close to the goal, it's a shame, thank you all the same for your participation";
         }
       }
 
