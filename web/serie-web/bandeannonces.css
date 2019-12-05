@@ -42,9 +42,8 @@ header img{
   height : 450px;
 }
 
-div{
-  display: flex;
-  flex-wrap: wrap;
+video{
+  vertical-align: middle;
 }
 
 p{

@@ -27,7 +27,7 @@
   color: white;
 }
 
-section{
+section, video{
   text-align: center;
 }
 .logo{
@@ -42,14 +42,8 @@ header img{
   height : 450px;
 }
 
-div{
-  display: flex;
-  flex-wrap: nowrap;
-}
-
 video{
-  padding-left: 10px;
-  padding-right: 10px;
+  vertical-align: middle;
 }
 
 p{
