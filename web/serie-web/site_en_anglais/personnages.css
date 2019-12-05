@@ -1,0 +1,48 @@
+#menu, #footer{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#menu{
+  background-color: #EC1E29;
+}
+
+#menu li:hover{
+  background-color: #8D0004;
+}
+
+#footer li:hover{
+  background-color: #EDEDED;
+}
+
+#menu li, #footer li{
+  flex-grow: 1;
+  list-style: none; /*enleve points des listes*/
+  padding-top: 2em;
+  padding-bottom: 2em;
+  text-align: center;
+}
+#menu a{
+  text-decoration: none;
+  color: white;
+}
+
+section{
+  text-align: center;
+}
+
+section p {
+  margin-bottom: 5%;
+}
+
+.logo{
+  width:3em;
+  height:3em;
+}
+header img{
+  width : 100%;
+}
+
+.banniere{
+  height : 450px;
+}

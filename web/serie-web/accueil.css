@@ -4,8 +4,18 @@ body{
   background-repeat: no-repeat;
 }
 
-.acces{
+#us{
   position: absolute;
-  width : 20%;
-  padding-left: 75%;
+  width : 250px;
+  height : 100px;
+}
+
+#french{
+  position: absolute;
+  width : 250px;
+  height : 100px;
+}
+
+#a_french{
+  padding-left: 1015px;
 }

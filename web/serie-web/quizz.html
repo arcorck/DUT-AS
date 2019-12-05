@@ -62,7 +62,7 @@
            </select>
          </p>
          <p>
-           <label for="saison">Quel a été votre saison préféré ?</label><br />
+           <label for="saison">Quelle a été votre saison préférée ?</label><br />
            <select name="saison" id="saison">
              <option value="s1">Saison 1</option>
              <option value="s2">Saison 2</option>
@@ -101,11 +101,11 @@
       function verif_mdp(){
         var pseudonyme = document.getElementById("pseudo").value;
         if (pseudonyme != "martin" && pseudonyme != "arnaud" && pseudonyme != "nicolas"){
-          alert("Le pseudo, n'est pas bon (indice = prenom d'un sacre abruti)");
+          alert("Le pseudo, n'est pas bon (indice = prenom d'un de tes amis)");
         }
         var mdp = document.getElementById("password").value;
         if (mdp != "fabrice"){
-          alert("Tu t'es trompé de mot de passe (indice : prenom de la plus belle personne que tu conaisse)");
+          alert("Tu t'es trompé de mot de passe (indice :  prenom de ton meilleur ami)");
         }
         if (mdp == "fabrice" && (pseudonyme == "martin" || pseudonyme == "arnaud" || pseudonyme == "nicolas")){
           alert("T'es le meilleur, t'as réussi à te connecter");

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="quizz.css">
+    <title>Quizz</title>
+  </head>
+  <body>
+    <header>
+      <a> <img class="banniere" src="https://lubieenserie.fr/wp-content/uploads/2019/07/la-casa-de-papel-saison-3.jpg" alt="image des acteurs"><br></a>
+      <ul id="menu">
+        <li><a href="accueil2.html"> Home </a></li>
+        <li><a href="saisons.html"> Seasons </a></li>
+        <li><a href="personnages.html"> Characters </a></li>
+        <li><a href="bandeannonces.html"> Trailers </a></li>
+        <li><a href="quizz.html"> Quizz </a></li>
+      </ul>
+    </header>
+    <h1>Small quiz on the series</h1>
+    <section>
+      <form class="main_form" method="post">
+         <p>
+          How did you know the series  :<br />
+           <input type="radio" name="type_de_decouverte" value="tv" id="tv" /> <label for="tv">Television</label><br />
+           <input type="radio" name="type_de_decouverte" value="radio" id="radio" /> <label for="radio">Radio</label><br />
+           <input type="radio" name="type_de_decouverte" value="reseaux sociaux" id="reseaux sociaux" /> <label for="reseaux sociaux">Social Networks</label><br />
+           <input type="radio" name="type_de_decouverte" value="connaissance" id="connaissance" /> <label for="connaissance">Some friends advised me the series</label>
+         </p>
+         <p><label>When did you start watching the series ? : <input type="date" /></p>
+         <p> Check your 3 favorite characters in the series :<br />
+           <input type="checkbox" name="prof" id="prof" /> <label for="prof">The Teacher</label><br />
+           <input type="checkbox" name="Lisbonne" id="Lisbonne" /> <label for="Lisbonne">Lisbonne</label><br />
+           <input type="checkbox" name="Berlin" id="Berlin" /> <label for="Berlin">Berlin</label><br />
+           <input type="checkbox" name="Tokyo" id="Tokyo" /> <label for="Tokyo">Tokyo</label><br />
+           <input type="checkbox" name="Rio" id="Rio" /> <label for="Rio">Rio</label><br />
+           <input type="checkbox" name="Moscou" id="Moscou" /> <label for="Moscou">Moscou</label><br />
+           <input type="checkbox" name="Nairobi" id="Nairobi" /> <label for="Nairobi">Nairobi</label><br />
+           <input type="checkbox" name="Denver" id="Denver" /> <label for="Denver">Denver</label><br />
+           <input type="checkbox" name="Helsinki" id="Helsinki" /> <label for="Helsinki">Helsinki</label><br />
+           <input type="checkbox" name="Oslo" id="Oslo" /> <label for="Oslo">Oslo</label><br />
+           <input type="checkbox" name="Stockholm" id="Stockholm" /> <label for="Stockholm">Stockholm</label><br />
+           <input type="checkbox" name="Palerme" id="Palerme" /> <label for="Palerme">Palerme</label><br />
+           <input type="checkbox" name="Arturo" id="Arturo" /> <label for="Arturo">Arturo Roman</label><br />
+         </p>
+         <p> A bit of general knowledge : <br><br>
+           <label for="pays">From which country is Stockholm the capital ?</label><br />
+           <select name="pays" id="pays">
+             <optgroup label="Europe">
+               <option value="france">France</option>
+               <option value="espagne">Spain</option>
+               <option value="italie">Italy</option>
+               <option value="royaume-uni">Sweden</option>
+             </optgroup>
+             <optgroup label="Amérique">
+               <option value="canada">Canada</option>
+               <option value="etats-unis">Unites States of America</option>
+             </optgroup>
+             <optgroup label="Asie">
+               <option value="chine">China</option>
+               <option value="japon">Japan</option>
+             </optgroup>
+           </select>
+         </p>
+         <p>
+           <label for="saison">What was your favorite season ?</label><br />
+           <select name="saison" id="saison">
+             <option value="s1">Season 1</option>
+             <option value="s2">Season 2</option>
+             <option value="s3">Season 3</option>
+           </select>
+         </p>
+         <p id="upgrade"> <label for="ameliorer"> Finally how do you think I can improve my site ?</label> <br />
+          <textarea name="ameliorer" id="ameliorer" rows="10" cols="50"> </textarea>
+        </p>
+        <p id="save"> <input type="button" value="Send" onclick="alert_si_pas_bon_nombre_de_cases_cochees()" /> </p>
+      </form>
+      <aside class="aside">
+        <form class="connexion" action="index.html" method="post">
+          <fieldset>
+            <legend><h3>Connection to the site</h3></legend>
+            <p id="psedo"><label>Your username</label> : <input type="text" id="pseudo" placeholder="Ex : Playjay210" required /></p>
+            <p id="passwrd"><label>Your password</label> : <input type="password" id="password" required /></p>
+            <p id="connect"> <input type="button" value="Se Connecter" onclick="verif_mdp()"/> </p>
+            <p><a href="mdpoublie.html">Click here if you forgot your password</a></p>
+          </fieldset>
+        </form>
+      </aside>
+    </section>
+    <h2>Thank you for your participation !! </h2>
+    <footer>
+      <ul id="footer">
+        <li><a href="https://www.facebook.com/lacasadepapelnetflix/"> <img class="logo" src="https://hola-clothes.com/themes/theme1289/img/icon/logo_fb.png" alt="logo fb"></a></li>
+        <li><a href="https://twitter.com/LaCasaDePapelTV?ref_src=twsrc%5Eappleosx%7Ctwcamp%5Esafari%7Ctwgr%5Eprofile"> <img class="logo" src="http://www.etourisme.info/wp-content/uploads/2014/10/03830640-photo-logo-twitter-bleu-sur-blanc.png" alt="logo twitter"></a></li>
+        <li><a href="https://www.instagram.com/lacasadepapel/"> <img class="logo" src="https://www.makrea.com/img_pngs/RS07.png" alt="logo insta"></a></li>
+        <li><a href="mailto:bazire.fabrice@gmail.com"> <img class="logo" src="http://www.asr-tarbes.fr/wp-content/uploads/2017/03/icone-mail-bleu-fonce.png" alt="logo mail"></a></li>
+        <li><a href="quizz.html"> <img class="logo" src="http://vsjnatation.fr/gifs/haut-de-page.gif" alt="logo haut de page"></a></li>
+      </ul>
+    </footer>
+    <script>
+
+      function verif_mdp(){
+        var pseudonyme = document.getElementById("pseudo").value;
+        if (pseudonyme != "martin" && pseudonyme != "arnaud" && pseudonyme != "nicolas"){
+          alert("The nickname is not good (clue = first name of one of your friends)");
+        }
+        var mdp = document.getElementById("password").value;
+        if (mdp != "fabrice"){
+          alert("You are wrong password (clue: first name of your best friend)");
+        }
+        if (mdp == "fabrice" && (pseudonyme == "martin" || pseudonyme == "arnaud" || pseudonyme == "nicolas")){
+          alert("You're the best, you've managed to connect");
+          document.location.href="quizz.html";
+        }
+      }
+
+    function countCheckedCheckboxes() {
+      let cases_cochees = document.getElementsByTagName('input');
+      let nb_cases_cochees = 0 ;
+      for ( i = 0 ; i < cases_cochees.length ; i++ ) {
+          oElement = cases_cochees[i] ;
+            if ( oElement.type.toLowerCase( ) == 'checkbox') {
+                // La propriété checked est à true si la checkbox est cochée
+                if ( oElement.checked == true ) {
+                    nb_cases_cochees++ ;
+                }
+              }
+      }
+      return( nb_cases_cochees) ;
+    }
+
+  function alert_si_pas_bon_nombre_de_cases_cochees (){
+      nb_cases_cochees = countCheckedCheckboxes();
+      if (nb_cases_cochees != 3){
+          alert("Can not validate because you have to tick 3 favorite characters and you have checked " + nb_cases_cochees);
+      }else{
+        alert("Thank you, your vote has been saved");
+        document.location.href="quizz.html";
+      }
+    }
+      </script>
+  </body>
+</html>
