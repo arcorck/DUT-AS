@@ -90,4 +90,4 @@ insert into TEMPS values (31,2,to_date('06:27:27', 'hh24:mi:ss'));
 
 -- SELECT NPays FROM PAYS Natural join COUREURS Natural join ETAPES Natural join TEMPS where VilleArrivee = 'Plumelec';
 
-SELECT c1.NomCoureur, c2.NomCoureur FROM COUREURS c1, COUREURS c2 WHERE c1.CodePays = c2.CodePays and c1.NomCoureur < c2.NomCoureur;
+-- SELECT c1.NomCoureur, c2.NomCoureur FROM COUREURS c1, COUREURS c2 WHERE c1.CodePays = c2.CodePays and c1.NomCoureur < c2.NomCoureur;
