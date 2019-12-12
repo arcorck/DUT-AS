@@ -1,4 +1,5 @@
 from matriceAPI3 import *
+import copy
 
 #-----------------------------------------
 # entrées sorties sur les matrices
@@ -139,28 +140,46 @@ for i in range(4,7,1):
     setVal(mat, 6, i, 1)
 for i in range(2, 7,1) :
     setVal(mat, 8, i, 1)
-afficheMatrice(calque)
+#afficheMatrice(calque)
 marquageDirect(calque, mat, 1, 1)
-afficheMatrice(calque)
+#afficheMatrice(calque)
 marquageDirect(calque, mat, 1, 1)
-afficheMatrice(calque)
+#afficheMatrice(calque)
 marquageDirect(calque, mat, 1, 1)
-afficheMatrice(calque)
+#afficheMatrice(calque)
 
 def estAccessible(mat,pos1,pos2):
     '''
     verifie qu'il existe un chemin entre pos1 et pos2 dans la matrice mat
     '''
-    calque = Matrice(getNbLignes(mat), getNbColonnes(matrice))
-    setVal(calque, pos1[0], pos1[1])
-    #boucler sur le marquage jusqua plus de changement et verifier si pos 2 accessibkle 
+    calque = Matrice(getNbLignes(mat), getNbColonnes(mat))
+    setVal(calque, pos1[0], pos1[1], 1)
+    while marquageDirect(calque, mat, 1, 1) :
+        marquageDirect(calque, mat, 1, 1)
+    return getVal(calque, pos2[0], pos2[1]) == 1 and getVal(calque, pos1[0], pos1[1]) == 1
+
+print(estAccessible(mat, (3,2), (5,7))) 
+print(estAccessible(mat, (0,5), (8,2))) 
+print(estAccessible(mat, (0,5), (4,7))) 
+print(estAccessible(mat, (4,7), (0,5))) 
+
 
 def labyrintheValide(mat):
     '''
     verifie qu'il existe un chemin entre la case en haut à gauche et la case
     en bas à droite de la matrice
     '''
-    pass
+    return  estAccessible(mat, (0,0), ((getNbLignes(mat) - 1), (getNbColonnes(mat) - 1))) #A verifier
+
+afficheMatrice(mat)
+afficheMatrice(calque)
+mat1 = copy.deepcopy(mat)
+setVal(mat1, 0, 0, 1)
+afficheMatrice(mat1)
+
+print(labyrintheValide(mat))
+print(labyrintheValide(calque))
+print(labyrintheValide(mat1))
 
 def estAccessible2(mat,pos1,pos2):
     '''
