@@ -18,24 +18,31 @@ def ListeJoueurs(nomsJoueurs):
     paramètre: nomsJoueurs une liste de chaines de caractères
     résultat: la liste des joueurs avec un joueur courant mis à 0
     """
-    pass
+    cpt = 0
+    les_joueurs = []
+    for joueur in nomsJoueurs :
+        les_joueurs.append((Joueur(joueur), cpt)) #cpt est le numéro du joueur que l'on ajoute à la liste
+        cpt += 1
+    return (les_joueurs, 0) #ici 0 represente le numéro du joueur courant
+    
 
 def ajouterJoueur(joueurs, joueur):
     """
     ajoute un nouveau joueur à la fin de la liste
-    paramètres: joueurs un liste de joueurs
+    paramètres: joueurs une liste de joueurs
                 joueur le joueur à ajouter
     cette fonction ne retourne rien mais modifie la liste des joueurs
     """
-    pass
+    joueurs.append((joueur, len(joueurs)))
 
 def initAleatoireJoueurCourant(joueurs):
     """
     tire au sort le joueur courant
-    paramètre: joueurs un liste de joueurs
+    paramètre: joueurs une liste de joueurs
     cette fonction ne retourne rien mais modifie la liste des joueurs
     """
-    pass
+    joueurs[1] = random.randint(0,len(joueurs) - 1)
+
 def distribuerTresors(joueurs,nbTresors=24, nbTresorMax=0):
     """
     distribue de manière aléatoire des trésors entre les joueurs.
@@ -56,7 +63,7 @@ def changerJoueurCourant(joueurs):
     paramètres: joueurs la liste des joueurs
     cette fonction ne retourne rien mais modifie la liste des joueurs
     """   
-    pass
+    joueurs[1] = (joueurs[1] + 1) % len(joueurs)
 
 def getNbJoueurs(joueurs):
     """
@@ -64,7 +71,7 @@ def getNbJoueurs(joueurs):
     paramètre: joueurs la liste des joueurs
     résultat: le nombre de joueurs de la partie
     """
-    pass
+    return len(joueurs[0])
 
 def getJoueurCourant(joueurs):
     """
@@ -72,7 +79,7 @@ def getJoueurCourant(joueurs):
     paramètre: joueurs la liste des joueurs
     cette fonction ne retourne rien mais modifie la liste des joueurs
     """
-    pass
+    return joueurs[0][joueurs[1]]
 
 def joueurCourantTrouveTresor(joueurs):
     """
@@ -81,7 +88,7 @@ def joueurCourantTrouveTresor(joueurs):
     paramètre: joueurs la liste des joueurs
     cette fonction ne retourne rien mais modifie la liste des joueurs
     """
-    pass
+    joueurs[0][joueurs[1]][0][1].pop(le_trésor) #Mais quel est le trésor a retirer ???
 
 def nbTresorsRestantsJoueur(joueurs,numJoueur):
     """
@@ -91,7 +98,7 @@ def nbTresorsRestantsJoueur(joueurs,numJoueur):
                 numJoueur le numéro du joueur
     résultat: le nombre de trésors que joueur numJoueur doit encore trouver
     """
-    pass
+    return len(joueurs[0][joueurs[1]][0][1])
 
 def numJoueurCourant(joueurs):
     """
@@ -99,7 +106,7 @@ def numJoueurCourant(joueurs):
     paramètre: joueurs la liste des joueurs
     résultat: le numéro du joueur courant
     """
-    pass
+    return joueurs[1]
 
 def nomJoueurCourant(joueurs):
     """
@@ -107,7 +114,7 @@ def nomJoueurCourant(joueurs):
     paramètre: joueurs la liste des joueurs
     résultat: le nom du joueur courant
     """
-    pass
+    return joueurs[0][joueurs[1]][0][0]
 
 def nomJoueur(joueurs,numJoueur):
     """
@@ -116,7 +123,7 @@ def nomJoueur(joueurs,numJoueur):
                 numJoueur le numéro du joueur    
     résultat: le nom du joueur numJoueur
     """
-    pass
+    return joueurs[0][numJoueur][0][0]
 
 def prochainTresorJoueur(joueurs,numJoueur):
     """
@@ -125,7 +132,7 @@ def prochainTresorJoueur(joueurs,numJoueur):
                 numJoueur le numéro du joueur    
     résultat: le prochain trésor du joueur numJoueur (un entier)
     """
-    pass
+    return joueurs[0][numJoueur][0][1][0]
 
 def tresorCourant(joueurs):
     """
@@ -133,7 +140,7 @@ def tresorCourant(joueurs):
     paramètre: joueurs la liste des joueurs 
     résultat: le prochain trésor du joueur courant (un entier)
     """
-    pass
+    return joueurs[0][joueurs[1]][0][1][0]
 
 def joueurCourantAFini(joueurs):
     """
@@ -141,4 +148,4 @@ def joueurCourantAFini(joueurs):
     paramètre: joueurs la liste des joueurs 
     résultat: un booleen indiquant si le joueur courant a fini
     """
-    pass
+    return joueurs[0][joueurs[1]][0][1] == []
