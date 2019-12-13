@@ -120,8 +120,6 @@ def estAccessible(mat,pos1,pos2):
     setVal(calque, pos1[0], pos1[1], 1)
     while marquageDirect(calque, mat, 1, 1) and getVal(calque, (getNbLignes(mat) - 1),(getNbColonnes(mat) - 1)) != 1:
         marquageDirect(calque, mat, 1, 1)
-    print("pos2 : ", getVal(calque, pos2[0], pos2[1]))
-    print("pos1 : ", getVal(calque, pos1[0], pos1[1]))
     return getVal(calque, pos2[0], pos2[1]) == 1 and getVal(calque, pos1[0], pos1[1]) == 1
 
 
@@ -130,8 +128,6 @@ def labyrintheValide(mat):
     verifie qu'il existe un chemin entre la case en haut à gauche et la case
     en bas à droite de la matrice
     '''
-    print("valeur en 0,0 : ", getVal(mat, 0,0))
-    print("valeur en 8,8 : ", getVal(mat, (getNbLignes(mat) - 1),(getNbColonnes(mat) - 1)))
     return  estAccessible(mat, (0,0), ((getNbLignes(mat) - 1), (getNbColonnes(mat) - 1)))
 
 def estAccessible2(mat,pos1,pos2):
@@ -151,12 +147,6 @@ def estAccessible2(mat,pos1,pos2):
                 marque += 1
                 setVal(calque, ligne, colonne, marque)
     afficheMatrice(calque)
-
-
-
-mat = {'lignes': 9, 'colonnes': 9, 'valeurs': [2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 3]}
-#afficheMatrice(mat)
-estAccessible2(mat, (0,0), (8,8))
 
 def cheminDecroissant(calque,pos1,pos2):
     '''
