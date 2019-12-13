@@ -24,8 +24,9 @@ $dsn="mysql:dbname=".BASE.";host=".SERVER;
       printf("Échec de la connexion : %s\n", $e->getMessage());
       exit();
     }
-$sql="SELECT * from CARNET";
-if(!$connexion->query($sql)) echo "Pb d'accès au CARNET";
+$recherche = $_POST['champ_recherche']; 
+$sql="SELECT * from CARNET where NOM LIKE '$recherche%'";
+if(!$connexion->query($sql)) echo "\nPb d'accès au CARNET";
 else{
     echo "<table><tr><td>Nom</td><td>Prenom</td></tr>";
     foreach ($connexion->query($sql) as $row)
@@ -35,10 +36,3 @@ echo "</table>";
 }
 
 ?>
-
-<form action="carnet_z.php" method="post">
-<input type="text" name="champ_recherche" placeholder="commence par : ">
-<input type="submit" name="search" value="rechercher">
-</form>
-</body>
-</html>
