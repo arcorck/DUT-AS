@@ -116,19 +116,26 @@ def estAccessible(mat,pos1,pos2):
     '''
     verifie qu'il existe un chemin entre pos1 et pos2 dans la matrice mat
     '''
-    calque = Matrice(getNbLignes(mat), getNbColonnes(mat))
-    setVal(calque, pos1[0], pos1[1], 1)
-    while marquageDirect(calque, mat, 1, 1) and getVal(calque, (getNbLignes(mat) - 1),(getNbColonnes(mat) - 1)) != 1:
-        marquageDirect(calque, mat, 1, 1)
-    return getVal(calque, pos2[0], pos2[1]) == 1 and getVal(calque, pos1[0], pos1[1]) == 1
+    if getVal(mat, pos1[0], pos1[1]) != 1 and getVal(mat, pos2[0], pos2[1]) != 1 and getVal(mat, 0, 0) != 1 :
+        calque = Matrice(getNbLignes(mat), getNbColonnes(mat))
+        setVal(calque, pos1[0], pos1[1], 1)
+        while marquageDirect(calque, mat, 1, 1):
+            marquageDirect(calque, mat, 1, 1)
+        if getVal(calque, pos2[0], pos2[1]) == 1 and getVal(calque, pos1[0], pos1[1]) == 1 :
+            return True
+        else : 
+            #verifier le chemin entre pos1 et pos2 
+    else : 
+        return False
 
-
+matrice = {'lignes': 9, 'colonnes': 9, 'valeurs': [2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 3]}
+afficheMatrice(matrice)
 def labyrintheValide(mat):
     '''
     verifie qu'il existe un chemin entre la case en haut à gauche et la case
     en bas à droite de la matrice
     '''
-    return  estAccessible(mat, (0,0), ((getNbLignes(mat) - 1), (getNbColonnes(mat) - 1)))
+    return estAccessible(mat, (0,0), ((getNbLignes(mat) - 1), (getNbColonnes(mat) - 1)))
 
 def estAccessible2(mat,pos1,pos2):
     '''
@@ -146,7 +153,10 @@ def estAccessible2(mat,pos1,pos2):
             if getVal(calque, ligne, colonne) == 1 :
                 marque += 1
                 setVal(calque, ligne, colonne, marque)
-    afficheMatrice(calque)
+    if getVal(calque, pos2[0], pos2[1]) == 1 and getVal(calque, pos1[0], pos1[1]) == 1 :
+        return calque
+    else : 
+        return None
 
 def cheminDecroissant(calque,pos1,pos2):
     '''
