@@ -226,32 +226,41 @@ assert tous_compatibles(nikopol, {'nom': '', 'debut': 4, 'fin': 5})
 ###########################################
 # ALGO 1
 ###########################################
-#j'en suis la !!!!
+
 
 # TRI SELON HEURE DE DEBUT
 
 def tri_selon_debut(programme):
     """ trie les spectacles du programme selon leur heure de début """
-    pass
+    return sorted(programme, key=lambda prog: prog['debut'])
 
 assert tri_selon_debut(exemple1) == [{'nom': 'A', 'debut': 10, 'fin': 14}, {'nom': 'C', 'debut': 11, 'fin': 16}, {'nom': 'B', 'debut': 12, 'fin': 15}, {'nom': 'E', 'debut': 13, 'fin': 21}, {'nom': 'F', 'debut': 14, 'fin': 20}, {'nom': 'D', 'debut': 15, 'fin': 17}, {'nom': 'G', 'debut': 16, 'fin': 16.5}, {'nom': 'H', 'debut': 17, 'fin': 24}]
-
+print("tri selon debut : ok")
 
 def prochain_spectacle1(programme, heure = 5):
     """ 
     'programme' est un programme dont les spectacles sont triés par heure de début croissante
     Cette fonction renvoie le premier spectacle qui commence après l'heure indiquée. 
     """
-    pass
+    for spectacle in programme :
+        if spectacle['debut'] > heure :
+            return spectacle
+    return None
 
 exemple_trié = tri_selon_debut(exemple1)
 assert prochain_spectacle1(exemple_trié, 5) == {'nom': 'A', 'debut': 10, 'fin': 14}
 assert prochain_spectacle1(exemple_trié, 12.4) == {'nom': 'E', 'debut': 13, 'fin': 21}
 assert prochain_spectacle1(exemple_trié, 18) is None
-
+print("prochain spectacle 1 : ok")
 
 def selection1(programme):
-    pass
+    programme = tri_selon_debut(programme)
+    prog=[]
+    spectacle = prochain_spectacle1(programme, 0)
+    while spectacle is not None : 
+        prog.append(spectacle)
+        spectacle = prochain_spectacle1(programme, spectacle['fin'])
+    return prog
 
 proposition1 = selection1(nikopol)
 print("Proposition 1 : ", proposition1)
@@ -265,8 +274,8 @@ print("Proposition 1 : ", proposition1)
 # TRI SELON LA DUREE
 
 def tri_selon_duree(programme):
-    """ trie les spectacles du programme selon leur heure de début """
-    pass
+    """ trie les spectacles du programme selon leur durée """
+    return sorted(programme, key=lambda prog: prog['fin'] - prog['debut'])
 
 assert tri_selon_duree(exemple1) == [{'nom': 'G', 'debut': 16, 'fin': 16.5}, {'nom': 'D', 'debut': 15, 'fin': 17}, {'nom': 'B', 'debut': 12, 'fin': 15}, {'nom': 'A', 'debut': 10, 'fin': 14}, {'nom': 'C', 'debut': 11, 'fin': 16}, {'nom': 'F', 'debut': 14, 'fin': 20}, {'nom': 'H', 'debut': 17, 'fin': 24}, {'nom': 'E', 'debut': 13, 'fin': 21}]
 
@@ -276,15 +285,23 @@ def prochain_spectacle(programme, selection):
     'programme' est un programme dont les spectacles sont triés (selon un certain critère)
     Cette fonction renvoie le premier spectacle compatible avec tous les autres spactacles de la sélection
     """
-    pass
+    for spectacle in programme : 
+        if tous_compatibles(selection, spectacle) :
+            return spectacle
+    return None
 
 
 def selection2(programme):
-    pass
-
+    programme = tri_selon_duree (programme)
+    prog = []
+    spectacle = prochain_spectacle(programme, programme)
+    while spectacle is not None : 
+        prog.append(spectacle)
+        spectacle = prochain_spectacle(programme, prog)
+    return prog
 proposition2 = selection2(nikopol)
 print("Proposition 2 : ", proposition2)
-
+#marche pas
 
 ###########################################
 # ALGO 3

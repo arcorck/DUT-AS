@@ -119,12 +119,11 @@ def estAccessible(mat,pos1,pos2):
     if getVal(mat, pos1[0], pos1[1]) != 1 and getVal(mat, pos2[0], pos2[1]) != 1 and getVal(mat, 0, 0) != 1 :
         calque = Matrice(getNbLignes(mat), getNbColonnes(mat))
         setVal(calque, pos1[0], pos1[1], 1)
-        while marquageDirect(calque, mat, 1, 1):
-            marquageDirect(calque, mat, 1, 1)
-        if getVal(calque, pos2[0], pos2[1]) == 1 and getVal(calque, pos1[0], pos1[1]) == 1 :
-            return True
-        else : 
-            #verifier le chemin entre pos1 et pos2 
+        res = marquageDirect(calque, mat, 1, 1)
+        while res :
+           res = marquageDirect(calque, mat, 1, 1)
+        afficheMatrice(calque)
+        return getVal(calque, pos2[0], pos2[1]) == 1 
     else : 
         return False
 
