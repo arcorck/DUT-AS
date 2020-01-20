@@ -1,0 +1,122 @@
+Exerice 2
+
+1 2 - 4 + 4 + 3 2 * +
+
+34*34*34*383**+++25+++
+
+-------------------------
+Exercice 4 
+.main
+.var
+i
+j
+k
+.end-var
+BIPUSH 1
+ISTORE i
+BIPUSH 2
+ISTORE j
+BIPUSH 3
+ISTORE k
+ILOAD i
+ILOAD j
+IADD
+ISTORE i
+.end-main
+
+-------------------------
+Exercice 5
+.main
+.var
+i
+j
+k
+.end-var
+BIPUSH 5
+ISTORE k
+BIPUSH 5
+ISTORE j
+ILOAD k
+ILOAD j
+BIPUSH 4
+IADD
+IADD
+ISTORE i
+.end-main
+
+-------------------------
+Exercice 6
+.main
+.var
+i
+k
+aux
+.end-var
+BIPUSH 1
+ISTORE i
+BIPUSH 2
+ISTORE k
+ILOAD i
+ISTORE aux
+ILOAD k
+ISTORE i
+ILOAD aux
+ISTORE k
+.end-main
+
+-------------------------
+Exercice 6 V2
+.main
+.var
+i
+j
+.end-var
+BIPUSH 1
+ISTORE i
+BIPUSH 2
+ISTORE j
+ILOAD i
+ILOAD j
+SWAP
+ISTORE j
+ISTORE i
+.end-main
+
+-----------------------------
+Exercice 7
+.main
+.var
+i
+j
+k
+.end-var
+BIPUSH 3
+ISTORE j
+BIPUSH 5
+ISTORE k
+
+ILOAD j
+ILOAD k
+IADD
+ISTORE i
+
+ILOAD i
+
+IFEQ L1
+GOTO L2
+
+L1 : BIPUSH 0
+ISTORE i
+BIPUSH 0
+ISTORE j
+GOTO L3
+
+
+L2 : ILOAD j
+BIPUSH -1
+IADD
+ISTORE j
+
+L3 : NOP
+
+.end-main
