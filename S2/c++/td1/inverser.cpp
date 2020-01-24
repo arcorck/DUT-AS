@@ -1,37 +1,18 @@
 #include <iostream>
 using namespace std;
-#include <math.h> 
+#include<string>
 
-int nombre_chiffre (int nb){
-    int res(0);
-    res = 0;
-    while (nb / 10 != 0){
-        res += 1;
-        nb = nb / 10;
+int inverser(int nbr) {
+    int NbrInverse = 0;
+    while (nbr != 0){
+        NbrInverse = NbrInverse * 10;
+        NbrInverse = NbrInverse + nbr%10;
+        nbr = nbr/10;
     }
-    return res;
-}
-
-int inverser(int nb) {
-    int inverse(0);
-    int indice(0);
-    int nb_chiffre(0);
-    nb_chiffre = nombre_chiffre(nb);
-    indice = 0;
-    while (nb_chiffre >= 0){
-        inverse = inverse +  ((nb * pow(10, (nb_chiffre * (-1)))) * pow(10, indice));
-        nb_chiffre --;
-        cout << "nombre avant : " << endl;
-        cout << nb << endl;
-        nb = nb - (nb * pow(10, (nb_chiffre * (-1))));
-        cout << "nombre apres : " << endl;
-        cout << nb << endl;
-        indice++;
-    }
-    return inverse;
+    return NbrInverse;
 }
 
 int main (){
-    cout << inverser(2354) << endl;
+    cout << inverser(123456789) << endl;
     return 0;
 }
