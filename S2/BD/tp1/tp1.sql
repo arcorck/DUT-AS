@@ -88,7 +88,7 @@
 -- | POTRININ  | Olivier    |
 -- +-----------+------------+
 
- select nomsond, prenomsond from SONDE natural join CARACTERISTIQUE natural join CATEGORIE where prenomsond = 'Olivier' and intitulecat = 'Ouvriers';
+-- select nomsond, prenomsond from SONDE natural join CARACTERISTIQUE natural join CATEGORIE where prenomsond = 'Olivier' and intitulecat = 'Ouvriers';
 
 
 
@@ -105,8 +105,8 @@
 -- +----------+--------+
 -- | 40       | 49     |
 -- +----------+--------+
--- = Reponse question 5.
 
+-- select distinct valdebut, valfin from TRANCHE natural join CARACTERISTIQUE natural join SONDE where sexe = 'F' and month(datenaissond) = 4 and day(datenaissond) = 25;
 
 
 -- +------------------+--
@@ -126,6 +126,6 @@
 -- | Jean       | FAL      |
 -- | Jean       | BOYEGHE  |
 -- +------------+----------+
--- = Reponse question 6.
 
-
+-- select distinct prenomsond, nomsond from SONDE natural join CONSTITUER natural join PANEL p1 natural join PANEL p2 where prenomsond = 'Jean' and p1.idpan != p2.idpan;
+-- A VERIFIER (refaire)
