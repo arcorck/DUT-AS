@@ -45,7 +45,7 @@
 -- +-----------------+
 -- select distinct nompan from SONDE natural join CONSTITUER natural join PANEL where year(now())-year(datenaissond) > 70 and year(now())-year(datenaissond) < 120;
 
--- IN
+-- select distinct nompan from PANEL where idpan in (select idpan from CONSTITUER natural join SONDE where year(now())-year(datenaissond) > 70 and year(now())-year(datenaissond) < 120);
 
 -- select nompan from PANEL p where exists (
 --     select * from CONSTITUER c natural join SONDE natural join CARACTERISTIQUE natural join TRANCHE where valDebut>=70 and p.idpan = c.idpan
@@ -71,7 +71,9 @@
 
 -- select nomsond, prenomsond from SONDE natural join CARACTERISTIQUE natural join CATEGORIE where year(now())-year(datenaissond) > 70 and year(now())-year(datenaissond) < 120 and intitulecat = 'Ouvriers';
 
+-- select nomsond, prenomsond from SONDE where year(now())-year(datenaissond) > 70 and year(now())-year(datenaissond) < 120 and numsond in (select numsond from SONDE natural join CARACTERISTIQUE natural join CATEGORIE where intitulecat = 'Ouvriers');
 
+-- select nomsond, prenomsond from SONDE s where year(now())-year(datenaissond) > 70 and year(now())-year(datenaissond) < 120 and exists (select * from SONDE s1 natural join CARACTERISTIQUE natural join CATEGORIE where intitulecat = 'Ouvriers' and s.nomsond = s1.nomsond and s.prenomsond=s1.prenomsond);
 
 -- +------------------+--
 -- * Question 4 :     --
@@ -89,8 +91,10 @@
 -- +-----------+------------+
 
 -- select nomsond, prenomsond from SONDE natural join CARACTERISTIQUE natural join CATEGORIE where prenomsond = 'Olivier' and intitulecat = 'Ouvriers';
+ 
+-- select nomsond, prenomsond from SONDE natural join CARACTERISTIQUE natural join CATEGORIE where intitulecat = 'Ouvriers' and prenomsond in (select prenomsond from SONDE where prenomsond = 'Olivier');
 
-
+-- select nomsond, prenomsond from SONDE s where prenomsond = 'Olivier' and exists (select * from SONDE s1 natural join CARACTERISTIQUE natural join CATEGORIE where intitulecat = 'Ouvriers' and s.nomsond = s1.nomsond and s.prenomsond=s1.prenomsond);
 
 -- +------------------+--
 -- * Question 5 :     --
@@ -107,6 +111,10 @@
 -- +----------+--------+
 
 -- select distinct valdebut, valfin from TRANCHE natural join CARACTERISTIQUE natural join SONDE where sexe = 'F' and month(datenaissond) = 4 and day(datenaissond) = 25;
+
+-- select distinct valdebut, valfin from TRANCHE natural join CARACTERISTIQUE natural join SONDE where sexe = 'F' and numsond in (select numsond from SONDE where month(datenaissond) = 4 and day(datenaissond) = 25);
+
+-- select distinct valdebut, valfin from TRANCHE natural join CARACTERISTIQUE natural join SONDE s where sexe = 'F' and exists (select * from SONDE s1 where month(datenaissond) = 4 and day(datenaissond) = 25 and s.nomsond = s1.nomsond);
 
 
 -- +------------------+--
