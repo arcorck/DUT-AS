@@ -39,6 +39,10 @@ int app_indice(int tab[], int taille, int elem){
     return -1;
 }
 
+int app_dicho(int tab[], int taille, int elem, int pos, int deb, int fin){
+    
+}
+
 int main(){
     int tab [10];
     for (int i = 0; i < 10; i++){
@@ -51,5 +55,7 @@ int main(){
     cout << "15 appartient au tableau : " << app(tab, 10, 15) << endl;
     cout << "5 appartient au tableau : " << app_indice(tab, 10, 5) << endl;
     cout << "15 appartient au tableau : " << app_indice(tab, 10, 15) << endl;
+    cout << "5 appartient au tableau : " << app_dicho(tab, 10, 5, 0, 0, 9) << endl;
+    cout << "15 appartient au tableau : " << app_dicho(tab, 10, 15, 0, 0, 9) << endl;
     return 0;
 }
