@@ -20,11 +20,11 @@ public class ListeMagasins {
         return res;
     }
 
-    ArrayList<Magasin> ouvertsLeLundi() {
-        ArrayList<Magasin> res = new ArrayList<Magasin>();
+    ArrayList<String> ouvertsLeLundi() {
+        ArrayList<String> res = new ArrayList<String>();
         for (int i = 0; i < this.magasins.size() ; i++){
             if (this.magasins.get(i).ouvertlundi()){
-                res.add(this.magasins.get(i));
+                res.add(this.magasins.get(i).getnom());
             }
         }
         return res;
