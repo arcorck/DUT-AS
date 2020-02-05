@@ -19,9 +19,9 @@ public class DicoMagasins {
 
     ArrayList<String> ouvertsLeLundi() {
         ArrayList<String> res = new ArrayList<String>();
-        for (Map.Entry mapentry : this.magasins.entrySet())
-            if (mapentry.ouvertlundi()){
-                res.add(mapentry.getnom());
+        for(String m : this.magasins.keySet()){
+            if(this.magasins.get(m).getLundi()){
+                res.add(m);
             }
         }
         return res;

@@ -41,6 +41,30 @@ class Complexe{
             return res;
         }
 
+        Complexe operator + (Complexe c){ // surcharge de +
+            return Complexe (this->x + c.x, this->y + c.y);
+        }
+
+        Complexe operator - (Complexe c){ // surcharge de +
+            return Complexe (this->x - c.x, this->y - c.y);
+        }
+
+        Complexe operator * (Complexe c){ // surcharge de +
+            return Complexe (this->x * c.x, this->y * c.y);
+        }
+
+        float operator () (int i){ // surcharge de +
+            if (i == 1){
+                return this->x;
+            }else{
+                if (i==2){
+                    return this->y;
+                }else{
+                    return 0.0;
+                }
+            }
+        }
+    
         ~Complexe() {cout<<"destructeur de Complexe"<<endl;}
 
 };
@@ -51,7 +75,13 @@ ostream & operator <<(ostream & sortie, const Complexe & complexe) {
 }
 
 int main(){
-    Complexe complexe(1.0f, 2.5f);
-    cout << complexe << endl;
+    Complexe c1(1.0f, 2.5f), c2(1.5f, 3.0f);
+    cout << "c1 : " << c1 << endl;
+    cout << "c2 : " << c2 << endl;
+    cout << "c1 + c2 : " << c1+c2 << endl;
+    cout << "c1 - c2 : " << c1-c2 << endl;
+    cout << "c1 x c2 : " << c1*c2 << endl;
+    cout << "x de c1 : " << c1(1) << endl;
+    cout << "y de c1 : " << c1(2) << endl;
     return 0;
 }

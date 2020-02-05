@@ -20,15 +20,19 @@ public class Date {
    }
 
    public boolean bissextile() {
-       if (this.getAnnee() % 4 == 0) {
-           if (this.getAnnee() % 400 != 0){
-               return true;
-           }
-           else{
-               return false;
-           }
+       if (this.getAnnee() % 400 == 0) {
+           return true;
        }else{
-           return false;
+            if (this.getAnnee() % 4 == 0) {
+                if (this.getAnnee() % 400 != 0){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            }else{
+                return false;
+            }
        }
    }
 
@@ -53,19 +57,19 @@ public class Date {
    }
 
    public boolean valide() {
-       if (this.mois > 12 || this.mois < 1 || this.nbJourMois() == -1){
+       if (this.mois > 12 || this.mois < 1 || this.nbJourMois() < 1){
            return false;
        }
        if (this.getMois() == 1 || this.getMois() == 3 || this.getMois() == 5 || this.getMois() == 7 || this.getMois() == 8 || this.getMois() == 10 || this.getMois() == 12){
-           return this.nbJourMois() == 31;
+           return this.mois <= 31;
        }else{
            if (this.getMois() == 4 || this.getMois() == 6 || this.getMois() == 9 || this.getMois() == 11 ){
-               return this.nbJourMois() == 30;
+               return this.mois <= 30;
            }else{
                if (this.bissextile()){
-                   return this.nbJourMois() == 29;
+                   return this.mois <= 29;
                }else{
-                   return this.nbJourMois() == 28;
+                   return this.mois <= 28;
                }
            }
         }  

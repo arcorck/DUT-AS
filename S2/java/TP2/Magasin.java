@@ -12,7 +12,7 @@ public class Magasin {
         return this.nom;
     }
 
-    public boolean ouvertlundi ( ){
+    public boolean ouvertlundi(){
         return this.ouvertLundi;
     }
 
