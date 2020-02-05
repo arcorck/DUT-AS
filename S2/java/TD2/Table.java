@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Table {
-    private ArrayList<Personne> convives;
+    private List<Personne> convives;
 
     public Table(){
         this.convives = new ArrayList<Personne>();
@@ -45,5 +45,44 @@ public class Table {
             this.convives.set(indicep1, this.convives.get(indicep2));
             this.convives.set(indicep2, aux);
         }
+    } 
+
+    public int doyen (){
+        int max = this.convives.get(0).getage();
+        for (Personne p : this.convives){
+            if(p.getage() > max){
+                max = p.getage();
+            }
+        }
+        return max;
+    }
+
+    public boolean estTrie(){
+        for (int i = 0; i < this.convives.size()-1; i++){
+            if (this.convives.get(i).getage() > this.convives.get(i+1).getage()){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public Personne benjamin (){
+        Personne b = this.convives.get(0);
+        for (Personne p : this.convives){
+            if (p.getage() < b.getage()){
+                b.setage(p.getage());
+                b.setnom(p.getnom());
+            }
+        }
+        return b;
+    }
+
+    public void trie (){ //A Revoir
+        List<Personne> convivestries = new ArrayList<Personne>();
+        while (!this.convives.isEmpty()){
+            convivestries.add(this.benjamin());
+            this.convives.remove(this.benjamin());
+        }
+        this.convives = convivestries;
     }
 }

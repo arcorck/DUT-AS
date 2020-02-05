@@ -135,5 +135,4 @@
 -- | Jean       | BOYEGHE  |
 -- +------------+----------+
 
--- select distinct prenomsond, nomsond from SONDE natural join CONSTITUER natural join PANEL p1 natural join PANEL p2 where prenomsond = 'Jean' and p1.idpan != p2.idpan;
--- A VERIFIER (refaire)
+select prenomsond, nomsond from SONDE where prenomsond = 'Jean' and numsond in (select c1.numsond from CONSTITUER c1, CONSTITUER c2 where c1.numsond = c2.numsond and c1.idpan != c2.idpan);

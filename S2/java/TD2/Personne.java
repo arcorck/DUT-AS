@@ -15,6 +15,14 @@ public class Personne {
         return this.age;
     }
 
+    public void setage(int age){
+        this.age = age;
+    }
+
+    public void setnom(String nom){
+        this.nom = nom;
+    }
+
     public String toString(){
         return this.getnom() + ", " + this.getage();
     }
