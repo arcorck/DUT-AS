@@ -135,4 +135,5 @@
 -- | Jean       | BOYEGHE  |
 -- +------------+----------+
 
-select prenomsond, nomsond from SONDE where prenomsond = 'Jean' and numsond in (select c1.numsond from CONSTITUER c1, CONSTITUER c2 where c1.numsond = c2.numsond and c1.idpan != c2.idpan);
+select prenomsond, nomsond from SONDE where prenomsond = 'Jean' and numsond in 
+(select c1.numsond from CONSTITUER c1, CONSTITUER c2 where c1.numsond = c2.numsond and c1.idpan != c2.idpan);
