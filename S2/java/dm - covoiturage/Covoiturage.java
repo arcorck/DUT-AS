@@ -18,7 +18,7 @@ public class Covoiturage{
         return false;
     }
     
-    public int nbPersonnes(){
+    public int nbPersonnes(String v){
         return this.personnes.size();
     }
 
