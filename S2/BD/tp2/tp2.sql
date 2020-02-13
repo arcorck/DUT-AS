@@ -44,9 +44,7 @@
 
 -- select distinct prenomSond from SONDE where prenomsond LIKE 'a%' and prenomsond in (select prenomsond from SONDE natural join CARACTERISTIQUE natural join TRANCHE where valdebut < 20 and valfin > 29) ORDER BY prenomsond;
 
-select prenomsond from SONDE s, CARACTERISTIQUE c, TRANCHE t where t.valdebut < 20 and t.valfin > 29 and s.idc = c.idc and c.idtr = t.idtr;
-
-
+-- select prenomsond from SONDE s, CARACTERISTIQUE c, TRANCHE t where t.valdebut < 20 and t.valfin > 29 and s.idc = c.idc and c.idtr = t.idtr;
 
 
 -- +------------------+--
@@ -62,8 +60,9 @@ select prenomsond from SONDE s, CARACTERISTIQUE c, TRANCHE t where t.valdebut < 
 -- +-----------------+
 -- | Moins de 50 ans |
 -- +-----------------+
--- = Reponse question 3.
 
+-- select nompan from PANEL where idpan not in (select idpan from CONSTITUER natural join SONDE where DATEDIFF(CURDATE(), datenaissond) > 60*365);
+-- ok
 
 
 -- +------------------+--
@@ -83,8 +82,9 @@ select prenomsond from SONDE s, CARACTERISTIQUE c, TRANCHE t where t.valdebut < 
 -- | Ouvriers                       |
 -- | Inactifs ayant déjà travaillé  |
 -- +--------------------------------+
--- = Reponse question 4.
 
+-- select distinct intituleCat from CATEGORIE cat, CARACTERISTIQUE car, SONDE s where cat.idcat = car.idcat and car.idc = s.idc and YEAR(s.datenaissond) = 1974;
+-- ok
 
 
 -- +------------------+--
@@ -100,8 +100,9 @@ select prenomsond from SONDE s, CARACTERISTIQUE c, TRANCHE t where t.valdebut < 
 -- +-----------+------------+
 -- | DOILELTIS | Nina       |
 -- +-----------+------------+
--- = Reponse question 5.
 
+-- select nomsond, prenomsond from SONDE where year(datenaissond) = 1997 and numsond in (select numsond from CONSTITUER natural join PANEL where nompan = "France global 1") and numsond in (select numsond from CONSTITUER natural join PANEL where nompan = "France global 2");
+-- ok
 
 
 -- +------------------+--
@@ -117,6 +118,7 @@ select prenomsond from SONDE s, CARACTERISTIQUE c, TRANCHE t where t.valdebut < 
 -- +---------+------------+----------+------------+
 -- | DASA    | Maxime     | PEKARDAC | Bilal      |
 -- +---------+------------+----------+------------+
--- = Reponse question 6.
 
+-- select s.nomsond, s.prenomsond, s1.nomsond, s1.prenomsond from SONDE s, SONDE s1 where year(s.datenaissond) = 1974 and s.datenaissond = s1.datenaissond and s.nomSond < s1.nomsond;
+-- ok
 
