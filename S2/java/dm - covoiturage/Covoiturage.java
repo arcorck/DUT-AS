@@ -22,6 +22,15 @@ public class Covoiturage{
         return this.personnes.size();
     }
 
+    public int getIdentifiant(String nomPersonne){
+        for (Personne p : this.personnes){
+            if (p.getNom().equals(nomPersonne)){
+                return p.getId();
+            }
+        }
+        return -1;
+    }
+
     public boolean capaciteSuffisante (String ville){
         int nbhabville = 0;
         for (Personne p : this.personnes){
@@ -94,7 +103,7 @@ public class Covoiturage{
         return nbcond;
     }
 
-    //methode qui renvoie la plus grande capacite existante
+    //methode qui renvoie la plus grande capacite existante d'une voiture
     public int capaciteMaxVoiture (){
         int cap = 0;
         for (Voiture v : this.voitures){
@@ -143,7 +152,49 @@ public class Covoiturage{
         }
     }
 
-    /*public int[] attribution (){
+   /* public int[] attribution (){
         
     }*/
+    
+    //retourne la premiere la premiere personne de la liste dans l'ordre alphabétique et la supprime de la liste 
+    public Personne premiere_personne_alpha (){
+        Personne min = this.personnes.get(0);
+        int indice = O
+        for (int i = 1; i < this.personnes.size(); i++){
+            if (this.personnes.get(i).getNom().compareTo(min.getNom()) < 0){
+                min = this.personnes.get(i);
+                indice = i;
+            }
+        }
+        this.personnes.remove(indice);
+        return min;
+    }
+
+    //trie la liste des personnes
+    public void triePersonnes (){
+        ArrayList<Personne> res = new ArrayList<>();
+        while (! this.personnes.isEmpty()){
+            res.add(this.premiere_personne_alpha());
+        }
+        this.personnes = res;
+    }
+
+    public int getIdentifiantDicho (String nomp) {
+        int deb = 0;
+        int fin = this.personnes.size()-1;
+        int milieu;
+        while (deb <= fin){
+            milieu = (deb + fin)/2;
+            if (nomp.compareTo(this.personnes.get(milieu).getNom()) == 0){
+                return this.personnes.get(milieu).getId();
+            }else{
+                if (nomp.compareTo(this.personnes.get(milieu).getNom()) < 0){
+                    fin = milieu-1;
+                }else{
+                    deb = milieu+1;
+                }
+            }
+        }
+        return -1;
+    }
 }
