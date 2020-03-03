@@ -1,0 +1,16 @@
+Exercice 1
+
+1) 
+math.cos : static;
+ArrayList.get : non static;
+Math.random : static;
+Object.equals : non static;
+System.exit : static;
+System.out.println : non static; car out est un attribut statique de la classe System
+Object.toString : non static;
+
+2) 
+l'erreur va etre qu'on appelle une metode non static dans une methode static
+
+3)
+non
