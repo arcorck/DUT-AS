@@ -2,11 +2,11 @@ public class Voiture {
     private int id, capacite;
     private String ville, nom;
 
-    public Voiture (int id, String v, int c, String n){
+    public Voiture (int id, java.lang.String v, int c){
         this.id = id;
         this.ville = v;
         this.capacite = c;
-        this.nom = n;
+        this.nom = "";
     }
 
     public String getNom(){

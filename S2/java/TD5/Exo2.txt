@@ -1,0 +1,19 @@
+1) 
+False
+True
+3
+3
+True
+[]
+False
+True
+
+2)
+Erreur de compilation pour le print de p1
+projectile a la position (10,10)
+False
+False
+
+3) il faut la redefinir
+
+4)

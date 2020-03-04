@@ -159,7 +159,8 @@ public class Covoiturage{
     //retourne la premiere la premiere personne de la liste dans l'ordre alphabétique et la supprime de la liste 
     public Personne premiere_personne_alpha (){
         Personne min = this.personnes.get(0);
-        int indice = O
+        int indice;
+        indice = 0;
         for (int i = 1; i < this.personnes.size(); i++){
             if (this.personnes.get(i).getNom().compareTo(min.getNom()) < 0){
                 min = this.personnes.get(i);
