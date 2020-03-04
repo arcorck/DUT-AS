@@ -26,7 +26,7 @@ class Fantome{
             return this->nuisance;
         }
 
-        std::string toString() const{ // méthode d'affichage (noter le décorateur const)
+        std::string toString() const{ // mÃ©thode d'affichage (noter le dÃ©corateur const)
             std::string res = "Fantome ";
             res += this->getNom();
             res += " d'origine ";
@@ -54,7 +54,7 @@ class Armee{
     public :
         Armee(){}
 
-        string toString() const{ // méthode d'affichage (noter le décorateur const)
+        string toString() const{ // mÃ©thode d'affichage (noter le dÃ©corateur const)
             string res = "";
             for (Fantome f : this->armee){
                 res += f.toString();
@@ -102,13 +102,13 @@ class Armee{
         ~Armee() {}      
 };
 
-ostream & operator <<(ostream & sortie, const list<Fantome> & a) {
+ostream & operator <<(ostream & sortie, const Armee & a) {
     sortie<<a.toString();
     return sortie;
 }
 
 int main (){
-    Fantome lemure ("Lémure", "romaine", 5);
+    Fantome lemure ("LÃ©mure", "romaine", 5);
     Fantome willis ("Willis", "slave", 2);
     Fantome mau ("Mau", "egyptienne");
     cout << "Des Fantomes : " << lemure << " " << mau << endl;
@@ -116,11 +116,13 @@ int main (){
     armeeFantomes.enrole(lemure);
     armeeFantomes.enrole(willis);
     armeeFantomes.enrole(mau);
-    cout << "Armee enrôlement : " << armeeFantomes << endl;
+    cout << "Armee enrÃ´lement : " << armeeFantomes << endl;
     armeeFantomes.enroleSpecial(Fantome("Inanna", "mesopotoamienne", 7));
     armeeFantomes.enroleSpecial(Fantome("Charon", "grecque", 2));
-    cout << "Armee enrôlement : " << armeeFantomes << endl;
+    cout << "Armee enrÃ´lement : " << armeeFantomes << endl;
     cout << "fantome le moins nuisible : " << armeeFantomes.leMoinsNuisible() << endl;
-    cout << "fantomes avec une nuisance de plus de 3 : " << armeeFantomes.nuisancePlusDe(3) << endl;
+    cout << "fantomes avec une nuisance de plus de 3 : " <<endl; 
+    for(Fantome f : armeeFantomes.nuisancePlusDe(3))
+      cout<<f<<" "; 
     return 0;
 }
