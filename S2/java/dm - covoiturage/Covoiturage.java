@@ -1,12 +1,13 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Covoiturage{
     private ArrayList<Personne> personnes;
     private ArrayList<Voiture> voitures;
 
-    public Covoiturage(ArrayList<Personne> p, ArrayList<Voiture> v){
-        this.personnes = p;
+    public Covoiturage(ArrayList<Voiture> v, ArrayList<Personne> p){
         this.voitures = v;
+        this.personnes = p;
     }
 
     public boolean villeDesservie(String v){
@@ -19,7 +20,13 @@ public class Covoiturage{
     }
     
     public int nbPersonnes(String v){
-        return this.personnes.size();
+        int res = 0;
+        for (Personne p : this.personnes){
+            if (p.getVille().equals(v)){
+                res++;
+            }
+        }
+        return res;
     }
 
     public int getIdentifiant(String nomPersonne){
@@ -49,7 +56,7 @@ public class Covoiturage{
 
     public boolean villeEstDans (ArrayList<String> villes, String ville){
         for (String v : villes){
-            if (v == ville){
+            if (v.equals(ville)){
                 return true;
             }
         }
