@@ -10,15 +10,15 @@ public class Covoiturage{
         this.personnes = p;
     }
 
-    public boolean villeDesservie(String v){
-        for (Personne p : this.personnes){
-            if (p.getVille().equals(v)){
+    public boolean villeDesservie(String ville){
+        for (Voiture v : this.voitures){
+            if (v.getVille().equals(ville)){
                 return true;
             }
         }
         return false;
     }
-    
+
     public int nbPersonnes(String v){
         int res = 0;
         for (Personne p : this.personnes){
@@ -78,7 +78,7 @@ public class Covoiturage{
         return res;
     }
 
-    public boolean capaciteSuffisante2(){
+    public boolean capaciteSuffisante(){
         ArrayList<String> lesvilles = this.getVilles();
         for (String v : lesvilles){
             if (! capaciteSuffisante(v)){
@@ -146,7 +146,7 @@ public class Covoiturage{
     }
 
     public boolean estPossible(){
-        if (this.capaciteSuffisante2()){
+        if (this.capaciteSuffisante()){
             ArrayList<String> lesvilles = this.getVilles();
             for (String v : lesvilles){
                 if (this.nbConductVille(v) < this.nbVoitures(v)){
