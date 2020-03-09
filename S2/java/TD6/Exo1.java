@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.lang.Math;
 
-public class Algo{
+public class Exo1{
     public static boolean encommun (List a, List b){
         for (int i = 0; i < a.size(); i++){
             for (int j = 0; j < b.size(); j++){
