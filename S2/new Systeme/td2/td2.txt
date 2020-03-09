@@ -220,3 +220,129 @@ A FAIRE EN DERNIER SI PAS LA FLEMME PCK ULTRA DUR (CELA DIT C'EST LA SUITE DE FI
 
 
 Exercice 8
+.main
+.var
+a
+b
+c
+d
+.end-var
+BIPUSH -3
+ISTORE a
+BIPUSH 5
+ISTORE b
+BIPUSH 8
+ILOAD a
+IADD
+ISTORE c
+ILOAD b
+ILOAD c
+ISUB
+IFEQ L1
+ILOAD a
+ISTORE d
+GOTO FIN
+L1 : BIPUSH 0
+ISTORE d
+FIN : BIPUSH 0
+ISTORE a
+.end-main
+
+java : 
+void programme() {
+    int a = -3;
+    int b = 5;
+    int c = 5;
+    if (b == c){
+        int d = 0;
+    }else{
+        int d = a;
+    }
+    a = 0;
+}
+
+
+Exercice 9 
+static int mul1 (int a, int b){
+    int res = 0;
+    while (b > 0){
+        res += a;
+        b--;
+    }
+    return res; 
+}
+
+static int mul2 (int a, int b){
+    int res = 0;
+    while (a < 0){
+        res += b;
+        a--;
+    }
+    return res; 
+}
+
+
+.method mult1 (a,b)
+.var
+res
+.end-var
+BIPUSH 0
+ISTORE res
+ILOAD b
+L1 : IFEQ FIN
+ILOAD a
+ILOAD res
+IADD
+ISTORE res
+ILOAD b
+BIPUSH -1
+IADD
+ISTORE b
+ILOAD b
+GOTO L1
+FIN : ILOAD res
+IRETURN
+.end-method
+.method mult2 (a,b)
+.var
+res
+.end-var
+BIPUSH 0
+ISTORE res
+ILOAD a
+L1 : IFEQ FIN
+ILOAD b
+ILOAD res
+IADD
+ISTORE res
+ILOAD a
+BIPUSH -1
+IADD
+ISTORE a
+ILOAD a
+GOTO L1
+FIN : ILOAD res
+IRETURN
+.end-method
+.main
+.var
+a
+b
+c
+.end-var
+BIPUSH 15
+ISTORE a
+BIPUSH 3
+ISTORE b
+BIPUSH 42
+ILOAD a
+ILOAD b
+INVOKEVIRTUAL mult1
+ISTORE c
+ILOAD c
+BIPUSH 42
+ILOAD a
+ILOAD b
+INVOKEVIRTUAL mult2
+ISTORE c
+ILOAD c
