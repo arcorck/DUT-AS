@@ -12,5 +12,11 @@ class ExecNumberArray{
             somme += (Integer)t.get(i);
         }
         System.out.println(somme);
+        Number x = new Integer(5);
+        Number y = new Double(5);
+        System.out.println(x.equals(y));
     }
 }
+
+// Question 6
+//le code suivant va afficher une erreur 
