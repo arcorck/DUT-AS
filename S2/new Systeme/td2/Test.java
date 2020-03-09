@@ -1,16 +1,18 @@
 public class Test{
     static int mul1 (int a, int b){
         int res = 0;
-        for (int i = 0; i < b; i++){
+        while (b > 0){
             res += a;
+            b--;
         }
         return res; 
     }
 
     static int mul2 (int a, int b){
         int res = 0;
-        for (int i = 0; i < a; i++){
+        while (a > 0){
             res += b;
+            a--;
         }
         return res; 
     }

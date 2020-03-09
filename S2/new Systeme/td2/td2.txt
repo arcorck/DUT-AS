@@ -274,7 +274,7 @@ static int mul1 (int a, int b){
 
 static int mul2 (int a, int b){
     int res = 0;
-    while (a < 0){
+    while (a > 0){
         res += b;
         a--;
     }
@@ -346,3 +346,4 @@ ILOAD b
 INVOKEVIRTUAL mult2
 ISTORE c
 ILOAD c
+.end-main
