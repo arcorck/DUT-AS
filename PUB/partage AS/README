@@ -1,0 +1,13 @@
+Tout d'abord, il vous faut à l'aide du fichier mabd.sql créer les tables et le contenu pour interagir	avec le site
+
+Ensuite, pour accéder au site, vous pouvez vous rendre à l'adresse suivante : http://localhost/~bazire/php/serie-web/accueil.html
+C'est l'adresse de la page d'accueil, vous pouvez cliquer sur un des drapeaux pour accéder au site dans la langue qui vous convient
+Vous accedez ensuite à l'acceuil vide dans la langue sélectionnée.
+Vous avez les onglets Personnages, Saisons et bandes annonces qui sont des pages pures html/css
+Ensuite sur les pages des personnages ou des saisons au bout de 5 secondes sur la page, un pop up apparait pour faire un jeu.
+Si vous acceptez, vous êtes redirigés vers un jeu de piste sur la série, c'est le principal contenu javascript du site.
+Vous avez encore l'onglet quizz avec un quizz et un encart de connexion, c'est la partie BD et PHP. 
+Sur cette page vous pouvez repondre au quizz (sauvez vos reponses dans la bd) et consulter les stats des autres gens (consulter BD).
+Grace à inscription, vous pouvez vous inscrire sur le site (ecriture BD). 
+Vous pouvez aussi vous connecter (lecture de bd pour verif login et mot de passe) et une fois connecté, vous pouvez modifier vos infos (mise à jour bd) ou supprimer votre compte (suppression de données de la bd).
+Et enfin le dernier onglet, c'est l'onglet de traduction en anglais/français, à tout moment si vous cliquez sur ce bouton le site se traduis en anglais si vous etes sur le site francais et en francais si vous etes sur le site anglais.

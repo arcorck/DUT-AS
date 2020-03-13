@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+  <head>
+    {% block head %}
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="style.css">
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+    <section id="content">
+      {% block content %}{% endblock %}
+    </section>
+    <footer>
+      {% block footer %}
+      &copy; Copyright 2017 <a href="http://monsite.com">
+      Mon super Site</a>
+      {% endblock %}
+    </footer>
+  </body>
+</html>
