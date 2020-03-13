@@ -1,0 +1,31 @@
+{% extends "BaseTemplate.html" %}
+{% block title %} Personnes du Carnet {% endblock %}
+{% block head %}
+{{ parent () }}
+<<link rel="stylesheet" href="static/css/tabstyle.css">
+{% endblock %}
+
+{% block content %}
+
+<h2>{{titre}}</h2>
+<table id="jolie" class="center">
+<tr >
+<td >Code</td>
+<td >Titre Original</td>
+<td >Pays </td>
+<td >Année</td>
+<td >Réalisateur</td>
+<td >Genre</td>
+</tr>
+{% for film in films %}
+
+<tr >
+<td>{{ film.code_films}}</td>
+<td>{{ film.titre_original }}</td>
+<td>{{ film.pays }}</td>
+<td>{{ film.date }}</td>
+<td>{{ film.prenom }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}

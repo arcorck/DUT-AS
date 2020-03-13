@@ -1,0 +1,15 @@
+- prenom: jules
+  nom: Jojo
+  adresse:
+    numero: 10
+    voie: rue des pommiers
+    cp: 45000
+    ville: orleans
+
+- prenom: zoe
+  nom: zazou
+  adresse:
+    numero: 12
+    voie: allee des pruniers
+    cp: 45999
+    ville: fleury

@@ -1,0 +1,37 @@
+.method max (x,y)
+ILOAD x
+ILOAD y
+ISUB
+IFLT L1
+ILOAD x 
+GOTO fin
+L1 : ILOAD y
+fin : IRETURN
+.end-method
+.method double (x)
+ILOAD x
+ILOAD x
+IADD
+IRETURN
+.end-method
+.main
+.var
+a
+b
+.end-var
+BIPUSH -1
+BIPUSH -1
+BIPUSH 15
+ISTORE a
+BIPUSH 3
+ISTORE b
+ILOAD b
+INVOKEVIRTUAL double
+BIPUSH -1
+ILOAD a
+ILOAD b
+INVOKEVIRTUAL max
+IADD
+INVOKEVIRTUAL double
+ISTORE b
+.end-main
