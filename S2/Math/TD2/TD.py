@@ -43,3 +43,44 @@ def cycle (g, depart) :
                 pile.append(i)
                 atteint.add(i)
     return False
+
+
+def parcours_prof_chaque_sommet (graphe):
+    pile = graphe.nodes()
+    atteint = set()
+    while (len(pile) > 0): 
+        noeud_courant = pile.pop()
+        if noeud_courant not in atteint :
+            for i in parcours_profondeur(graphe, noeud_courant) :
+                atteint.add(i)
+    return atteint
+
+
+def nb_composante_connexe (graphe):
+    pile = graphe.nodes()
+    atteint = set()
+    nb_comp = 0
+    while (len(pile) > 0): 
+        noeud_courant = pile.pop()
+        if noeud_courant not in atteint :
+            nb_comp += 1
+            for i in parcours_profondeur(graphe, noeud_courant) :
+                atteint.add(i)
+    return nb_comp
+
+
+def taille_max_composante_connexe (graphe):
+    pile = graphe.nodes()
+    atteint = set()
+    taille_comp_con = 0
+    taille_max_comp_con = 0
+    while (len(pile) > 0): 
+        noeud_courant = pile.pop()
+        if noeud_courant not in atteint :
+            for i in parcours_profondeur(graphe, noeud_courant) :
+                atteint.add(i)
+                taille_comp_con += 1
+            if taille_comp_con > taille_max_comp_con : 
+                taille_max_comp_con = taille_comp_con
+            taille_comp_con = 0
+    return taille_max_comp_con
