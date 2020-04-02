@@ -77,10 +77,14 @@ def taille_max_composante_connexe (graphe):
     while (len(pile) > 0): 
         noeud_courant = pile.pop()
         if noeud_courant not in atteint :
+            taille_comp_con += len(parcours_profondeur(graphe, noeud_courant))
             for i in parcours_profondeur(graphe, noeud_courant) :
                 atteint.add(i)
-                taille_comp_con += 1
             if taille_comp_con > taille_max_comp_con : 
                 taille_max_comp_con = taille_comp_con
             taille_comp_con = 0
     return taille_max_comp_con
+
+
+def chemin (graphe, u, v):
+    

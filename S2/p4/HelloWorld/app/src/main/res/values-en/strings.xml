@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">HelloWorld</string>
+    <string name="bjr">Hello !</string>
+    <string name="tv1">The first textview</string>
+    <string name="tv2">the second text view</string>
+</resources>

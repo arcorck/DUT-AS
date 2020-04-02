@@ -42,7 +42,8 @@ ALTER TABLE INCOMPATIBLE ADD FOREIGN KEY (refcomp_1) REFERENCES COMPOSE (refcomp
 ALTER TABLE INCOMPATIBLE ADD FOREIGN KEY (refcomp_2) REFERENCES COMPOSE (refcomp);
 ALTER TABLE COMPOSE ADD FOREIGN KEY (idty) REFERENCES TYPE (idty);
 
-
+-- appeler une fonction : select
+-- appeler une procedure : call
 
 -- EXERCICE 1 
 
@@ -104,3 +105,59 @@ delimiter ;
 
 
 -- EXERCICE 2
+
+-- Question 1
+delimiter |
+drop function if exists nbFormules|
+create function nbFormules(nomCompose varchar(20)) returns int
+begin
+   declare nbforms int;
+   select count(idForm) into nbforms from CONSTITUER natural join COMPOSE where nomComp = nomCompose;
+   return nbforms;
+end|
+delimiter ;
+
+-- Question 2
+delimiter |
+drop procedure if exists creerFormule|
+create procedure creerFormule(idF varchar(5), nomF varchar(15), listeComposes varchar(255))
+begin
+   declare comp varchar(20)
+   declare refCompose varchar(4)
+   insert into FORMULE VALUES (idF, nomF);
+   while listeComposes != '' do
+      set Comp = premier(listeComposes);
+      select refComp into refCompose from COMPOSE where nomComp = Comp;
+      INSERT INTO CONSTITUER VALUES (idF, refCompose, 1);
+      set listeComposes := reste(listeComposes);
+   end while;
+end|
+delimiter ;
+
+
+
+-- Exercice 3
+drop function if exists genereEtiquette|
+create function genereEtiquette(nomFormule varchar(15)) returns varchar(255)
+begin
+   declare res varchar(255) default concat(nomFormule,':');
+   declare fini int default false;
+   declare unIngr varchar(20);
+   declare quantite decimal(5,2);
+   declare ingredients cursor for 
+       select nomComp, qte
+       from FORMULE natural join CONSTITUER natural join COMPOSE
+       where FORMULE.nomForm = nomFormule;
+   declare continue handler for not found set fini = true;
+
+   open ingredients;
+   while not fini do
+      fetch ingredients into unIngr, quantite;
+      if not fini then
+         set res := concat(res,concat(' ',unIngr));
+     set res := concat(res,concat('(',concat(convert(quantite,char),')')));
+      end if;
+   end while;
+   close ingredients;
+   return res;
+end|

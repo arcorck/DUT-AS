@@ -1,0 +1,60 @@
+Question 1
+//methode add
+ILOAD x
+ILOAD y
+IADD
+ILOAD s
+ISUB
+ILOAD t
+ISUB
+IRETURN
+
+
+
+Question 2
+.main
+.var
+a
+b
+.end-var
+BIPUSH 4
+ISTORE a
+BIPUSH -10
+ISTORE b
+L2 : ILOAD a
+ILOAD b
+IFICMPEQ L1
+IINC a -1
+IINC b 1
+GOTO  L2
+L1: NOP
+.end-main
+
+
+
+Question 7
+.var
+total
+preced
+temp
+.end-var
+BIPUSH 0
+ISTORE preced
+BIPUSH 0
+ISTORE total
+BIPUSH 3
+ISTORE temp
+L2 : ILOAD x
+ILOAD temp
+ISUB 
+IFLT L1
+IINC temp 3
+IINC preced 3
+ILOAD preced
+ILOAD total
+IADD
+ISTORE total
+GOTO L2
+L1: ILOAD total
+IRETURN
+
