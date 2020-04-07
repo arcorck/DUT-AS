@@ -87,4 +87,15 @@ def taille_max_composante_connexe (graphe):
 
 
 def chemin (graphe, u, v):
+    pile = [(u,[u])]
+    atteint = {u}
+    while pile :
+        courant, chem = pile.pop()
+        for vois in graphe[courant] :
+            if not vois in atteint :
+                atteint.add(vois)
+                pile.append((vois, chem[vois]))
+                if vois == v :
+                    return chem+[vois]
+    return None
     
