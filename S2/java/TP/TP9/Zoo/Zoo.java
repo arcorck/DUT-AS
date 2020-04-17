@@ -38,4 +38,12 @@ public class Zoo {
             }
         }
     }
+
+    public String toString(){
+        String res = "";
+        for (Animal a : this.lesAnimaux){
+            res += a.toString();
+        }
+        return res;
+    }
 }

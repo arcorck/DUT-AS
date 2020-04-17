@@ -22,4 +22,12 @@ public class Animal {
     public void setBlesse(boolean blesse) {
         this.blesse = blesse;
     }
+    
+    public String toString(){
+        if (blesse){
+            return "Le " + nom + " est bléssé\n";
+        }else{
+            return "Le " + nom + " n'est pas bléssé\n";
+        }
+    }
 }

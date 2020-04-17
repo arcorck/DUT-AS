@@ -161,3 +161,58 @@ begin
    close ingredients;
    return res;
 end|
+
+
+-- Exercice 5
+
+-- Question 1
+delimiter |
+
+drop table if exists HISTORIQUE |
+create table HISTORIQUE(heure timestamp,action varchar(15),nomTable varchar(15),nouveau
+varchar(5),ancien varchar(5))|
+
+drop trigger if exists inserer_formule|
+create trigger inserer_formule after insert on FORMULE for each row
+begin
+insert into HISTORIQUE values(now(),'insertion','FORMULE',new.idForm,NULL);
+end|
+
+drop trigger if exists delete_formule|
+create trigger delete_formule after delete on FORMULE for each row
+begin
+insert into HISTORIQUE values(now(),'effacement','FORMULE',NULL,old.idForm);
+end|
+
+drop trigger if exists update_formule|
+create trigger update_formule after update on FORMULE for each row
+begin
+insert into HISTORIQUE values(now(),'miseàjour','FORMULE',new.idForm,old.idForm);
+end|
+
+
+-- Question 2
+delimiter |
+
+drop table if exists HISTORIQUE |
+create table HISTORIQUE(heure timestamp,action varchar(15),nomTable varchar(15),nouveau
+varchar(5),ancien varchar(5))|
+
+drop trigger if exists inserer_compose|
+create trigger inserer_compose after insert on COMPOSE for each row
+begin
+insert into HISTORIQUE values(now(),'insertion','COMPOSE',new.refcomp,NULL);
+end|
+
+drop trigger if exists delete_compose|
+create trigger delete_compose after delete on COMPOSE for each row
+begin
+insert into HISTORIQUE values(now(),'effacement','COMPOSE',NULL,old.refcomp);
+end|
+
+drop trigger if exists update_compose|
+create trigger update_compose after update on COMPOSE for each row
+begin
+insert into HISTORIQUE values(now(),'miseàjour','COMPOSE',new.refcomp,old.refcomp);
+end|
+delimiter;
