@@ -155,7 +155,7 @@ begin
       fetch ingredients into unIngr, quantite;
       if not fini then
          set res := concat(res,concat(' ',unIngr));
-     set res := concat(res,concat('(',concat(convert(quantite,char),')')));
+         set res := concat(res,concat('(',concat(convert(quantite,char),')')));
       end if;
    end while;
    close ingredients;
