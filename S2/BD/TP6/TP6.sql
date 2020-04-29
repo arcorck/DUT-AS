@@ -137,6 +137,7 @@ delimiter ;
 
 
 -- Exercice 3
+delimiter |
 drop function if exists genereEtiquette|
 create function genereEtiquette(nomFormule varchar(15)) returns varchar(255)
 begin
@@ -161,6 +162,7 @@ begin
    close ingredients;
    return res;
 end|
+delimiter ;
 
 
 -- Exercice 5
