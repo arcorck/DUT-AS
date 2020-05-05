@@ -14,19 +14,25 @@ print(G1.nodes["a"])
 def tresor (g,n) :
     return g.nodes[n]["tresor"]
 
-def parcours_tresor (g,n) :
-    lesnoeuds = g.nodes
-    lesnoeudsatteints = []
-    noeudavectresormax = 0
-    tresormax = 0
-    while (len(lesnoeuds) != 0):
-        for i in len(lesnoeuds) :
-            if lesnoeuds[i] not in lesnoeudsatteints :
-                if lesnoeuds[i]["tresor"] > tresormax :
-                    tresormax = lesnoeuds[i]["tresor"]
-                    noeudavectresormax = lesnoeuds[i]
-        lesnoeudsatteints.append(noeudavectresormax)
-        lesnoeuds.remove(noeudavectresormax)
-        tresormax = 0
-        noeudavectresormax = 0
-    return lesnoeudsatteints 
+def max_tresor (G, l):
+    tresor_max = 0
+    for elem in l :
+        if tresor(G, elem) > tresor_max :
+            tresor_max = tresor(G, elem)
+            noeud_max = elem
+    return noeud_max
+
+def parcours_tresor (g, depart) : 
+    pile = [depart]
+    atteint = [depart]
+    res = []
+    while (len(pile) > 0): 
+        noeud_courant = max_tresor(g, pile)
+        pile.remove(noeud_courant)
+        print(noeud_courant)
+        res.append(noeud_courant)
+        for i in g[noeud_courant] :
+            if (i not in atteint) : 
+                pile.append(i)
+                atteint.append(i)
+    return res

@@ -10,19 +10,26 @@ public class Serveur {
         // receive request
         DatagramPacket packet = new DatagramPacket(buf, buf.length); 
         socket.receive(packet);
+        String req = new String(packet.getData()); 
+        req = req.trim();
         // response
-        if (packet.getData().toString().equals("date")){
+        if (req.equals("date")){
             String dString = "Date : " + new Date().toString();
             buf = dString.getBytes();
-        }
-        if (packet.getData().toString().equals("os")){
-            String dString = "OS : " + System.getenv("os.name");
-            buf = dString.getBytes();
-        }
-        if (packet.getData().toString().equals("user")){
-            Properties p = System.getProperties(); 
-            String name = "User : " + p.getProperty("user.name"); 
-            buf = name.getBytes();
+        }else{
+            if (req.equals("os")){
+                String dString = "OS : " + System.getProperties().get("os.name");
+                buf = dString.getBytes();
+            }else{
+                if (req.equals("user")){
+                    Properties p = System.getProperties(); 
+                    String name = "User : " + p.getProperty("user.name"); 
+                    buf = name.getBytes();
+                }else{
+                    String name = "erreur";
+                    buf = name.getBytes();
+                }
+            }
         }
         // send the response to the client at ”address” and ”port”
         InetAddress address = packet.getAddress();
