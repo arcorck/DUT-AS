@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
@@ -13,6 +15,7 @@ import android.widget.EditText;
 
 import com.example.recyclerview.Models.Prof;
 import com.example.recyclerview.Tools.MyAdapter;
+import com.example.recyclerview.Tools.SaveRestoreData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private MyAdapter myAdapter;
     private LinearLayoutManager linearLayoutManager;
     private Parcelable recyclerState;
+    private SaveRestoreData saveRestoreData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +35,15 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
         linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
+
+        saveRestoreData = new SaveRestoreData(this);
+
+        SharedPreferences sharedPref = getSharedPreferences("mesinfos", Context.MODE_PRIVATE);
+
         myAdapter = new MyAdapter(lesProfs);
         recyclerView.setAdapter(myAdapter);
+
+        //lesProfs = saveRestoreData.loadArrayListProfs();
     }
 
     public void addProf (View view){
@@ -67,5 +78,21 @@ public class MainActivity extends AppCompatActivity {
             linearLayoutManager.onRestoreInstanceState(recyclerState);
         }
         myAdapter.notifyDataSetChanged();
+    }
+
+    public void saveData(View view){
+        saveRestoreData.saveArrayListProfs(lesProfs);
+    }
+
+    public void restoreData(View view){
+        lesProfs = saveRestoreData.loadArrayListProfs();
+        myAdapter.setLesProfs(lesProfs);
+        myAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    protected void onStop(){
+        super.onStop();
+        saveRestoreData.saveArrayListProfs(lesProfs);
     }
 }

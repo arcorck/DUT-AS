@@ -41,5 +41,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         Prof prof = lesProfs.get(position);
         //remplacer le contenu de la vue avec cet element
         myViewHolder.display(prof);
+        myViewHolder.setItemLongClickListener(new ItemLongClickListener() {
+            @Override
+            public void onItemLongClick(View view, int pos) {
+                lesProfs.remove(pos);
+                notifyDataSetChanged();
+            }
+        });
     }
 }

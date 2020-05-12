@@ -1,0 +1,2 @@
+rootProject.name='BDApp'
+include ':app'
