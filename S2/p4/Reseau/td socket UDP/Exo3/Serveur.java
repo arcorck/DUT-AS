@@ -8,7 +8,6 @@ public class Serveur
     {
         Scanner in = new Scanner(System.in);
         DatagramSocket socket = new DatagramSocket();
-        socket.setBroadcast(true);
         while(true)
         {
             byte[] buf = new byte[256];

@@ -6,7 +6,6 @@ public class Client
     public static void main(String[] args) throws IOException
     {
         MulticastSocket socket = new MulticastSocket(4445);
-        socket.setBroadcast(true);
         InetAddress group=InetAddress.getByName("225.0.0.0");
         socket.joinGroup(group);
         while(true)
