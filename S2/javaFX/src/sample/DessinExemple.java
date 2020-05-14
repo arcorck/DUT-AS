@@ -1,3 +1,5 @@
+package sample;
+
 import javafx.application.Application;
 import javafx.scene.Group; 
 import javafx.scene.layout.BorderPane;
@@ -10,7 +12,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.geometry.Pos;
-import sample.Cercle;
+
 
 public class DessinExemple extends Application {
     
@@ -19,15 +21,14 @@ public class DessinExemple extends Application {
     private List<Cercle> liste;
     
     // === Début du code à compléter / modifier ===========
-        
+
     @Override
     public void init(){
         this.liste = new ArrayList<>();
         Cercle c;
         for(int i = 0; i < 10; ++i) {
-            c = new Cercle(Math.random()*largeur, Math.random()*hauteur);
-            c.setFill(new Color(Math.random(), Math.random(), Math.random(), 1.0));
-            this.liste.add(c);
+            c = new Cercle(largeur, hauteur, liste);
+            //this.liste.add(c);
         }
     }
 
