@@ -1,0 +1,518 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TD11 / TP11 &mdash; Documentation Programmation Orientée Objet 1.0</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.27.4/codemirror.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pcap_base.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="TP11" href="TP11.html" />
+    <link rel="prev" title="Semaine 11" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Programmation Orientée Objet
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Les documents de cours</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Cours/index.html">Les documents de cours</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Les sujets de TD/TP</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../TD1_TP1/index.html">Semaine 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD2_TP2/index.html">Semaine 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD3_TP3/index.html">Semaine 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD4_TP4/index.html">Semaine 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DM_Covoiturage/DM_Covoiturage.html">DM Covoiturage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD5_TP5/index.html">Semaine 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD6_TP6/index.html">Semaine 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD7_TP7/index.html">Semaine 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD8_TP8/index.html">Semaine 8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD9_TP9/index.html">Semaine 9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD10_TP10/index.html">Semaine 10</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Semaine 11</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TD11 / TP11</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#introduction-dessiner-des-ronds-colores">Introduction : Dessiner des ronds colorés</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#design-objet-un-peu-de-lecture">Design Objet (un peu de lecture)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-cercle-le-debut">La classe Cercle : le début</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-cercle-on-ne-veut-pas-que-les-ronds-se-chevauchent">La classe Cercle : on ne veut pas que les ronds se chevauchent</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#la-classe-cercle-on-veut-des-ronds-les-plus-grands-possible">La classe Cercle : on veut des ronds <em>les plus grands possible</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#amelioration-du-code">Amélioration du code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quelques-algorithmes">Quelques algorithmes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#avec-des-rectangles-maintenant">Avec des rectangles maintenant</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="TP11.html">TP11</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../TD12_TP12/index.html">Semaine 12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD13_TP13/index.html">Semaine 13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD14_TP14/index.html">Semaine 14</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD_Repertoire/index.html">Repertoire</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD12_TP12/agenda.html">Gérer les rendez-vous de mon Agenda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TD_Cartes/Cartes.html">Jouer aux cartes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../T9/T9.html">T9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../DM3/DM3.html">DM 3 - Algorithmes</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Archives</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Archives/index.html">Archives</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Programmation Orientée Objet</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">Semaine 11</a> &raquo;</li>
+        
+      <li>TD11 / TP11</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/TD11_TP11/TD11.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="td11-tp11">
+<h1>TD11 / TP11<a class="headerlink" href="#td11-tp11" title="Lien permanent vers ce titre">¶</a></h1>
+<p>L’objectif de ce TD/TP est de générer des dessins comme ça :</p>
+<a class="reference internal image-reference" href="../_images/cercles.png"><img alt="../_images/cercles.png" src="../_images/cercles.png" style="width: 60%;" /></a>
+<div class="section" id="introduction-dessiner-des-ronds-colores">
+<h2>Introduction : Dessiner des ronds colorés<a class="headerlink" href="#introduction-dessiner-des-ronds-colores" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Vérifions notre capacité à dessiner des ronds colorés  partir de l’exemple suivant :</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">javafx.application.Application</span><span class="o">;</span> 
+<span class="kn">import</span> <span class="nn">javafx.scene.Group</span><span class="o">;</span> 
+<span class="kn">import</span> <span class="nn">javafx.scene.layout.BorderPane</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javafx.scene.Scene</span><span class="o">;</span> 
+<span class="kn">import</span> <span class="nn">javafx.stage.Stage</span><span class="o">;</span> 
+<span class="kn">import</span> <span class="nn">javafx.scene.paint.Color</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javafx.scene.shape.Circle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javafx.scene.control.Label</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javafx.scene.layout.VBox</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javafx.geometry.Pos</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">DessinExemple</span> <span class="kd">extends</span> <span class="n">Application</span> <span class="o">{</span>
+    
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">largeur</span> <span class="o">=</span> <span class="mi">600</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">hauteur</span> <span class="o">=</span> <span class="mi">300</span><span class="o">;</span>
+    <span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Circle</span><span class="o">&gt;</span> <span class="n">liste</span><span class="o">;</span>
+    
+    <span class="c1">// === Début du code à compléter / modifier ===========</span>
+        
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">init</span><span class="o">(){</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">liste</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+        <span class="n">Circle</span> <span class="n">c1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="o">(</span><span class="mi">50</span><span class="o">,</span> <span class="mi">50</span><span class="o">,</span> <span class="mi">50</span><span class="o">);</span>
+        <span class="n">c1</span><span class="o">.</span><span class="na">setFill</span><span class="o">(</span><span class="k">new</span> <span class="n">Color</span><span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">(),</span> <span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">(),</span> <span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">(),</span> <span class="mf">1.0</span><span class="o">));</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">liste</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">c1</span><span class="o">);</span>
+        <span class="n">Circle</span> <span class="n">c2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Circle</span><span class="o">(</span><span class="mi">590</span><span class="o">,</span> <span class="mi">290</span><span class="o">,</span> <span class="mi">10</span><span class="o">);</span>
+        <span class="n">c2</span><span class="o">.</span><span class="na">setFill</span><span class="o">(</span><span class="k">new</span> <span class="n">Color</span><span class="o">(</span><span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">(),</span> <span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">(),</span> <span class="n">Math</span><span class="o">.</span><span class="na">random</span><span class="o">(),</span> <span class="mf">1.0</span><span class="o">));</span>
+        <span class="k">this</span><span class="o">.</span><span class="na">liste</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">c2</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="c1">// === Fin du code à compléter / modifier ===========</span>
+     
+    <span class="nd">@Override</span> 
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">(</span><span class="n">Stage</span> <span class="n">stage</span><span class="o">)</span> <span class="o">{</span> 
+       <span class="n">Group</span> <span class="n">dessinCercles</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Group</span><span class="o">();</span>
+       <span class="n">dessinCercles</span><span class="o">.</span><span class="na">getChildren</span><span class="o">().</span><span class="na">addAll</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">liste</span><span class="o">);</span>
+       <span class="n">BorderPane</span> <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BorderPane</span><span class="o">();</span>
+       <span class="n">root</span><span class="o">.</span><span class="na">setCenter</span><span class="o">(</span><span class="n">dessinCercles</span><span class="o">);</span>
+       <span class="n">VBox</span> <span class="n">infos</span> <span class="o">=</span><span class="k">this</span><span class="o">.</span><span class="na">informations</span><span class="o">();</span>
+       <span class="n">root</span><span class="o">.</span><span class="na">setBottom</span><span class="o">(</span><span class="n">infos</span><span class="o">);</span>
+       <span class="n">root</span><span class="o">.</span><span class="na">setAlignment</span><span class="o">(</span><span class="n">infos</span><span class="o">,</span> <span class="n">Pos</span><span class="o">.</span><span class="na">TOP_LEFT</span><span class="o">);</span>
+       <span class="n">Scene</span> <span class="n">scene</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Scene</span><span class="o">(</span><span class="n">root</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">largeur</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">hauteur</span><span class="o">+</span><span class="n">infos</span><span class="o">.</span><span class="na">getHeight</span><span class="o">()+</span><span class="mi">40</span><span class="o">);</span>  
+       <span class="n">stage</span><span class="o">.</span><span class="na">setTitle</span><span class="o">(</span><span class="s">&quot;Formes&quot;</span><span class="o">);</span>
+       <span class="n">stage</span><span class="o">.</span><span class="na">setScene</span><span class="o">(</span><span class="n">scene</span><span class="o">);</span>
+       <span class="n">stage</span><span class="o">.</span><span class="na">show</span><span class="o">();</span>         
+    <span class="o">}</span>   
+      
+    <span class="kd">private</span> <span class="n">VBox</span> <span class="nf">informations</span><span class="o">(){</span>
+        <span class="n">VBox</span> <span class="n">vbox</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VBox</span><span class="o">();</span>
+        <span class="n">String</span> <span class="n">cssLayout</span> <span class="o">=</span> <span class="s">&quot;-fx-border-color: black;\n&quot;</span> <span class="o">+</span> <span class="s">&quot;-fx-border-width: 2;\n&quot;</span><span class="o">;</span>
+        <span class="n">vbox</span><span class="o">.</span><span class="na">setStyle</span><span class="o">(</span><span class="n">cssLayout</span><span class="o">);</span>
+        <span class="c1">// Code à compléter à patir de la Q17</span>
+        <span class="n">vbox</span><span class="o">.</span><span class="na">getChildren</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Label</span><span class="o">(</span><span class="s">&quot;Le Cercle le plus petit est : &quot;</span> <span class="o">));</span>
+        <span class="n">vbox</span><span class="o">.</span><span class="na">getChildren</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Label</span><span class="o">(</span><span class="s">&quot;La surface totale est : &quot;</span><span class="o">));</span> 
+        <span class="k">return</span> <span class="n">vbox</span><span class="o">;</span>      
+    <span class="o">}</span>
+    
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span> <span class="n">args</span><span class="o">[]){</span> 
+       <span class="n">launch</span><span class="o">(</span><span class="n">args</span><span class="o">);</span> 
+   <span class="o">}</span> 
+<span class="o">}</span>       
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p class="first">Quel est le profil du constructeur de <code class="docutils literal notranslate"><span class="pre">Circle</span></code> utilisé ici ? Précisez le rôle de chaque paramètre.</p>
+</li>
+<li><p class="first">Dans quelle classe se trouve le code de la méthode <code class="docutils literal notranslate"><span class="pre">setFill</span></code> utilisée ici ?</p>
+</li>
+<li><p class="first">Le profil de cette méthode est <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">final</span> <span class="pre">void</span> <span class="pre">setFill(Paint</span> <span class="pre">value)</span></code>. Or lors de l’appel de cette méthode, le paramètre est de type <code class="docutils literal notranslate"><span class="pre">Color</span></code>. Expliquez pourquoi le compilateur ne détecte aucun problème.</p>
+</li>
+<li><p class="first">Quel est le profil du constructeur de <code class="docutils literal notranslate"><span class="pre">Color</span></code> utilisé ici ? Précisez le rôle de chaque paramètre.</p>
+</li>
+<li><p class="first">Modifiez le code pour ajouter un troisième rond coloré, de rayon 30 et généré à un emplacement aléatoire dans la fenêtre.</p>
+<div class="note admonition">
+<p class="first admonition-title">Remarque</p>
+<p>javafx n’est plus intégré nativement dans java depuis java 9. Il est maintenant fourni sous la forme de modules.
+Ainsi, il faut télécharger le moduleJavaFx puis :</p>
+<ul class="simple">
+<li>pour compiler, il faut ajouter les options suivantes (modifier le chemin si nécessaire) :
+<code class="docutils literal notranslate"><span class="pre">javac</span> <span class="pre">--module-path</span> <span class="pre">/usr/share/openjfx/lib/</span> <span class="pre">--add-modules</span> <span class="pre">javafx.controls</span> <span class="pre">*.java</span></code></li>
+<li>pour exécuter, il faut ajouter les options suivantes (modifier le chemin si nécessaire) :
+<code class="docutils literal notranslate"><span class="pre">java</span> <span class="pre">--module-path</span> <span class="pre">/usr/share/openjfx/lib/</span> <span class="pre">--add-modules</span> <span class="pre">javafx.controls</span> <span class="pre">DessinExemple</span></code></li>
+</ul>
+<p>Paramétrer IntelliJ,</p>
+<ul class="last">
+<li><p class="first">Vérifier les SDK et JRE utilisés (version 11)</p>
+</li>
+<li><p class="first">pour compiler  <strong>File &gt; Project Structure &gt; Libraries</strong> puis ajouter deux librairies (avec le petit +)
+<code class="docutils literal notranslate"><span class="pre">/usr/share/openjfx/lib/</span></code> et  <code class="docutils literal notranslate"><span class="pre">/usr/share/openjfx/lib/javafx.controles.jar</span></code></p>
+</li>
+<li><p class="first">pour exécuter, <strong>Run &gt; Edit Configuration &gt; Application</strong> et ajouter dans le textfield</p>
+<p><strong>VM options :</strong> <code class="docutils literal notranslate"><span class="pre">--module-path</span> <span class="pre">/usr/share/openjfx/lib/</span> <span class="pre">--add-modules</span> <span class="pre">javafx.controls</span></code></p>
+</li>
+</ul>
+</div>
+</li>
+<li><p class="first">Modifiez le code pour générer 100 ronds colorés dans la fenêtre.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="design-objet-un-peu-de-lecture">
+<h2>Design Objet (un peu de lecture)<a class="headerlink" href="#design-objet-un-peu-de-lecture" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Bravo ! Vous avez maintenant un dessin avec 100 ronds colorés. Mais il ne ressemble pas encore au dessin attendu. En effet, il reste deux problèmes à résoudre :</p>
+<ul class="simple">
+<li>on ne veut pas que les ronds se chevauchent ;</li>
+<li>on veut des ronds <em>les plus grands possible</em> !</li>
+</ul>
+<p>Et tout ça en modifiant le moins possible la classe <code class="docutils literal notranslate"><span class="pre">DessinExemple</span></code> !</p>
+<p>Pour cela, on se propose ici d’utiliser l’algorithme suivant, qui vous surprendra par la <em>créativité</em> dont a fait preuve son auteur :</p>
+<div class="code highlight-java notranslate"><div class="highlight"><pre><span></span>Pour i de 0 à 100:
+   Créer un nouveau Cercle qui devra choisir son centre dans un &#39;endroit libre&#39;,
+   et choisir son rayon de façon à être aussi grand que possible.
+</pre></div>
+</div>
+<p>Pour choisir un “endroit libre”, on utilisera l”<em>ingénieux</em> algorithme suivant :</p>
+<div class="code highlight-java notranslate"><div class="highlight"><pre><span></span>Choisir un point au hasard dans le cadre. Si le cercle de rayon minimal (0.1) et centré en ce point
+intersecte un cercle existant ou n&#39;est pas dans le cadre, recommencer.
+</pre></div>
+</div>
+<p>Et pour avoir le cercle <em>le plus grand possible</em>, on va commencer par un algorithme simple mais peu efficace, que l’on améliorera plus tard :</p>
+<div class="code highlight-java notranslate"><div class="highlight"><pre><span></span>On choisit une valeur minimale pour le rayon. RAYON_MINI = 0.1 par exemple.
+En partant d&#39;une taille de 0.1, on augmente le rayon du cercle de 0.1 en 0.1 jusqu&#39;à ce
+qu&#39;il intersecte une autre cercle ou qu&#39;il ne soit plus dans le cadre.
+</pre></div>
+</div>
+<p>On se propose donc de créer une classe <code class="docutils literal notranslate"><span class="pre">Cercle</span></code> héritant de <code class="docutils literal notranslate"><span class="pre">Circle</span></code> et contenant des méthodes qui vont nous simplifier l’implémentation de l’algorithme ci-dessus.</p>
+<p>Pour information, la classe <code class="docutils literal notranslate"><span class="pre">Circle</span></code> contient (entre autres) les méthodes suivantes :</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">double</span> <span class="pre">getRadius()</span></code> et <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">void</span> <span class="pre">setRadius(double</span> <span class="pre">r)</span></code>,</li>
+<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">double</span> <span class="pre">getCenterX()</span></code> et  <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">void</span> <span class="pre">setCenterX(double</span> <span class="pre">x)</span></code>,</li>
+<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">double</span> <span class="pre">getCenterY()</span></code> et  <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">void</span> <span class="pre">setCenterY(double</span> <span class="pre">y)</span></code>,</li>
+</ul>
+</div>
+<div class="section" id="la-classe-cercle-le-debut">
+<h2>La classe Cercle : le début<a class="headerlink" href="#la-classe-cercle-le-debut" title="Lien permanent vers ce titre">¶</a></h2>
+<ol class="arabic" start="7">
+<li><p class="first">Commencez par définir une classe <code class="docutils literal notranslate"><span class="pre">Cercle</span></code> héritant de <code class="docutils literal notranslate"><span class="pre">Circle</span></code> et contenant :</p>
+<ul class="simple">
+<li>un attribut static <code class="docutils literal notranslate"><span class="pre">RAYON_MINI</span></code> initialisé PROVISOIREMENT à 30.0 (testez plusieurs autres valeurs);</li>
+<li>un constructeur <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Cercle(double</span> <span class="pre">largeur,</span> <span class="pre">double</span> <span class="pre">hauteur)</span></code> construisant un rond de couleur aléatoire, de position aléatoire dans la zone définie par largeur et hauteur, et de rayon <code class="docutils literal notranslate"><span class="pre">RAYON_MINI</span></code>.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Pour le moment, la variable <code class="docutils literal notranslate"><span class="pre">RAYON_MINI</span></code> est initialisée à 30.0.
+Le choix de la valeur 30 est totalement arbitraire et ce n’est que provisoire.
+Nous nous occuperons de ce <em>détail</em> un peu plus tard.
+Pour rappel, il faudra faire en sorte que chaque rond soit <em>le plus grand possible</em></p>
+</div>
+</li>
+<li><p class="first">Modifiez le code de la classe <code class="docutils literal notranslate"><span class="pre">DessinExemple</span></code> pour créer et afficher 100 instances de <code class="docutils literal notranslate"><span class="pre">Cercle</span></code>.</p>
+<a class="reference internal image-reference" href="../_images/ronds1.png"><img alt="../_images/ronds1.png" src="../_images/ronds1.png" style="width: 60%;" /></a>
+</li>
+</ol>
+</div>
+<div class="section" id="la-classe-cercle-on-ne-veut-pas-que-les-ronds-se-chevauchent">
+<h2>La classe Cercle : on ne veut pas que les ronds se chevauchent<a class="headerlink" href="#la-classe-cercle-on-ne-veut-pas-que-les-ronds-se-chevauchent" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Bravo ! Vous avez toujours un dessin avec 100 ronds colorés qui ne ressemble toujours pas au dessin attendu.</p>
+<p>Commençons par résoudre le premier problème (en modifiant le moins possible la classe <code class="docutils literal notranslate"><span class="pre">DessinExemple</span></code>) : on ne veut pas que les ronds se chevauchent.
+Pour cela,  chaque nouveau Cercle devra choisir son centre dans un “endroit libre”.</p>
+<ol class="arabic" start="9">
+<li><p class="first">Modifiez PROVISOIREMENT le code de <code class="docutils literal notranslate"><span class="pre">DessinExemple</span></code> pour générer seulement 10 ronds colorés dans la fenêtre.
+En effet, pour tester les méthodes qui suivent, il est préférable de simplifier grandement les choses.
+Risques importants de boucle infinie !</p>
+</li>
+<li><p class="first">Ajoutez dans la classe <code class="docutils literal notranslate"><span class="pre">Cercle</span></code> plusieurs méthodes qui nous seront utiles pour implémenter l’algorithme présenté ci-dessus (dans la section Design Objet).
+Implémentez les méthodes suivantes :</p>
+<ol class="loweralpha simple">
+<li><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">boolean</span> <span class="pre">intersecte(Cercle</span> <span class="pre">c)</span></code> renvoyant vrai si <code class="docutils literal notranslate"><span class="pre">this</span></code> et <code class="docutils literal notranslate"><span class="pre">c</span></code> s’intersectent.
+( <em>Indication</em> : deux cercles s’intersectent si la distance entre les deux centres est inférieure à la somme des rayons )</li>
+<li><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">boolean</span> <span class="pre">estDansLeCadre(double</span> <span class="pre">largeur,</span> <span class="pre">double</span> <span class="pre">hauteur)</span></code> permettant de déterminer si le cercle est intégralement dans le cadre (la fenêtre de taille hauteur x largeur) ou non.</li>
+<li><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">boolean</span> <span class="pre">estValide(List&lt;Cercle&gt;</span> <span class="pre">liste,</span> <span class="pre">double</span> <span class="pre">largeur,</span> <span class="pre">double</span> <span class="pre">hauteur)</span></code> renvoyant vrai si le cercle actuel est <em>compatible</em> avec la liste de cercles (i.e. n’intersecte aucun Cercle de la liste) et est dans le cadre défini par largeur et hauteur.</li>
+<li><code class="docutils literal notranslate"><span class="pre">private</span> <span class="pre">void</span> <span class="pre">placerAuHasard(List&lt;Cercle&gt;</span> <span class="pre">liste,</span> <span class="pre">double</span> <span class="pre">largeur,</span> <span class="pre">double</span> <span class="pre">hauteur)</span></code> qui positionne <code class="docutils literal notranslate"><span class="pre">this</span></code> au hasard dans une zone disponible.</li>
+</ol>
+</li>
+<li><p class="first">Ajouter un nouveau constructeur de <code class="docutils literal notranslate"><span class="pre">Cercle</span></code> de façon à créer un cercle de rayon <code class="docutils literal notranslate"><span class="pre">RAYON_MINI</span></code> qui soit placé au hasard dans un endroit convenable.
+Pour cela, ce nouveau constructeur aura le profil suivant :
+<code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">Cercle(List&lt;Cercle&gt;</span> <span class="pre">liste,</span> <span class="pre">double</span> <span class="pre">largeur,</span> <span class="pre">double</span> <span class="pre">hauteur)</span></code></p>
+</li>
+<li><p class="first">Modifiez maintenant le code de <code class="docutils literal notranslate"><span class="pre">DessinExemple</span></code> pour générer 10 ronds colorés qui ne se chevauchent pas.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Vous devez maintenant obtenir un dessin avec 10 ronds colorés, de même rayon, qui ne s’intersectent pas en utilisant ce nouveau constructeur.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="la-classe-cercle-on-veut-des-ronds-les-plus-grands-possible">
+<h2>La classe Cercle : on veut des ronds <em>les plus grands possible</em><a class="headerlink" href="#la-classe-cercle-on-veut-des-ronds-les-plus-grands-possible" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Bravo ! Vous avez maintenant un dessin avec 10 ronds colorés mais ça ne ressemble toujours pas au dessin attendu.</p>
+<p>Nous allons maintenant résoudre le deuxième problème (toujours en modifiant le moins possible la classe <code class="docutils literal notranslate"><span class="pre">DessinExemple</span></code>) : on veut des ronds <em>les plus grands possible</em>.</p>
+<ol class="arabic" start="13">
+<li><p class="first">Définissez une méthode <code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">void</span> <span class="pre">grossir(List&lt;Cercle&gt;</span> <span class="pre">liste,</span> <span class="pre">double</span> <span class="pre">largeur,</span> <span class="pre">double</span> <span class="pre">hauteur)</span></code> qui augmente le rayon du cercle, avec un pas de <cite>RAYON_MINI</cite>,
+jusqu’à ce qu’il ne soit plus possible de l’agrandir : soit il intersecterait un autre cercle de la liste, soit il dépasserait du cadre.</p>
+</li>
+<li><p class="first">Modifiez le constructeur de <code class="docutils literal notranslate"><span class="pre">Cercle</span></code> pour que le cercle soit placé au hasard dans un endroit convenable et ait la plus grande taille possible.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Vous devez maintenant obtenir un dessin avec 5 ronds colorés, qui ne s’intersectent pas et qui s’adaptent (grossièrement) pour prendre le plus de place possible.</p>
+</div>
+<a class="reference internal image-reference" href="../_images/ronds2.png"><img alt="../_images/ronds2.png" src="../_images/ronds2.png" style="width: 60%;" /></a>
+</li>
+<li><p class="first">Modifiez la valeur de <cite>RAYON_MINI</cite> pour avoir un pas moins grossier (<code class="docutils literal notranslate"><span class="pre">RAYON_MINI</span> <span class="pre">=</span> <span class="pre">0.1</span></code>) puis modifiez à nouveau le code pour générer 100 ronds colorés dans la fenêtre.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="amelioration-du-code">
+<h2>Amélioration du code<a class="headerlink" href="#amelioration-du-code" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Félicitations !
+Votre dessin ressemble maintenant à ce qui est attendu. Mais l’algorithme de la méthode <code class="docutils literal notranslate"><span class="pre">grossir</span></code> n’est pas très satisfaisant : pour obtenir un <em>Cercle</em> de rayon 100 pixels, il faut faire 1000 itérations, qui chacune teste l’intersection avec tous les autres cercles !
+On peut faire beaucoup mieux en utilisant un algorithme de dichotomie : on commence par essayer de faire grossir le rayon du cercle avec une <strong>precision</strong> de <em>min(largeur,hauteur)</em> , puis de la moitié, puis de la moitié, etc.</p>
+<p>Voici l’algorithme:</p>
+<div class="code highlight-java notranslate"><div class="highlight"><pre><span></span>rayon = 0.1
+rayonMax = min(largeur,hauteur)
+Pour precision de rayonMax à 0.1 en divisant par deux à chaque étape :
+    Augmenter le rayon de precision si c&#39;est possible
+</pre></div>
+</div>
+<ol class="arabic simple" start="16">
+<li>Implémentez cet algorithme.</li>
+</ol>
+</div>
+<div class="section" id="quelques-algorithmes">
+<h2>Quelques algorithmes<a class="headerlink" href="#quelques-algorithmes" title="Lien permanent vers ce titre">¶</a></h2>
+<p>On souhaite avoir des informations sur les dessins générés :  quelle est la taille du plus gros cercle, du plus petit, la taille moyenne, la surface totale des cercles, …</p>
+<p>Écrivez une bibliothèque <code class="docutils literal notranslate"><span class="pre">BibCercles</span></code> contenant les méthodes suivantes :</p>
+<ol class="arabic simple" start="17">
+<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">Cercle</span> <span class="pre">getMin(List&lt;Cercle&gt;</span> <span class="pre">liste)</span></code> renvoyant le plus petit cercle de la liste,</li>
+<li><code class="docutils literal notranslate"><span class="pre">public</span> <span class="pre">static</span> <span class="pre">double</span> <span class="pre">surfaceTotale(List&lt;Cercle&gt;</span> <span class="pre">liste)</span></code> renvoyant la surface totale de tous les cercles,</li>
+<li>Ajoutez d’autres méthodes (taille du cercle le plus gros, rayon moyen …) et complétez l’affichage</li>
+</ol>
+</div>
+<div class="section" id="avec-des-rectangles-maintenant">
+<h2>Avec des rectangles maintenant<a class="headerlink" href="#avec-des-rectangles-maintenant" title="Lien permanent vers ce titre">¶</a></h2>
+<p>Et maintenant, essayez de faire la même chose que précédemment, pour générer un dessin composé de rectangles de tailles et couleurs aléatoires.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="TP11.html" class="btn btn-neutral float-right" title="TP11" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Semaine 11" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, enseignants dpt info iuto.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            LANGUAGE:'fr',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/language_data.js"></script>
+      <script type="text/javascript" src="../_static/pcap.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.27.4/codemirror.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.27.4/mode/python/python.min.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.27.4/mode/clike/clike.min.js"></script>
+      <script type="text/javascript" src="../_static/translations.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

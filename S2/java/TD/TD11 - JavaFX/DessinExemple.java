@@ -16,8 +16,8 @@ import javafx.geometry.Pos;
 
 public class DessinExemple extends Application {
     
-    private int largeur = 600;
-    private int hauteur = 300;
+    private int largeur = 1000;
+    private int hauteur = 500;
     private List<Cercle> liste;
     
     // === Début du code à compléter / modifier ===========
@@ -26,9 +26,9 @@ public class DessinExemple extends Application {
     public void init(){
         this.liste = new ArrayList<>();
         Cercle c;
-        for(int i = 0; i < 10; ++i) {
+        for(int i = 0; i < 100; ++i) {
             c = new Cercle(largeur, hauteur, liste);
-            //this.liste.add(c);
+            this.liste.add(c);
         }
     }
 
@@ -54,8 +54,11 @@ public class DessinExemple extends Application {
         String cssLayout = "-fx-border-color: black;\n" + "-fx-border-width: 2;\n";
         vbox.setStyle(cssLayout);
         // Code à compléter à patir de la Q17
-        vbox.getChildren().add(new Label("Le Cercle le plus petit est : " ));
-        vbox.getChildren().add(new Label("La surface totale est : ")); 
+        vbox.getChildren().add(new Label("Le Cercle le plus petit est : " + BibCercles.getMin(liste)));
+        vbox.getChildren().add(new Label("La surface du plus petit cercle est : " + Math.round(BibCercles.getsurfaceMin(liste)*100.0)/100.0));
+        vbox.getChildren().add(new Label("La surface du plus grand cercle est : " + Math.round(BibCercles.getsurfaceMax(liste)*100.0)/100.0));
+        vbox.getChildren().add(new Label("La surface totale de tout les cercles est : " + Math.round(BibCercles.surfaceTotale(liste)*100.0)/100.0));
+        vbox.getChildren().add(new Label("Le rayon moyen est : " + BibCercles.RayonMoyen(liste)));
         return vbox;      
     }
     
