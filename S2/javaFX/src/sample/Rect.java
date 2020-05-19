@@ -19,9 +19,10 @@ public class Rect extends Rectangle {
     }
 
     public Rect (double largeur, double hauteur, List<Rect> lesrects){
-        super(Math.random() * largeur, Math.random() * hauteur, Math.random() * largeur, Math.random() * hauteur);
+        super(largeur * Math.random(), hauteur * Math.random());
         this.setFill(new Color(Math.random(), Math.random(), Math.random(), 1.0));
-        placerAuHasard(lesrects, largeur, hauteur);
+        System.out.println(estValide(lesrects, largeur, hauteur));
+        //placerAuHasard(lesrects, largeur, hauteur);
         //this.grossirrayonDicho(lescercles, largeur, hauteur);
     }
 
@@ -48,17 +49,13 @@ public class Rect extends Rectangle {
     }
 
     */private boolean intersecte(Rect r){
-        double distanceL = Math.abs(this.getX() - r.getX());
-        double distanceH = Math.abs(this.getY() - r.getY());
-        boolean largeurok = distanceL > r.getWidth()/2 + this.getWidth()/2;
-        boolean hauteureurok = distanceH > r.getHeight()/2 + this.getHeight()/2;
-        return largeurok && hauteureurok;
+        return !(this.intersects(r.getX(), r.getY(), r.getWidth(), r.getHeight()));
     }
 
     private boolean estDansLeCadre(double largeur, double hauteur){
-        double centreX = this.getX();
-        double centreY = this.getY();
-        return (centreX - this.getWidth()/2 > 0 && centreX + this.getWidth()/2 < largeur && centreY - this.getHeight()/2 > 0 && centreY + this.getHeight()/2 < hauteur);
+        double X = this.getX();
+        double Y = this.getY();
+        return !(X > 0 && X + this.getWidth() < largeur && Y> 0 && Y + this.getHeight() < hauteur);
     }
 
     private boolean estValide(List<Rect> liste, double largeur, double hauteur){

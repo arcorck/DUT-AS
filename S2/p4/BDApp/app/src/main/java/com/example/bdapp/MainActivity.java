@@ -1,6 +1,7 @@
 package com.example.bdapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -10,10 +11,14 @@ import android.widget.TextView;
 import com.example.bdapp.Models.Task;
 import com.example.bdapp.Tools.TaskViewModel;
 
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     TaskViewModel taskViewModel;
     TextView tvNbTask;
+    TextView tvNBTasksLD;
+    TextView tvTasksLD;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,23 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.taskViewModel = new ViewModelProvider(this).get(TaskViewModel.class);
         this.tvNbTask = findViewById(R.id.tvNbTasks);
+        this.tvNBTasksLD = findViewById(R.id.tvNbTasksLD);
+        this.taskViewModel.getNbTasksLD().observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer integer) {
+                tvNBTasksLD.setText("nb tasksLD : " + integer);
+            }
+        });
+        this.tvTasksLD = findViewById(R.id.tvListTaskLD);
+        this.taskViewModel.getTasksLD().observe(this, new Observer<List<Task>>() {
+            @Override
+            public void onChanged(List<Task> tasks) {
+                tvTasksLD.setText(" ");
+                for (Task t : tasks){
+                    tvTasksLD.setText(tvTasksLD.getText().toString() + " " + t.toString());
+                }
+            }
+        });
     }
 
     public void ajouter (View view){
@@ -31,5 +53,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void actualiser (View view) {
         this.tvNbTask.setText("Nombre de tâches : " + taskViewModel.count());
+    }
+
+    public void deleteAll (View view){
+        taskViewModel.deleteAll();
     }
 }
